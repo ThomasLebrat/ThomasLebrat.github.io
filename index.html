@@ -1,14 +1,14 @@
-%œœ<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-22 mer. 23:48 -->
+<!-- 2023-02-23 jeu. 00:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CODE TP 1</title>
+<title>Structure Thermique de l'atmopshère</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="maint" />
+<meta name="author" content="Thomas Lebrat" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -64,33 +64,40 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">CODE TP 1</h1>
+<h1 class="title">Structure Thermique de l'atmopshère</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc017337">1. préparatifs</a></li>
-<li><a href="#org82e7953">2. Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></a></li>
-<li><a href="#org2521d78">3. Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#orgbd11e83">4. Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#org0627d54">5. Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#orgb04e35a">6. Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#org06d8694">7. Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#orgb965230">8. Q7</a></li>
-<li><a href="#orge565f82">9. Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#org9e9ed70">10. Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#orgd480240">11. Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#org342e424">12. Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#org1a42034">13. Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#org8f6602c">1. TP Sondage Atmosphérique</a>
+<ul>
+<li><a href="#org62d8006">1.1. préparatifs</a></li>
+<li><a href="#org58e8045">1.2. Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></a></li>
+<li><a href="#org5bc6e49">1.3. Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#orge8427e8">1.4. Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org8507e89">1.5. Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org150b0e3">1.6. Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#org058a14d">1.7. Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#orgf816e61">1.8. Q7</a></li>
+<li><a href="#orgca8c8ee">1.9. Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org1584b0d">1.10. Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#org672a4eb">1.11. Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org88ee693">1.12. Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#org65069de">1.13. Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
 
-
-<div id="outline-container-orgc017337" class="outline-2">
-<h2 id="orgc017337"><span class="section-number-2">1</span> préparatifs</h2>
+<div id="outline-container-org8f6602c" class="outline-2">
+<h2 id="org8f6602c"><span class="section-number-2">1</span> TP Sondage Atmosphérique</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org62d8006" class="outline-3">
+<h3 id="org62d8006"><span class="section-number-3">1.1</span> préparatifs</h3>
+<div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>On importe les librairies standards et on fixe les valeurs des constantes physiques.</li>
 <li>On saisie les tableaux de valeurs de température</li>
@@ -127,7 +134,7 @@ plt.savefig(<span style="color: #008000;">"graph_Q0.png"</span>)
 
 
 <div class="figure">
-<p><img src="a60bc0e706dedf58e67f07c07108a1cd231a7778.png" alt="a60bc0e706dedf58e67f07c07108a1cd231a7778.png" />
+<p><img src="./.ob-jupyter/a60bc0e706dedf58e67f07c07108a1cd231a7778.png" alt="a60bc0e706dedf58e67f07c07108a1cd231a7778.png" />
 </p>
 </div>
 
@@ -145,18 +152,18 @@ Les lignes de code seront susceptibles d'être remaniées et/ou commentées en f
 </div>
 
 
-<div id="outline-container-org82e7953" class="outline-2">
-<h2 id="org82e7953"><span class="section-number-2">2</span> Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org58e8045" class="outline-3">
+<h3 id="org58e8045"><span class="section-number-3">1.2</span> Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
 Ce point a été traité en séance au tableau (TAG: Tableau)
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2521d78" class="outline-2">
-<h2 id="org2521d78"><span class="section-number-2">3</span> Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org5bc6e49" class="outline-3">
+<h3 id="org5bc6e49"><span class="section-number-3">1.3</span> Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">T</span>(z, unite):
     <span style="color: #BA36A5;">z_km</span> = z / 1000 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Conversion en km pour comparaison dans la liste</span>
@@ -173,9 +180,9 @@ Ce point a été traité en séance au tableau (TAG: Tableau)
 </div>
 </div>
 
-<div id="outline-container-orgbd11e83" class="outline-2">
-<h2 id="orgbd11e83"><span class="section-number-2">4</span> Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orge8427e8" class="outline-3">
+<h3 id="orge8427e8"><span class="section-number-3">1.4</span> Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-1-4">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">N</span> = 1000 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Nombre de points</span>
 <span style="color: #BA36A5;">zmax</span> = 100.0e3 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Altitude max (en m)</span>
@@ -188,9 +195,9 @@ Ce point a été traité en séance au tableau (TAG: Tableau)
 </div>
 
 
-<div id="outline-container-org0627d54" class="outline-2">
-<h2 id="org0627d54"><span class="section-number-2">5</span> Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org8507e89" class="outline-3">
+<h3 id="org8507e89"><span class="section-number-3">1.5</span> Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-1-5">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
 ax.plot( Tatm,zatm)
@@ -201,24 +208,24 @@ plt.savefig(<span style="color: #008000;">"graph_Q4.png"</span>)
 
 
 <div class="figure">
-<p><img src="bce4b3c06ad759508b4d43d220f481ab699a1e96.png" alt="bce4b3c06ad759508b4d43d220f481ab699a1e96.png" />
+<p><img src="./.ob-jupyter/bce4b3c06ad759508b4d43d220f481ab699a1e96.png" alt="bce4b3c06ad759508b4d43d220f481ab699a1e96.png" />
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgb04e35a" class="outline-2">
-<h2 id="orgb04e35a"><span class="section-number-2">6</span> Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h2>
+<div id="outline-container-org150b0e3" class="outline-3">
+<h3 id="org150b0e3"><span class="section-number-3">1.6</span> Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
 </div>
 
-<div id="outline-container-org06d8694" class="outline-2">
-<h2 id="org06d8694"><span class="section-number-2">7</span> Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h2>
+<div id="outline-container-org058a14d" class="outline-3">
+<h3 id="org058a14d"><span class="section-number-3">1.7</span> Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
 </div>
 
-<div id="outline-container-orgb965230" class="outline-2">
-<h2 id="orgb965230"><span class="section-number-2">8</span> Q7</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orgf816e61" class="outline-3">
+<h3 id="orgf816e61"><span class="section-number-3">1.8</span> Q7</h3>
+<div class="outline-text-3" id="text-1-8">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">g</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Champ de pesanteur</span>
     <span style="color: #0000FF;">return</span> g0 * RT**2 / (RT + z)**2
@@ -243,16 +250,16 @@ plt.savefig(<span style="color: #008000;">"graph_Q7.png"</span>)
 
 
 <div class="figure">
-<p><img src="452be962270a3497e78002b893546d6fd18cd61c.png" alt="452be962270a3497e78002b893546d6fd18cd61c.png" />
+<p><img src="./.ob-jupyter/452be962270a3497e78002b893546d6fd18cd61c.png" alt="452be962270a3497e78002b893546d6fd18cd61c.png" />
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orge565f82" class="outline-2">
-<h2 id="orge565f82"><span class="section-number-2">9</span> Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgca8c8ee" class="outline-3">
+<h3 id="orgca8c8ee"><span class="section-number-3">1.9</span> Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-1-9">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">masse_atm</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Calcul de la masse d&#8217;air jusqu&#8217;&#224; l&#8217;altitude z</span>
     <span style="color: #BA36A5;">masse</span> = 0
@@ -285,9 +292,9 @@ Masse de l'atmosphère : 1.0772432715500982e+16 kg
 </div>
 
 
-<div id="outline-container-org9e9ed70" class="outline-2">
-<h2 id="org9e9ed70"><span class="section-number-2">10</span> Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-org1584b0d" class="outline-3">
+<h3 id="org1584b0d"><span class="section-number-3">1.10</span> Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
+<div class="outline-text-3" id="text-1-10">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">Patm2</span> = [P0]
 <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N - 1):
@@ -306,7 +313,7 @@ plt.savefig(<span style="color: #008000;">"graph_Q9.png"</span>)
 
 
 <div class="figure">
-<p><img src="976970ca5f6bd41e43d20f0987b5263393e64f05.png" alt="976970ca5f6bd41e43d20f0987b5263393e64f05.png" />
+<p><img src="./.ob-jupyter/976970ca5f6bd41e43d20f0987b5263393e64f05.png" alt="976970ca5f6bd41e43d20f0987b5263393e64f05.png" />
 </p>
 </div>
 </div>
@@ -314,9 +321,9 @@ plt.savefig(<span style="color: #008000;">"graph_Q9.png"</span>)
 
 
 
-<div id="outline-container-orgd480240" class="outline-2">
-<h2 id="orgd480240"><span class="section-number-2">11</span> Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-org672a4eb" class="outline-3">
+<h3 id="org672a4eb"><span class="section-number-3">1.11</span> Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-1-11">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">Piso</span> = [P0]
 <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N - 1):
@@ -335,20 +342,20 @@ plt.savefig(<span style="color: #008000;">"graph_Q10.png"</span>)
 
 
 <div class="figure">
-<p><img src="feb8952deba53f364be4f1ff78bba0a4ceaf611b.png" alt="feb8952deba53f364be4f1ff78bba0a4ceaf611b.png" />
+<p><img src="./.ob-jupyter/feb8952deba53f364be4f1ff78bba0a4ceaf611b.png" alt="feb8952deba53f364be4f1ff78bba0a4ceaf611b.png" />
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org342e424" class="outline-2">
-<h2 id="org342e424"><span class="section-number-2">12</span> Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h2>
+<div id="outline-container-org88ee693" class="outline-3">
+<h3 id="org88ee693"><span class="section-number-3">1.12</span> Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
 </div>
 
-<div id="outline-container-org1a42034" class="outline-2">
-<h2 id="org1a42034"><span class="section-number-2">13</span> Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-org65069de" class="outline-3">
+<h3 id="org65069de"><span class="section-number-3">1.13</span> Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></h3>
+<div class="outline-text-3" id="text-1-13">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">ztropo</span>, <span style="color: #BA36A5;">Ttropo</span> = [], [] <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Initialisation des listes</span>
 <span style="color: #BA36A5;">k</span> = 0
@@ -405,10 +412,11 @@ plt.savefig(<span style="color: #008000;">"graph_Q12.png"</span>)
 </div>
 </div>
 </div>
+</div>
 <div id="postamble" class="status">
 <p class="date">Date: 2023-02-01 mer. 00:00</p>
-<p class="author">Author: maint</p>
-<p class="date">Created: 2023-02-22 mer. 23:48</p>
+<p class="author">Author: Thomas Lebrat</p>
+<p class="date">Created: 2023-02-23 jeu. 00:24</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
