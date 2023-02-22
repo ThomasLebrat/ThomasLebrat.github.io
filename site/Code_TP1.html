@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-02-06 lun. 12:08 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CODE TP 1</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="maint" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">CODE TP 1</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7dd23d8">1. préparatifs</a></li>
+<li><a href="#org74370e5">2. Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></a></li>
+<li><a href="#org50cd286">3. Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org25dd95b">4. Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#orgfa57a2e">5. Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#orgf3b5f25">6. Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#orgf48bf80">7. Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#orgc8b9de1">8. Q7</a></li>
+<li><a href="#orgdbe2b01">9. Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org62fe966">10. Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#orgb5dc50f">11. Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org768488d">12. Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#org63a63d8">13. Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-org7dd23d8" class="outline-2">
+<h2 id="org7dd23d8"><span class="section-number-2">1</span> préparatifs</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>On importe les librairies standards et on fixe les valeurs des constantes physiques.</li>
+<li>On saisie les tableaux de valeurs de température</li>
+<li>On teste l'execution dans une première cellule (Jupyter Notebook par ex)</li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #0000FF;">import</span> matplotlib
+<span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+
+<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">Constants</span>
+<span style="color: #BA36A5;">M</span> = 29.0e-3
+<span style="color: #BA36A5;">R</span> = 8.31
+<span style="color: #BA36A5;">P0</span> = 1.0e5
+<span style="color: #BA36A5;">g0</span> = 9.8
+<span style="color: #BA36A5;">RT</span> = 6.4e3
+<span style="color: #BA36A5;">pi</span> = np.pi
+
+<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">Altitude en km</span>
+<span style="color: #BA36A5;">zexp</span> = np.array([0.0, 5.0, 10.0, 12.0, 20.0, 25.0, 30.0,35.0, 40.0,
+                 45.0, 48.0, 52.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 84.0, 92.0, 95.0,100.0])
+
+<span style="color: #BA36A5;">Texp</span> = np.array([15.0, -18.0, -49.0, -56.0, -56.0, -51.0, -46.0, -37.0,
+                 -22.0, -8.0, -2.0, -2.0, -7.0, -17.0, -33.0, -54.0, -65.0, -79.0, -86.0,-86.0, -81.0, -72.0])
+
+<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">+BEGIN_SRC jupyter-python</span>
+<span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
+ax.plot( Texp,zexp)
+plt.savefig(<span style="color: #008000;">"graph_Q0.png"</span>)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/a60bc0e706dedf58e67f07c07108a1cd231a7778.png" alt="a60bc0e706dedf58e67f07c07108a1cd231a7778.png" />
+</p>
+</div>
+
+
+
+
+<p>
+Voici quelques premiers éléments de correction. 
+</p>
+
+<p>
+Les lignes de code seront susceptibles d'être remaniées et/ou commentées en fonction de vos retours.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org74370e5" class="outline-2">
+<h2 id="org74370e5"><span class="section-number-2">2</span> Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Ce point a été traité en séance au tableau (TAG: Tableau)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org50cd286" class="outline-2">
+<h2 id="org50cd286"><span class="section-number-2">3</span> Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">T</span>(z, unite):
+    <span style="color: #BA36A5;">z_km</span> = z / 1000 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Conversion en km pour comparaison dans la liste</span>
+    <span style="color: #BA36A5;">alpha</span> = 1 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Valeur par d&#233;faut pour la conversion en K</span>
+    <span style="color: #0000FF;">if</span> unite == <span style="color: #008000;">'C'</span>:
+        alpha = 0 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Pas de d&#233;calage pour la temp&#233;rature en &#176;C</span>
+    i = 0
+    <span style="color: #0000FF;">while</span> z_km &gt; zexp[i + 1]: <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Recherche de l&#8217;indice i</span>
+        i = i + 1
+    temperature = alpha*273 + Texp[i] + (z_km - zexp[i])/(zexp[i + 1] - zexp[i])*(Texp[i + 1] - Texp[i]) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Interpolation lin&#233;aire</span>
+    <span style="color: #0000FF;">return</span> temperature
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org25dd95b" class="outline-2">
+<h2 id="org25dd95b"><span class="section-number-2">4</span> Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">N</span> = 1000 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Nombre de points</span>
+<span style="color: #BA36A5;">zmax</span> = 100.0e3 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Altitude max (en m)</span>
+<span style="color: #BA36A5;">dz</span> = zmax/(N - 1) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Pas spatial (en m)</span>
+<span style="color: #BA36A5;">zatm</span> = np.array([k*dz <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N)]) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Altitudes</span>
+<span style="color: #BA36A5;">Tatm</span> = np.array([T(zatm[k], <span style="color: #008000;">'C'</span>) <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N)]) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Temp&#233;ratures</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgfa57a2e" class="outline-2">
+<h2 id="orgfa57a2e"><span class="section-number-2">5</span> Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
+ax.plot( Tatm,zatm)
+ax.plot( Tatm,zatm)
+plt.savefig(<span style="color: #008000;">"graph_Q4.png"</span>)
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf3b5f25" class="outline-2">
+<h2 id="orgf3b5f25"><span class="section-number-2">6</span> Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h2>
+</div>
+
+<div id="outline-container-orgf48bf80" class="outline-2">
+<h2 id="orgf48bf80"><span class="section-number-2">7</span> Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h2>
+</div>
+
+<div id="outline-container-orgc8b9de1" class="outline-2">
+<h2 id="orgc8b9de1"><span class="section-number-2">8</span> Q7</h2>
+<div class="outline-text-2" id="text-8">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">g</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Champ de pesanteur</span>
+    <span style="color: #0000FF;">return</span> g0 * RT**2 / (RT + z)**2
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Calcul du champ de pression par la m&#233;thode d&#8217;Euler</span>
+<span style="color: #BA36A5;">Patm</span> = [P0] <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Initialisation</span>
+<span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N - 1): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Il reste N - 1 termes &#224; calculer</span>
+    Patm.append(Patm[k] - M*g(zatm[k])*Patm[k]*dz/(R*T(zatm[k], <span style="color: #008000;">'K'</span>)))
+<span style="color: #BA36A5;">Patm</span> = np.array(Patm) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Conversion en tableau</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
+ax.plot( Patm,zatm)
+plt.savefig(<span style="color: #008000;">"graph_Q7.png"</span>)
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgdbe2b01" class="outline-2">
+<h2 id="orgdbe2b01"><span class="section-number-2">9</span> Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">masse_atm</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Calcul de la masse d&#8217;air jusqu&#8217;&#224; l&#8217;altitude z</span>
+    <span style="color: #BA36A5;">masse</span> = 0
+    <span style="color: #BA36A5;">k</span> = 0
+    <span style="color: #0000FF;">while</span> zatm[k] &lt; <span style="color: #BA36A5;">z</span>: <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">On arr&#234;te le calcul &#224; l&#8217;altitude z</span>
+        dm = 4*np.pi*(RT + z)**2*M*Patm[k]/(R*T(zatm[k], <span style="color: #008000;">'K'</span>))*dz
+        <span style="color: #BA36A5;">masse</span> = masse + dm
+        <span style="color: #BA36A5;">k</span> = k + 1
+    <span style="color: #0000FF;">return</span> masse
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">mtot</span> = masse_atm(100e3) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Masse d'air dans l'atmosph&#232;re terrestre</span>
+<span style="color: #006FE0;">print</span>(<span style="color: #008000;">'Masse de l\'atmosph&#232;re :'</span>, mtot, <span style="color: #008000;">'kg'</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">mtropo</span> = masse_atm(12e3) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Masse d'air dans la troposph&#232;re</span>
+<span style="color: #006FE0;">print</span>(<span style="color: #008000;">'Proportion d\'air dans la troposph&#232;re :'</span>, mtropo/mtot)
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org62fe966" class="outline-2">
+<h2 id="org62fe966"><span class="section-number-2">10</span> Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h2>
+<div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">Patm2</span> = [P0]
+<span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N - 1):
+    Patm2.append(Patm2[k] - M*g0*Patm2[k]*dz/(R*T(zatm[k], <span style="color: #008000;">'K'</span>)))
+<span style="color: #BA36A5;">Patm2</span> = np.array(Patm2)
+<span style="color: #BA36A5;">ecart1</span> = 100 * <span style="color: #006FE0;">abs</span>(Patm - Patm2) / Patm <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Ecart relatif</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
+ax.plot( ecart1,zatm)
+plt.savefig(<span style="color: #008000;">"graph_Q9.png"</span>)
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgb5dc50f" class="outline-2">
+<h2 id="orgb5dc50f"><span class="section-number-2">11</span> Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h2>
+<div class="outline-text-2" id="text-11">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">Piso</span> = [P0]
+<span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N - 1):
+    Piso.append(Piso[k] - M*g0*Piso[k]*dz/(R*T(0, <span style="color: #008000;">'K'</span>)))
+<span style="color: #BA36A5;">Piso</span> = np.array(Piso)
+<span style="color: #BA36A5;">ecart2</span> = 100 * <span style="color: #006FE0;">abs</span>(Piso - Patm) / Patm <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Ecart relatif</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
+ax.plot( ecart2,zatm)
+plt.savefig(<span style="color: #008000;">"graph_Q10.png"</span>)
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org768488d" class="outline-2">
+<h2 id="org768488d"><span class="section-number-2">12</span> Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h2>
+</div>
+
+<div id="outline-container-org63a63d8" class="outline-2">
+<h2 id="org63a63d8"><span class="section-number-2">13</span> Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></h2>
+<div class="outline-text-2" id="text-13">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">ztropo</span>, <span style="color: #BA36A5;">Ttropo</span> = [], [] <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Initialisation des listes</span>
+<span style="color: #BA36A5;">k</span> = 0
+<span style="color: #0000FF;">while</span> zatm[k] &lt; 10<span style="color: #BA36A5;">e3</span>: <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">On s&#233;lectionne les donn&#233;es jusqu&#8217;&#224; 10km</span>
+    ztropo.append(zatm[k])
+    Ttropo.append(T(zatm[k], <span style="color: #008000;">'K'</span>))
+    k = k + 1 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">NB&#3;:: On a pris en fait 1 point sur 5 pour le graphe</span>
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">R&#233;gression lin&#233;aire T(z)=a*z+b</span>
+<span style="color: #BA36A5;">a</span>, <span style="color: #BA36A5;">b</span> = np.polyfit(ztropo, Ttropo, 1) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Calcul de la r&#233;gression lin&#233;aire</span>
+<span style="color: #BA36A5;">Tlin</span> = [a*z + b <span style="color: #0000FF;">for</span> z <span style="color: #0000FF;">in</span> ztropo] <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Mod&#232;le lin&#233;aire de la temp&#233;rature</span>
+
+
+<span style="color: #006FE0;">print</span>(a,b)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">Pgradient</span> = [P0]
+<span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(<span style="color: #006FE0;">len</span>(ztropo) - 1):
+    Pgradient.append(Pgradient[k] - M*g0*Pgradient[k]*dz/(R*(a*zatm[k] + b)))
+<span style="color: #BA36A5;">Pgradient</span> = np.array(Pgradient)
+<span style="color: #BA36A5;">ecart3</span> = 100 * <span style="color: #006FE0;">abs</span>(Pgradient - Patm) / Patm
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
+ax.plot( ecart3,zatm)
+plt.savefig(<span style="color: #008000;">"graph_Q12.png"</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python">
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-02-01 mer. 00:00</p>
+<p class="author">Author: maint</p>
+<p class="date">Created: 2023-02-06 lun. 12:08</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

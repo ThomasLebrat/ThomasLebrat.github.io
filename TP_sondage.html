@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-31 mar. 18:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sondage Atmopshérique</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Thomas Lebrat" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Sondage Atmopshérique
+<br />
+<span class="subtitle"><i>Compte Rendu</i></span>
+</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org316e44d">1. Introduction</a>
+<ul>
+<li><a href="#orgfd05ece">1.1. Contexte et objectifs de l'activité</a></li>
+<li><a href="#org3a66e4a">1.2. Evaluation et compétences travaillées</a></li>
+<li><a href="#orgc1df8f6">1.3. Remerciements et documentation:</a>
+<ul>
+<li><a href="#orgbf89f99">biblio</a></li>
+<li><a href="#orgcac33d6">document : les couches de l'atmosphère (extrai Wiki)</a></li>
+<li><a href="#orgcf3c5e6">nommenclature</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc0d872a">2. Dimensions de la Terre et idées reçues</a>
+<ul>
+<li><a href="#orgb535593">2.1. Les grecs et le rayon de la Terre (méthode d'Eratosthène)</a>
+<ul>
+<li><a href="#org13f680b">Un peu de géométrie</a></li>
+<li><a href="#orge23c471"><span class="todo TODO">TODO</span> Le projet <i>LAMAP</i></a></li>
+</ul>
+</li>
+<li><a href="#org15cceef">2.2. La "hauteur" de l'atmosphère chez les anciens (méthode du twilight)</a>
+<ul>
+<li><a href="#org4cecb1c"><span class="todo TODO">TODO</span> Publication orginale</a></li>
+<li><a href="#org8b3ba64">Interprétation</a></li>
+</ul>
+</li>
+<li><a href="#org325e7b5">2.3. Aujourd'hui</a></li>
+</ul>
+</li>
+<li><a href="#org1a0a973">3. Analyse des données</a>
+<ul>
+<li><a href="#org44ace16">3.1. Tableau commenté</a></li>
+<li><a href="#org56c2009">3.2. <span class="todo TODO">TODO</span> Utilisation de pandas (Jean ?)</a></li>
+<li><a href="#orgb554461">3.3. <span class="todo TODO">TODO</span> Traduction vers MATLAB/Scilab/Octave (Morgane et al ?)</a></li>
+</ul>
+</li>
+<li><a href="#org7d1580a">4. <span class="todo TODO">TODO</span> Rappels de physique</a></li>
+<li><a href="#org9e482c3">5. Méthodes numériques</a>
+<ul>
+<li><a href="#orgb3cd13c">5.1. Méthode 1 - Estimation d'une valeur entre deux points de mesure</a>
+<ul>
+<li><a href="#org7751911">5.1.1. principe de l'interpolation linéaire</a></li>
+<li><a href="#orgd762e6e">5.1.2. possibilité d'une interpolation non-linéaire</a></li>
+<li><a href="#org57d8054">5.1.3. premiers résultats des éléves</a></li>
+</ul>
+</li>
+<li><a href="#org440473e">5.2. Méthode 2 - Intégration numérique</a></li>
+<li><a href="#org18e6bb7">5.3. Méthode 3 - Regression</a></li>
+</ul>
+</li>
+<li><a href="#org435e753">6. Correction des questions</a>
+<ul>
+<li><a href="#org1be8c27">6.1. Détermination du profil vertical de température - Q1 à Q4</a>
+<ul>
+<li><a href="#org5233098">Q1 - mini algo pour la droite d'interpolation</a></li>
+<li><a href="#org82b8eeb">Q2 - écriture d'une fonction en Python/MATLAB</a></li>
+<li><a href="#org9915321">Q3</a></li>
+</ul>
+</li>
+<li><a href="#org17fee57">6.2. Etude du profil vertical de pression - Q5 à Q12</a></li>
+<li><a href="#org104f18c">6.3. <span class="todo TODO">TODO</span> DM - Modélisation de l'ascencion du ballon - Q13 à Q16 (&Dagger;)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+:PROPERTIES
+</p>
+<p>
+:END
+</p>
+
+
+<div id="outline-container-org316e44d" class="outline-2">
+<h2 id="org316e44d"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgfd05ece" class="outline-3">
+<h3 id="orgfd05ece"><span class="section-number-3">1.1</span> Contexte et objectifs de l'activité</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+ Un ballon-sonde mesure les caractéristiques de l'atmosphère terrestre à l'aide d'instruments embarqués jusque des altitudes variables en fonction des modèles et circonstances. On retient souvent la valeur approchée de \(50~km\). Les données obtenues en fonction de l'altitude sont renvoyées au sol par signal radio. 
+Pour cette activité, nous nous sommes accordés sur les objectifs suivants (\(\ddag\) = optionnel)
+</p>
+
+<ol class="org-ol">
+<li>Analyser des mesures de température permettant d'indentifier les couches atmosphériques</li>
+<li>Déterminer le profil de pression sur les 100 premiers kilomètres de l'atmosphère terrestre</li>
+<li>Modéliser l'ascension d'un ballon sonde (modèle hermétique) (&Dagger;)</li>
+<li>Estimer l'altitude maximale que celui-ci peut atteindre jusqu'à éclatement (\(\ddag\))</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3a66e4a" class="outline-3">
+<h3 id="org3a66e4a"><span class="section-number-3">1.2</span> Evaluation et compétences travaillées</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Une participation active et constructive sera toujours bienvenue et valorisée. Les parties (\(\ddag\)) correspondant aux questions Q13, Q14, Q15 et Q16 pourront être avantageusement terminées à la maison pour constituer une évaluation sur <code>10 points</code>. Vous êtes autorisés et même encouragés à nous solliciter par mail pour nous soumettre vos questions techniques. Les compétences travaillées dans cette activité nous seront utiles pour la suite du module ; les voici lisées : 
+</p>
+
+<ul class="org-ul">
+<li>Implémentation de méthodes numériques : <b>interpolation</b> et <b>intégration</b>.</li>
+<li>Se familiariser avec le principe (et quelques subtilités) de la <b>régression</b></li>
+<li>Explorer quelques possibités du lanagage <code>Python/Matplotlib</code> \footnote{proche de ~MATLAB~\texttrademark}</li>
+<li>Accéssoirement, utiliser des librairies spécialisées telles que : &#x2026;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc1df8f6" class="outline-3">
+<h3 id="orgc1df8f6"><span class="section-number-3">1.3</span> Remerciements et documentation:</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgbf89f99" class="outline-4">
+<h4 id="orgbf89f99">biblio</h4>
+<div class="outline-text-4" id="text-orgbf89f99">
+<p>
+Cette activité est très largement inspirée de la lecture des documents suivants que nous vous invitons vivement à consulter : 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcac33d6" class="outline-4">
+<h4 id="orgcac33d6">document : les couches de l'atmosphère (extrai Wiki)</h4>
+<div class="outline-text-4" id="text-orgcac33d6">
+</div>
+</div>
+
+<div id="outline-container-orgcf3c5e6" class="outline-4">
+<h4 id="orgcf3c5e6">nommenclature</h4>
+<div class="outline-text-4" id="text-orgcf3c5e6">
+<p>
+\newpage
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc0d872a" class="outline-2">
+<h2 id="orgc0d872a"><span class="section-number-2">2</span> Dimensions de la Terre et idées reçues</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgb535593" class="outline-3">
+<h3 id="orgb535593"><span class="section-number-3">2.1</span> Les grecs et le rayon de la Terre (méthode d'Eratosthène)</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org13f680b" class="outline-4">
+<h4 id="org13f680b">Un peu de géométrie</h4>
+<div class="outline-text-4" id="text-org13f680b">
+</div>
+</div>
+<div id="outline-container-orge23c471" class="outline-4">
+<h4 id="orge23c471"><span class="todo TODO">TODO</span> Le projet <i>LAMAP</i></h4>
+<div class="outline-text-4" id="text-orge23c471">
+</div>
+</div>
+</div>
+<div id="outline-container-org15cceef" class="outline-3">
+<h3 id="org15cceef"><span class="section-number-3">2.2</span> La "hauteur" de l'atmosphère chez les anciens (méthode du twilight)</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org4cecb1c" class="outline-4">
+<h4 id="org4cecb1c"><span class="todo TODO">TODO</span> Publication orginale</h4>
+<div class="outline-text-4" id="text-org4cecb1c">
+</div>
+</div>
+
+<div id="outline-container-org8b3ba64" class="outline-4">
+<h4 id="org8b3ba64">Interprétation</h4>
+<div class="outline-text-4" id="text-org8b3ba64">
+</div>
+</div>
+</div>
+
+<div id="outline-container-org325e7b5" class="outline-3">
+<h3 id="org325e7b5"><span class="section-number-3">2.3</span> Aujourd'hui</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<ul class="org-ul">
+<li><a id="org65c3a48"></a>Non, la Terre n'est pas ronde !<br />
+<div class="outline-text-5" id="text-org65c3a48">
+<p>
+C'est un ellipsoïde de révolution avec des bosses
+</p>
+</div>
+</li>
+
+<li><a id="orgd3d78ac"></a>Non la hauteur de l'atmosphère n'a pas de valeur fixée.<br />
+<div class="outline-text-5" id="text-2-3-0-1">
+<ul class="org-ul">
+<li>Cette notion de hauteur n'a pas de signification rigoureuse.</li>
+<li>Dépendance avec latitude, saisons.</li>
+<li>Phénoménologie des deux forces en présence.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-org1a0a973" class="outline-2">
+<h2 id="org1a0a973"><span class="section-number-2">3</span> Analyse des données</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org44ace16" class="outline-3">
+<h3 id="org44ace16"><span class="section-number-3">3.1</span> Tableau commenté</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Voici le profil vertical avec une petite une visualisation <code>ASCII</code> artisanale\footnote{Depuis Emacs(org-mode), on applique la formule :  \#+TBLFM: ~\$4='(orgtbl-ascii-draw \$3 175 290)~}. 
+</p>
+
+<table id="org33ef642" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">z(km)</th>
+<th scope="col" class="org-right">T(°C)</th>
+<th scope="col" class="org-right">T(K)</th>
+<th scope="col" class="org-left">ASCII Profile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">100</td>
+<td class="org-right">-72</td>
+<td class="org-right">201</td>
+<td class="org-left">WWh</td>
+</tr>
+
+<tr>
+<td class="org-right">95</td>
+<td class="org-right">-81</td>
+<td class="org-right">192</td>
+<td class="org-left">WV</td>
+</tr>
+
+<tr>
+<td class="org-right">92</td>
+<td class="org-right">-86</td>
+<td class="org-right"><b>187</b></td>
+<td class="org-left">W;</td>
+</tr>
+
+<tr>
+<td class="org-right">84</td>
+<td class="org-right">-86</td>
+<td class="org-right"><b>187</b></td>
+<td class="org-left">W;</td>
+</tr>
+
+<tr>
+<td class="org-right">80</td>
+<td class="org-right">-86</td>
+<td class="org-right"><b>187</b></td>
+<td class="org-left">W;</td>
+</tr>
+
+<tr>
+<td class="org-right">75</td>
+<td class="org-right">-79</td>
+<td class="org-right">194</td>
+<td class="org-left">WW</td>
+</tr>
+
+<tr>
+<td class="org-right">70</td>
+<td class="org-right">-65</td>
+<td class="org-right">208</td>
+<td class="org-left">WWWc</td>
+</tr>
+
+<tr>
+<td class="org-right">65</td>
+<td class="org-right">-54</td>
+<td class="org-right">219</td>
+<td class="org-left">WWWWl</td>
+</tr>
+
+<tr>
+<td class="org-right">60</td>
+<td class="org-right">-33</td>
+<td class="org-right">240</td>
+<td class="org-left">WWWWWWV</td>
+</tr>
+
+<tr>
+<td class="org-right">55</td>
+<td class="org-right">-17</td>
+<td class="org-right">256</td>
+<td class="org-left">WWWWWWWW!</td>
+</tr>
+
+<tr>
+<td class="org-right">52</td>
+<td class="org-right">-7</td>
+<td class="org-right">266</td>
+<td class="org-left">WWWWWWWWW!</td>
+</tr>
+
+<tr>
+<td class="org-right">48</td>
+<td class="org-right">-2</td>
+<td class="org-right"><b>271</b></td>
+<td class="org-left">WWWWWWWWWW</td>
+</tr>
+
+<tr>
+<td class="org-right">45</td>
+<td class="org-right">-2</td>
+<td class="org-right"><b>271</b></td>
+<td class="org-left">WWWWWWWWWW</td>
+</tr>
+
+<tr>
+<td class="org-right">40</td>
+<td class="org-right">-8</td>
+<td class="org-right">265</td>
+<td class="org-left">WWWWWWWWWc</td>
+</tr>
+
+<tr>
+<td class="org-right">35</td>
+<td class="org-right">-22</td>
+<td class="org-right">251</td>
+<td class="org-left">WWWWWWWH</td>
+</tr>
+
+<tr>
+<td class="org-right">30</td>
+<td class="org-right">-37</td>
+<td class="org-right">236</td>
+<td class="org-left">WWWWWWc</td>
+</tr>
+
+<tr>
+<td class="org-right">25</td>
+<td class="org-right">-46</td>
+<td class="org-right">227</td>
+<td class="org-left">WWWWWc</td>
+</tr>
+
+<tr>
+<td class="org-right">20</td>
+<td class="org-right">-56</td>
+<td class="org-right"><b>217</b></td>
+<td class="org-left">WWWWc</td>
+</tr>
+
+<tr>
+<td class="org-right">12</td>
+<td class="org-right">-56</td>
+<td class="org-right"><b>217</b></td>
+<td class="org-left">WWWWc</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">-49</td>
+<td class="org-right">224</td>
+<td class="org-left">WWWWW.</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">-18</td>
+<td class="org-right">255</td>
+<td class="org-left">WWWWWWWW;</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">15</td>
+<td class="org-right"><b>288</b></td>
+<td class="org-left">WWWWWWWWWWWV</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+On repère les tendances discutées au premmier cours, les creux et les bosses correspondant aux <i>minima</i> et <i>maxima</i> locaux. Des valeurs identiques pourraient indiquer des bandes stationnaires mais l'échantillonage est insuffisant pour trancher.
+</p>
+
+<p>
+Le tableau de données est saisi à la main puis commenté en groupe : 
+</p>
+
+<ul class="org-ul">
+<li>&lt;&lt; il fait froid &gt;&gt; : en effet la température \(T\) est  toujours (vraiment ?) négative au delà de 5 km</li>
+<li>à l'évidence, \(T\) n'est connue qu'en certaines altitudes, espacées de manière <i>irrégulière</i></li>
+<li>depuis le sol, des tendances sont identifiables : \(\searrow\) , \(\nearrow\) , \(\searrow\) , \(\nearrow\)</li>
+<li>des mesures font apparaître des valeurs identiques (stagnation ?)</li>
+<li>les étudiants se demandent alors si cela ne posera pas de problème numérique (à creuser)</li>
+</ul>
+
+<p>
+Attention, la conversion en Kelvin peut-être source d'erreurs ! Pour nos calculs, on prendra garde à bien vérifier que le zero absolu correspond à une température de \(-273~C\) c-à-d que : 
+</p>
+
+<p>
+\[T(K) = T(C) + 273 \]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org56c2009" class="outline-3">
+<h3 id="org56c2009"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> Utilisation de pandas (Jean ?)</h3>
+</div>
+
+<div id="outline-container-orgb554461" class="outline-3">
+<h3 id="orgb554461"><span class="section-number-3">3.3</span> <span class="todo TODO">TODO</span> Traduction vers MATLAB/Scilab/Octave (Morgane et al ?)</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+\newpage
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7d1580a" class="outline-2">
+<h2 id="org7d1580a"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Rappels de physique</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+C'est l'occasion d'un petit rappel sur la signification des grandeurs thermodynamiques température, pression, volume et de leur signification (agitation microscopique, énergie cinétique, &#x2026;). 
+</p>
+
+<p>
+On rappelle ici quelques relations utiles à savoir manipuler pour la résolution de problèmes classiques d'équilibre de l'atmosphère : 
+</p>
+
+
+<p>
+\[ grad P \] 
+</p>
+
+
+<p>
+\newpage
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e482c3" class="outline-2">
+<h2 id="org9e482c3"><span class="section-number-2">5</span> Méthodes numériques</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgb3cd13c" class="outline-3">
+<h3 id="orgb3cd13c"><span class="section-number-3">5.1</span> Méthode 1 - Estimation d'une valeur entre deux points de mesure</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-org7751911" class="outline-4">
+<h4 id="org7751911"><span class="section-number-4">5.1.1</span> principe de l'interpolation linéaire</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+<b>Exercice</b> : on détermine à la main la valeur d'un point millieu interpolé, par exemple entre 30 et 40 km d'altitude et on confronte cette valeur à une donnée rélle. Cela nous permet de réfléchir à la signification d'une interpolation, au sens de variation, etc.
+</p>
+
+<p>
+<b><b>Définition</b></b> : une interpolation linéaire consiste à approximer localement une grandeur physique (ici une température) en un abscisse donnée (ici une altitude) située entre deux points expérimentaux par une loi affine passant par ces points
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd762e6e" class="outline-4">
+<h4 id="orgd762e6e"><span class="section-number-4">5.1.2</span> possibilité d'une interpolation non-linéaire</h4>
+</div>
+
+<div id="outline-container-org57d8054" class="outline-4">
+<h4 id="org57d8054"><span class="section-number-4">5.1.3</span> premiers résultats des éléves</h4>
+<div class="outline-text-4" id="text-5-1-3">
+</div>
+<ul class="org-ul">
+<li><a id="org2ce65fc"></a>erreurs utiles<br />
+<div class="outline-text-5" id="text-org2ce65fc">
+<p>
+Un bug et sa résolution
+</p>
+
+<pre class="example">
+
+</pre>
+</div>
+</li>
+
+<li><a id="org5ae9c0e"></a>petits plus<br />
+<div class="outline-text-5" id="text-5-1-3-1">
+<div class="org-src-container">
+<pre class="src src-python">
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org440473e" class="outline-3">
+<h3 id="org440473e"><span class="section-number-3">5.2</span> Méthode 2 - Intégration numérique</h3>
+</div>
+
+<div id="outline-container-org18e6bb7" class="outline-3">
+<h3 id="org18e6bb7"><span class="section-number-3">5.3</span> Méthode 3 - Regression</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+\newpage
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org435e753" class="outline-2">
+<h2 id="org435e753"><span class="section-number-2">6</span> Correction des questions</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org1be8c27" class="outline-3">
+<h3 id="org1be8c27"><span class="section-number-3">6.1</span> Détermination du profil vertical de température - Q1 à Q4</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-org5233098" class="outline-4">
+<h4 id="org5233098">Q1 - mini algo pour la droite d'interpolation</h4>
+<div class="outline-text-4" id="text-org5233098">
+<p>
+Considérons un petit intervalle \(Z_{i}\) = \(\left[ z_{i} ; z_{i+1} \right]\) et plaçons en ordonnée deux points successifs \(M_{i} \left( z_i,T_i \right)\) et \(M_{i+1} \left ( z_{i+1}, T_{i+1} \right)\). Nous avons répondu à l'oral aux questions suivantes :
+</p>
+
+<ul class="org-ul">
+<li>Que vaut la température correspondant à un point milieu de cet intervalle ?</li>
+<li>De combien de paramètres dépend la fonction d'interpolation affine \(T(z)\) sur \(Z_{i}\) ?</li>
+<li>Exprimer les en fonction des données mesurées aux points \(M_{i}(z_i,T_i)\) et \(M_{i+1}(z_{i+1}, T_{i+1})\). \footnote{Dans ce cas simple, on peut bien sûr trouver la solution par tatônnements. On pourra sinon poser proprement un système d'équations, avec autant d'équations que d'inconnues, méthode qui s'avérera toujours payante pour les techniques d'interpolation plus sophistiquées ...}</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org82b8eeb" class="outline-4">
+<h4 id="org82b8eeb">Q2 - écriture d'une fonction en Python/MATLAB</h4>
+<div class="outline-text-4" id="text-org82b8eeb">
+<p>
+Ecrire une fonction <code>T(z,unite)</code> fournissant la température de l'air pour une altitude \(z\)  parcourant l'intervalle \([0 ; 100]\) \(km\). \footnote{On prendra garde à intégrer les bonnes conversions d'unité pour les distances (facteur 1000) et les températures (différence de 273).}
+Créer deux tableaux <code>zatm</code> et <code>Tatm</code> contenant <code>N=1000</code> valeurs d'altitudes et de température.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">zatm(m)</th>
+<th scope="col" class="org-right">0</th>
+<th scope="col" class="org-left">&#x2026;</th>
+<th scope="col" class="org-left">10<sup>5</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Tatm(°C)</td>
+<td class="org-right">T<sub>0</sub></td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">T<sub>100</sub></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org9915321" class="outline-4">
+<h4 id="org9915321">Q3</h4>
+<div class="outline-text-4" id="text-org9915321">
+<p>
+Tracer le <i><i>profil vertical de température</i></i> (graphe basculé avec altitude en ordonnée et température en abscisse). Identifier les différentes couches de l'atmopshère.
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org17fee57" class="outline-3">
+<h3 id="org17fee57"><span class="section-number-3">6.2</span> Etude du profil vertical de pression - Q5 à Q12</h3>
+</div>
+
+
+<div id="outline-container-org104f18c" class="outline-3">
+<h3 id="org104f18c"><span class="section-number-3">6.3</span> <span class="todo TODO">TODO</span> DM - Modélisation de l'ascencion du ballon - Q13 à Q16 (&Dagger;)</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Thomas Lebrat</p>
+<p class="date">Created: 2023-01-31 mar. 18:49</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

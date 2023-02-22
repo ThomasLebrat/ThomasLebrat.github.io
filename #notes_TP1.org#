@@ -1,0 +1,22 @@
+#+TITLE: TP Sondage 
+
+* Structure verticale de l'atmosphère
+
+** tropo pour commencer
+
+- Conversion Celcius vers Kelvin : ajouter 273
+décroissance d'environ 6.5 K par km
+
+- La taille de l'atmosphère est une question qui n'est plus pertinente aujourd'hui 
+
+Les grecs avaient déjà essayé d'estimer sa taille et étaient tombés sur une hauteur d'environ 80 km
+
+- 2 grandeurs pertinentes pour décrire l'atmosphère T, P
+- autres grandeurs : n,m, \rho,
+
+- On réalise au tableau une interpolation à la main entre les altitudes 30 et 40 km. On réalise qu'on est plus dans la trop à cette altitude (ici T augmente)
+
+- Comparaison de la valeur interpolée au millieu (35) avec la mesure : un demi degré d'écart
+
+- 
+** strato c'est compliqué 

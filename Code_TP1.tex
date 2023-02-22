@@ -1,0 +1,247 @@
+% Created 2023-02-06 lun. 11:59
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[top=1in, bottom=1.in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[theorems, skins]{tcolorbox}
+\usepackage[version=3]{mhchem}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{natmove}
+\usepackage{url}
+\usepackage[cache=false]{minted}
+\usepackage[strings]{underscore}
+\usepackage[linktocpage,pdfstartview=FitH,colorlinks,
+linkcolor=blue,anchorcolor=blue,
+citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
+\usepackage{attachfile}
+\usepackage{setspace}
+\author{maint}
+\date{\textit{<2023-02-01 mer.>}}
+\title{CODE TP 1}
+\begin{document}
+
+\tableofcontents
+
+
+
+
+\section{préparatifs}
+\label{sec:org17dc8c6}
+
+\begin{itemize}
+\item On importe les librairies
+\item On fixe les valeurs des constantes physiques
+\item On saisie les tableaux de valeurs de température
+\end{itemize}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+#Constants
+M = 29.0e-3
+R = 8.31
+P0 = 1.0e5
+g0 = 9.8
+RT = 6.4e3
+pi = np.pi
+
+#Altitude en km
+zexp = np.array([0.0, 5.0, 10.0, 12.0, 20.0, 25.0, 30.0, 35.0, 40.0,
+                 45.0, 48.0, 52.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 84.0, 92.0, 95.0,100.0])
+
+Texp = np.array([15.0, -18.0, -49.0, -56.0, -56.0, -51.0, -46.0, -37.0,
+                 -22.0, -8.0, -2.0, -2.0, -7.0, -17.0, -33.0, -54.0, -65.0, -79.0, -86.0,-86.0, -81.0, -72.0])
+\end{minted}
+
+Voici quelques premiers éléments de correction. 
+
+Les lignes de code seront susceptibles d'être remaniées et/ou commentées en fonction de vos retours.
+
+
+\section{Q1 - formule de l'interpolation -\hfill{}\textsc{Tableau}}
+\label{sec:org12fcaf3}
+
+Ce point a été traité en séance au tableau.
+
+\section{Q2 -\hfill{}\textsc{CODE}}
+\label{sec:org0148d29}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+def T(z, unite):
+    z_km = z / 1000 # Conversion en km pour comparaison dans la liste
+    alpha = 1 # Valeur par défaut pour la conversion en K
+    if unite == 'C':
+        alpha = 0 # Pas de décalage pour la température en °C
+    i = 0
+    while z_km > zexp[i + 1]: # Recherche de l’indice i
+        i = i + 1
+    temperature = alpha*273 + Texp[i] + (z_km - zexp[i])/(zexp[i + 1] - zexp[i])*(Texp[i + 1] - Texp[i]) # Interpolation linéaire
+    return temperature
+\end{minted}
+
+\section{Q3\hfill{}\textsc{CODE}}
+\label{sec:org27879d9}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+N = 1000 # Nombre de points
+zmax = 100.0e3 # Altitude max (en m)
+dz = zmax/(N - 1) # Pas spatial (en m)
+zatm = np.array([k*dz for k in range(N)]) # Altitudes
+Tatm = np.array([T(zatm[k], 'C') for k in range(N)]) # Températures
+\end{minted}
+
+
+\section{Q4\hfill{}\textsc{CODE}}
+\label{sec:org738aa1a}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+fig, ax = plt.subplots()
+ax.plot( Tatm,zatm)
+ax.plot( Tatm,zatm)
+plt.savefig("graph_Q4.png")
+\end{minted}
+
+
+\section{Q5\hfill{}\textsc{TABLEAU}}
+\label{sec:org056afa7}
+
+\section{Q6\hfill{}\textsc{TABLEAU}}
+\label{sec:orga425a0b}
+
+\section{Q7}
+\label{sec:orgba448f9}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+def g(z): # Champ de pesanteur
+    return g0 * RT**2 / (RT + z)**2
+\end{minted}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+# Calcul du champ de pression par la méthode d’Euler
+Patm = [P0] # Initialisation
+for k in range(N - 1): # Il reste N - 1 termes à calculer
+    Patm.append(Patm[k] - M*g(zatm[k])*Patm[k]*dz/(R*T(zatm[k], 'K')))
+Patm = np.array(Patm) # Conversion en tableau
+\end{minted}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+fig, ax = plt.subplots()
+ax.plot( Patm,zatm)
+plt.savefig("graph_Q7.png")
+\end{minted}
+
+
+\section{Q8\hfill{}\textsc{CODE}}
+\label{sec:org4a88482}
+
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+def masse_atm(z): # Calcul de la masse d’air jusqu’à l’altitude z
+    masse = 0
+    k = 0
+    while zatm[k] < z: # On arrête le calcul à l’altitude z
+        dm = 4*np.pi*(RT + z)**2*M*Patm[k]/(R*T(zatm[k], 'K'))*dz
+        masse = masse + dm
+        k = k + 1
+    return masse
+\end{minted}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+mtot = masse_atm(100e3) # Masse d'air dans l'atmosphère terrestre
+print('Masse de l\'atmosphère :', mtot, 'kg')
+\end{minted}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+mtropo = masse_atm(12e3) # Masse d'air dans la troposphère
+print('Proportion d\'air dans la troposphère :', mtropo/mtot)
+\end{minted}
+
+
+\section{Q9\hfill{}\textsc{TABLEAU}}
+\label{sec:orgaf9de01}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+Patm2 = [P0]
+for k in range(N - 1):
+    Patm2.append(Patm2[k] - M*g0*Patm2[k]*dz/(R*T(zatm[k], 'K')))
+Patm2 = np.array(Patm2)
+ecart1 = 100 * abs(Patm - Patm2) / Patm # Ecart relatif
+\end{minted}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+fig, ax = plt.subplots()
+ax.plot( ecart1,zatm)
+plt.savefig("graph_Q9.png")
+\end{minted}
+
+
+
+\section{Q10\hfill{}\textsc{CODE}}
+\label{sec:orgd088227}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+Piso = [P0]
+for k in range(N - 1):
+    Piso.append(Piso[k] - M*g0*Piso[k]*dz/(R*T(0, 'K')))
+Piso = np.array(Piso)
+ecart2 = 100 * abs(Piso - Patm) / Patm # Ecart relatif
+\end{minted}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+fig, ax = plt.subplots()
+ax.plot( ecart2,zatm)
+plt.savefig("graph_Q10.png")
+\end{minted}
+
+
+\section{Q11\hfill{}\textsc{TABLEAU}}
+\label{sec:org47bbe89}
+
+\section{Q12\hfill{}\textsc{CODE:TABLEAU}}
+\label{sec:org9e767b4}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+ztropo, Ttropo = [], [] # Initialisation des listes
+k = 0
+while zatm[k] < 10e3: # On sélectionne les données jusqu’à 10km
+    ztropo.append(zatm[k])
+    Ttropo.append(T(zatm[k], 'K'))
+    k = k + 1 # NB:: On a pris en fait 1 point sur 5 pour le graphe
+# Régression linéaire T(z)=a*z+b
+a, b = np.polyfit(ztropo, Ttropo, 1) # Calcul de la régression linéaire
+Tlin = [a*z + b for z in ztropo] # Modèle linéaire de la température
+
+
+print(a,b)
+\end{minted}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+Pgradient = [P0]
+for k in range(len(ztropo) - 1):
+    Pgradient.append(Pgradient[k] - M*g0*Pgradient[k]*dz/(R*(a*zatm[k] + b)))
+Pgradient = np.array(Pgradient)
+ecart3 = 100 * abs(Pgradient - Patm) / Patm
+\end{minted}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+fig, ax = plt.subplots()
+ax.plot( ecart3,zatm)
+plt.savefig("graph_Q12.png")
+\end{minted}
+\end{document}

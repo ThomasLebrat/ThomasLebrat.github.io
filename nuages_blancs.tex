@@ -1,0 +1,97 @@
+% Created 2023-02-03 ven. 12:00
+% Intended LaTeX compiler: pdflatex
+\documentclass[letterpaper, 11pt]{article}
+                      \usepackage{lmodern} % Ensures we have the right font
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[table, xcdraw]{xcolor}
+\definecolor{bblue}{HTML}{0645AD}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{colorlinks, linkcolor=blue, urlcolor=bblue}
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\usepackage[stretch=10]{microtype}
+\usepackage{hyphenat}
+\usepackage{ragged2e}
+\usepackage{subfig} % Subfigures (not needed in Org I think)
+\usepackage{hyperref} % Links
+\usepackage{listings} % Code highlighting
+\usepackage[top=1in, bottom=1.25in, left=1.55in, right=1.55in]{geometry}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage[explicit]{titlesec}
+\pretitle{\begin{center}\fontsize{20pt}{20pt}\selectfont}
+\posttitle{\par\end{center}}
+\preauthor{\begin{center}\vspace{-6bp}\fontsize{14pt}{14pt}\selectfont}
+\postauthor{\par\end{center}\vspace{-25bp}}
+\predate{\begin{center}\fontsize{12pt}{12pt}\selectfont}
+\postdate{\par\end{center}\vspace{0em}}
+\titlespacing\section{0pt}{5pt}{5pt} % left margin, space before section header, space after section header
+\titlespacing\subsection{0pt}{5pt}{-2pt} % left margin, space before subsection header, space after subsection header
+\titlespacing\subsubsection{0pt}{5pt}{-2pt} % left margin, space before subsection header, space after subsection header
+\usepackage{enumitem}
+\setlist{itemsep=-2pt} % or \setlist{noitemsep} to leave space around whole list
+\author{Olivier, More, Gié - (Thomas Lebrat, adaptation)}
+\date{\textit{<2023-01-30 lun.>}}
+\title{Le blanc des nuages}
+\begin{document}
+
+\tableofcontents
+
+\section{Enoncé}
+\label{sec:org3aa9e79}
+
+
+Les nuages sont des objets complexes mais il est possible d'illustrer quelques phénomènes optiques à l'aide de modèle simplifiés sans avoir recours à la modélisation.
+
+Dans cet exercice on se propose d'interpréter la couleur blanche des nuages à l'aide d'un modèle simplifié inspiré d'un exercice d'Olivier et al. Les auteurs proposent de mettre en cause les interférences entre les ondes diffusées par les électrons élastiquement liés d'un même cristal de glace.\footnote{la réalité est tout autre, voir figure distribution de particules dans un nuage}
+
+
+La configuration géométrique est la suivante : on assimile le cristal à un carré \footnote{on aurait pu imaginer une autre formle régulière telle qu'un hexagone} de côté \(a\) dans le plan \(xOy\), éclairé par le Soleil dans la direction \(u_z\).
+
+On suppose que chaque élément de surface \(dS\) du cristal diffuse une onde sphérique, d'amplitude proportionnelle aux 3 éléments suivants : 
+
+\begin{itemize}
+\item l'élément de surface \(dS\)
+\item à l'amplitude \(a_0(\lambda)\) incidente
+\item le facteur \(1/\lambda^2\)
+\end{itemize}
+
+\newpage
+
+\section{Questions}
+\label{sec:org0ba5438}
+
+\texttt{Q1}. Interpréter le modèle sommairement (rôle joué par le terme en \(1/\lambda^2}\))
+
+On désigne la direction de diffusion de l'éclairement par un le vecteur : 
+
+$$ \vec{u}=\alpha \vec{u_x} + \beta \vec{u_y} + \gamma \vec{u_z} $$
+
+\texttt{Q2}. Justifier sans calcul que l'éclairement diffusé est de la forme 
+
+$$ E = \frac{a_0^2(\lambda)a^2}{\lambda^4} sinc(\pi \alpha a / \lambda) sinc(\pi \beta a / \lambda)$$
+
+\texttt{Q3}. En déduire les variation de \(E(\lambda)/a_0^2(\lambda)\) avec \(\lambda\) et interpréter le blanc des nuages
+
+\newpage
+
+\section{Piste de travail}
+\label{sec:org246bac6}
+
+
+Cet exercice fait appel à des notions d'optique ondulatoire.
+
+On se place dans le cadre de la théorie scalaire de la diffusion.
+
+Le terme en \(1/\lambda^2\) vient du fait que le champ rayonné est simplement proportionnel à l'accélaration des charges, donc à \(\omega^2\)
+
+La superposition cohérente des ondelettes sphériques est analogue au calcul de la diffraction par un carré, doù les termes en sinus cardinal. 
+
+Les termes en \(\lambda\) hors du sinus se simplifient et il reste un éclairement de la forme 
+
+$$ a_0(\lambda)^2 \sin()^2 \sin()^2 $$  qui est analogue d'un blanc d'ordre supérieur en optique si les facteurs $$ (\alpha,\beta) a / \lambda   <<  1 $$ 
+\end{document}

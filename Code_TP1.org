@@ -1,0 +1,303 @@
+#+TITLE: CODE TP 1 
+#+DATE: <2023-02-01 mer.>
+
+#+OPTIONS: d:nil
+
+:tiroir:
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+# #+SETUPFILE: file:///~/org-html-themes/org/theme-readtheorg-local.setup
+:end:
+
+
+
+* préparatifs
+
+- On importe les librairies standards et on fixe les valeurs des constantes physiques.
+- On saisie les tableaux de valeurs de température
+- On teste l'execution dans une première cellule (Jupyter Notebook par ex)
+
+
+#+BEGIN_SRC jupyter-python :results output raw :exports both
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+#Constants
+M = 29.0e-3
+R = 8.31
+P0 = 1.0e5
+g0 = 9.8
+RT = 6.4e3
+pi = np.pi
+
+#Altitude en km
+zexp = np.array([0.0, 5.0, 10.0, 12.0, 20.0, 25.0, 30.0,35.0, 40.0,
+                 45.0, 48.0, 52.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 84.0, 92.0, 95.0,100.0])
+
+Texp = np.array([15.0, -18.0, -49.0, -56.0, -56.0, -51.0, -46.0, -37.0,
+                 -22.0, -8.0, -2.0, -2.0, -7.0, -17.0, -33.0, -54.0, -65.0, -79.0, -86.0,-86.0, -81.0, -72.0])
+
+#+BEGIN_SRC jupyter-python
+fig, ax = plt.subplots()
+ax.plot( Texp,zexp)
+plt.savefig("graph_Q0.png")
+#+END_SRC
+
+#+RESULTS:
+[[file:./.ob-jupyter/a60bc0e706dedf58e67f07c07108a1cd231a7778.png]]
+
+
+
+
+Voici quelques premiers éléments de correction. 
+
+Les lignes de code seront susceptibles d'être remaniées et/ou commentées en fonction de vos retours.
+
+
+* Q1 - formule de l'interpolation -                                 :Tableau:
+
+Ce point a été traité en séance au tableau (TAG: Tableau)
+
+* Q2 -                                                                 :CODE:
+
+#+BEGIN_SRC jupyter-python
+def T(z, unite):
+    z_km = z / 1000 # Conversion en km pour comparaison dans la liste
+    alpha = 1 # Valeur par défaut pour la conversion en K
+    if unite == 'C':
+        alpha = 0 # Pas de décalage pour la température en °C
+    i = 0
+    while z_km > zexp[i + 1]: # Recherche de l’indice i
+        i = i + 1
+    temperature = alpha*273 + Texp[i] + (z_km - zexp[i])/(zexp[i + 1] - zexp[i])*(Texp[i + 1] - Texp[i]) # Interpolation linéaire
+    return temperature
+#+END_SRC
+
+#+RESULTS:
+
+* Q3                                                                   :CODE:
+
+#+BEGIN_SRC jupyter-python
+N = 1000 # Nombre de points
+zmax = 100.0e3 # Altitude max (en m)
+dz = zmax/(N - 1) # Pas spatial (en m)
+zatm = np.array([k*dz for k in range(N)]) # Altitudes
+Tatm = np.array([T(zatm[k], 'C') for k in range(N)]) # Températures
+#+END_SRC
+
+#+RESULTS:
+
+
+* Q4                                                                   :CODE:
+
+#+BEGIN_SRC jupyter-python
+fig, ax = plt.subplots()
+ax.plot( Tatm,zatm)
+ax.plot( Tatm,zatm)
+plt.savefig("graph_Q4.png")
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+[[file:./.ob-jupyter/bce4b3c06ad759508b4d43d220f481ab699a1e96.png]]
+:END:
+
+
+* Q5                                                                :TABLEAU:
+
+* Q6                                                                :TABLEAU:
+
+* Q7
+
+#+BEGIN_SRC jupyter-python
+def g(z): # Champ de pesanteur
+    return g0 * RT**2 / (RT + z)**2
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC jupyter-python
+# Calcul du champ de pression par la méthode d’Euler
+Patm = [P0] # Initialisation
+for k in range(N - 1): # Il reste N - 1 termes à calculer
+    Patm.append(Patm[k] - M*g(zatm[k])*Patm[k]*dz/(R*T(zatm[k], 'K')))
+Patm = np.array(Patm) # Conversion en tableau
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC jupyter-python
+fig, ax = plt.subplots()
+ax.plot( Patm,zatm)
+plt.savefig("graph_Q7.png")
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+[[file:./.ob-jupyter/452be962270a3497e78002b893546d6fd18cd61c.png]]
+:END:
+
+
+* Q8                                                                   :CODE:
+
+
+#+BEGIN_SRC jupyter-python  
+def masse_atm(z): # Calcul de la masse d’air jusqu’à l’altitude z
+    masse = 0
+    k = 0
+    while zatm[k] < z: # On arrête le calcul à l’altitude z
+        dm = 4*np.pi*(RT + z)**2*M*Patm[k]/(R*T(zatm[k], 'K'))*dz
+        masse = masse + dm
+        k = k + 1
+    return masse
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC jupyter-python  
+mtot = masse_atm(100e3) # Masse d'air dans l'atmosphère terrestre
+print('Masse de l\'atmosphère :', mtot, 'kg')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+Masse de l'atmosphère : 1.0772432715500982e+16 kg
+:END:
+
+
+#+BEGIN_SRC jupyter-python  
+mtropo = masse_atm(12e3) # Masse d'air dans la troposphère
+print('Proportion d\'air dans la troposphère :', mtropo/mtot)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+Proportion d'air dans la troposphère : 0.004662119957938924
+:END:
+
+
+* Q9                                                                :TABLEAU:
+
+#+BEGIN_SRC jupyter-python
+Patm2 = [P0]
+for k in range(N - 1):
+    Patm2.append(Patm2[k] - M*g0*Patm2[k]*dz/(R*T(zatm[k], 'K')))
+Patm2 = np.array(Patm2)
+ecart1 = 100 * abs(Patm - Patm2) / Patm # Ecart relatif
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC jupyter-python  
+fig, ax = plt.subplots()
+ax.plot( ecart1,zatm)
+plt.savefig("graph_Q9.png")
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+[[file:./.ob-jupyter/976970ca5f6bd41e43d20f0987b5263393e64f05.png]]
+:END:
+
+
+
+* Q10                                                                  :CODE:
+
+#+BEGIN_SRC jupyter-python
+Piso = [P0]
+for k in range(N - 1):
+    Piso.append(Piso[k] - M*g0*Piso[k]*dz/(R*T(0, 'K')))
+Piso = np.array(Piso)
+ecart2 = 100 * abs(Piso - Patm) / Patm # Ecart relatif
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC jupyter-python  
+fig, ax = plt.subplots()
+ax.plot( ecart2,zatm)
+plt.savefig("graph_Q10.png")
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+[[file:./.ob-jupyter/feb8952deba53f364be4f1ff78bba0a4ceaf611b.png]]
+:END:
+
+
+* Q11                                                               :TABLEAU:
+
+* Q12                                                          :CODE:TABLEAU:
+
+#+BEGIN_SRC jupyter-python
+ztropo, Ttropo = [], [] # Initialisation des listes
+k = 0
+while zatm[k] < 10e3: # On sélectionne les données jusqu’à 10km
+    ztropo.append(zatm[k])
+    Ttropo.append(T(zatm[k], 'K'))
+    k = k + 1 # NB:: On a pris en fait 1 point sur 5 pour le graphe
+# Régression linéaire T(z)=a*z+b
+a, b = np.polyfit(ztropo, Ttropo, 1) # Calcul de la régression linéaire
+Tlin = [a*z + b for z in ztropo] # Modèle linéaire de la température
+
+
+print(a,b)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+-0.006402700270027003 287.5138802168507
+:END:
+
+
+#+BEGIN_SRC jupyter-python  
+Pgradient = [P0]
+for k in range(len(ztropo) - 1):
+    Pgradient.append(Pgradient[k] - M*g0*Pgradient[k]*dz/(R*(a*zatm[k] + b)))
+Pgradient = np.array(Pgradient)
+ecart3 = 100 * abs(Pgradient - Patm) / Patm
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# [goto error]
+
+ValueErrorTraceback (most recent call last)
+<ipython-input-31-8ae4b0545b27> in <module>
+      3     Pgradient.append(Pgradient[k] - M*g0*Pgradient[k]*dz/(R*(a*zatm[k] + b)))
+      4 Pgradient = np.array(Pgradient)
+----> 5 ecart3 = 100 * abs(Pgradient - Patm) / Patm
+
+ValueError: operands could not be broadcast together with shapes (100,) (1000,) 
+:END:
+
+
+#+RESULTS:
+:RESULTS:
+100
+:END:
+#+BEGIN_SRC jupyter-python  
+fig, ax = plt.subplots()
+ax.plot( ecart3,zatm)
+plt.savefig("graph_Q12.png")
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# [goto error]
+
+NameErrorTraceback (most recent call last)
+<ipython-input-17-9c1724225630> in <module>
+      1 fig, ax = plt.subplots()
+----> 2 ax.plot( ecart3,zatm)
+      3 plt.savefig("monprofil.png")
+
+NameError: name 'ecart3' is not defined
+[[file:./.ob-jupyter/61d2780d035746e2a1d41c3696837d1141c39f65.png]]
+:END:
+
+#+BEGIN_SRC jupyter-python  
+
+#+END_SRC
+

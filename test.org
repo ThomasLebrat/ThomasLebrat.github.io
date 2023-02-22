@@ -1,0 +1,142 @@
+#+BEGIN_SRC jupyter-python
+import numpy as np
+import matplotlib
+#matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
+x = np.arange(0, 5, 0.1)
+y = np.sin(x)
+fig, ax = plt.subplots()
+ax.plot(x, y)
+#plt.savefig("ffffffffff")
+plt.show()
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+[[file:./.ob-jupyter/b1164fae749fdf3a349225a221b440d072e2b356.png]]
+:END:
+
+
+
+
+
+#+begin_src jupyter-python
+import matplotlib, numpy
+#matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=numpy.linspace(-15,15)
+plt.plot(numpy.sin(x)/x)
+#fig.tight_layout()
+plt.savefig('images/python-matplot-fig.png')
+#return 'images/python-matplot-fig.png' # return filename to org-mode
+#+end_src
+
+#+BEGIN_SRC jupyter-python
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+from matplotlib.path import Path
+from matplotlib.patches import PathPatch
+
+N = 400
+t = np.linspace(0, 2 * np.pi, N)
+r = 0.5 + np.cos(t)
+x, y = r * np.cos(t), r * np.sin(t)
+
+fig, ax = plt.subplots()
+ax.plot(x, y, "k")
+ax.set(aspect=1)
+
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+|   |
+[[file:./.ob-jupyter/3893a9d5b8da1648520ab2ad6acd1ee770bf8dce.png]]
+:END:
+
+
+
+
+
+#+BEGIN_SRC jupyter-python
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+[[file:./.ob-jupyter/27ea1e37878e39eae5f74356ab1d7a2ca3de5908.png]]
+[[file:./.ob-jupyter/eca93dd66c9c2da9e0309aed7b397cb5e9aad178.png]]
+:END:
+
+#+BEGIN_SRC jupyter-python
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# [goto error]
+  File "<ipython-input-8-0de0b9729600>", line 44
+    main()
+    ^
+IndentationError: expected an indented block
+:END:
+
+
+#+BEGIN_SRC python
+import matplotlib.pyplot as plt
+import cartopy.crs as ccrs
+
+plt.figure(figsize=(3, 3))
+ax = plt.axes(projection=ccrs.NorthPolarStereo())
+ax.coastlines(resolution='110m')
+ax.gridlines()
+plot.show(
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC ipython
+import matplotlib.pyplot as plt
+import cartopy.crs as ccrs
+
+plt.figure(figsize=(3, 3))
+ax = plt.axes(projection=ccrs.NorthPolarStereo())
+ax.coastlines(resolution='110m')
+ax.gridlines()
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python
+import matplotlib, numpy
+#matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=numpy.linspace(-15,15)
+plt.plot(numpy.sin(x)/x)
+fig.tight_layout()
+#plt.savefig('images/python-matplot-fig.png')
+plt.show()
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+<ipython-input-9-cb395ad4a310>:9: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+  plt.show()
+[[file:./.ob-jupyter/9cd11abaa543b478bb679ef970d8b29700dd1388.png]]
+:END:
+
+#+BEGIN_SRC jupyter-python
+from emacs import EmacsBatch
+emacs = EmacsBatch(args=['-Q'])
+emacs.eval('(+ 1 2)')
+emacs.eval('(format "One plus two is %d" (+ 1 2))')
+
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+One plus two is 3
+:END:

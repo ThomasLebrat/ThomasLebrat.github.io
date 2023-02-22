@@ -1,0 +1,39 @@
+#+TITLE: REGLAGES
+#+AUTHOR: Thomas Lebrat
+#+DATE: <2023-01-19 jeu.>
+
+* lecture d'une table
+
+
+  #+NAME: foo
+| coucou | toto |
+|--------+------|
+|      2 |    3 |
+|      4 |    5 |
+|      6 |    6 |
+
+
+
+
+#+BEGIN_SRC python :var tbl=foo :results output
+print(tbl)
+#+END_SRC
+
+#+RESULTS:
+: [[2, 3], [4, 5], [6, 6]]
+
+#+NAME: mydata
+| Drug | Patients |
+|------+----------|
+| X    |      232 |
+| Y    |      3?1 |
+| Z    |      123 |
+
+#+begin_src python :var tbl=mydata :results output
+print(tbl)
+#+end_src
+
+#+RESULTS:
+: [['X', 232], ['Y', '3?1'], ['Z', 123]]
+
+* calculs
