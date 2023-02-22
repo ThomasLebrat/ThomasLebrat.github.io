@@ -10,6 +10,66 @@
 :end:
 
 
+* Introduction
+
+** Objectifs de l'activité et compétences travaillées
+
+Un ballon-sonde mesure les caractéristiques de l'atmosphère à l'aide d'instruments embarqués jusque des altitudes variables selon les modèles (ouverts/fermés) et les circonstances. On retient souvent la valeur approchée de $50~km$. Est-ce bien réaliste et pourquoi une telle limite ?
+
+Les données obtenues en fonction de l'altitude sont renvoyées au sol par signal radio. Comme vous pourrez le voir par la suite, l'importance de ces données /in situ/ est cruciale pour affiner les modèles physiques de l'atmosphère utilisés en météorologie et notamment /calibrer/ les mesures réalisées par satellite à des fin de télédétection.
+
+Nous vous fournissons ici une vingtaine de valeurs de température à analyser. Les questions Q1 à Q12 vous guident pour atteindre les 2 ojectifs principaux de cette activité : 
+
+1) Construire des profils verticaux $\rightarrow$ identifier les couches atmosphériques
+2) Déterminer un profil de pression $\looparrowright$ 100 km tenant compte de $\Delta T$
+3) Discuter la pertinence du choix de certaines hypothèses (iso-g, iso-T)
+
+Une participation active et constructive sera toujours bienvenue et valorisée. Vous êtes autorisés (et encouragés !) à nous solliciter pour nous soumettre vos questions scientifiques (ex: /Mais c'est quoi un gradient adiabatique ?/) ou techniques (ex: /Comment faire converger mon algorithme efficacement ?/). 
+
+Voici un début de liste des compétences qui seront travaillées dans ce module : 
+
+- Implémenter des méthodes numériques : *interpolation* et *intégration*
+- Comprendre le principe de la *régression* 
+- Explorer quelques possibités du language ~Python~ + ~numpy~ \footnote{avec l'utilisation de ~Matplotlib~ syntaxe proche de ~MATLAB~\texttrademark}
+
+Accéssoirement, vous pourrez utiliser des librairies spécialisées telles que ~scipy~, ~pandas~, ~plotly~ (...) et d'autres outils que vous aimeriez partager s'il permettent de gagner du temps de développement ou du temps de calcul.
+
+** Evaluation 
+
+S'il nous reste un peu de temps, nous pourrons aborder les points optionnels ($\ddag$) suivants traités aux questions Q13, Q14, Q15 et Q16 : 
+- Modéliser la physique de l'ascension d'un ballon sonde fermé (\ddag)
+- Estimer l'altitude maximale que celui-ci peut atteindre ($\ddag$)
+
+[x] A défaut, ces points pourront être avantageusement terminées à la maison pour constituer une évaluation.
+
+[x] Un exercice sur la formation d'un nuage vous est donné à faire en Devoir Maison. 
+
+
+** Documentation et remerciements
+
+*** biblio
+:PROPERTIES:  
+:UNNUMBERED: t  
+:END:  
+ Cette activité est très largement inspirée de la lecture des documents suivants (liste à compléter)
+ 
++ [[https://labolycee.org/mecanique-du-vol-dun-ballon-sonde][Exo Bac]]
++ [[http://www.msc.univ-paris-diderot.fr/~phyexp/pmwiki.php/Convention/ConvectionEtPanacheThermique][Images de panaches thermiques (UP7)]]
++ [[https://web.archive.org/web/20081119164748/http://www.meteofrance.com/FR/glossaire/designation/693_initie_view.jsp][Glossaire Meteo France]]
++ [[http://b.louchart.free.fr/Concours_et_examens/Centrale_Supelec/Sujets/2008_TSI_Physique_1.html][Sujet Concours TSI 2008]]
++ [[https://planet-terre.ens-lyon.fr/ressource/mouvts-enveloppes-fluides2.xml][Site Planète Terre ENS Lyon]]
+
+*** TODO nommenclature et origine des noms des couches
+:PROPERTIES:  
+    :UNNUMBERED: t
+    :END:      
+
+
+ \newpage
+
+
+
+
 * TP Sondage Atmosphérique
 
 ** préparatifs
