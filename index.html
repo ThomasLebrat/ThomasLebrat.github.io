@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-23 jeu. 00:26 -->
+<!-- 2023-02-23 jeu. 00:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Structure Thermique de l'atmopshère</title>
@@ -61,6 +61,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -69,21 +91,33 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgff8a830">1. TP Sondage Atmosphérique</a>
+<li><a href="#org157670a">1. Introduction</a>
 <ul>
-<li><a href="#org4b5dc84">1.1. préparatifs</a></li>
-<li><a href="#orgf09f07e">1.2. Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></a></li>
-<li><a href="#orgb6a44ca">1.3. Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#org1e9e630">1.4. Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#orgb79e99e">1.5. Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#org3647858">1.6. Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#org70a6904">1.7. Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#orgff251b1">1.8. Q7</a></li>
-<li><a href="#org69a2fbd">1.9. Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#orgc9d0f7a">1.10. Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#orgdfef2eb">1.11. Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#org4f94028">1.12. Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#org1488fc3">1.13. Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#orgfd39736">1.1. Objectifs de l'activité et compétences travaillées</a></li>
+<li><a href="#org4c66511">1.2. Evaluation</a></li>
+<li><a href="#org02dd1ae">1.3. Documentation et remerciements</a>
+<ul>
+<li><a href="#org4fa58fb">biblio</a></li>
+<li><a href="#org449e1c8"><span class="todo TODO">TODO</span> nommenclature et origine des noms des couches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org537d63b">2. TP Sondage Atmosphérique</a>
+<ul>
+<li><a href="#orga083f57">2.1. préparatifs</a></li>
+<li><a href="#org1978a79">2.2. Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></a></li>
+<li><a href="#org9671e66">2.3. Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org2b2694f">2.4. Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org533bea4">2.5. Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org61e63ec">2.6. Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#org6214815">2.7. Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#org1731b7c">2.8. Q7</a></li>
+<li><a href="#orgae703fc">2.9. Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org0d7cf08">2.10. Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#orgf3233fd">2.11. Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org055ba11">2.12. Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#orgef75839">2.13. Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></a></li>
 </ul>
 </li>
 </ul>
@@ -91,13 +125,115 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgff8a830" class="outline-2">
-<h2 id="orgff8a830"><span class="section-number-2">1</span> TP Sondage Atmosphérique</h2>
+<div id="outline-container-org157670a" class="outline-2">
+<h2 id="org157670a"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org4b5dc84" class="outline-3">
-<h3 id="org4b5dc84"><span class="section-number-3">1.1</span> préparatifs</h3>
+<div id="outline-container-orgfd39736" class="outline-3">
+<h3 id="orgfd39736"><span class="section-number-3">1.1</span> Objectifs de l'activité et compétences travaillées</h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+Un ballon-sonde mesure les caractéristiques de l'atmosphère à l'aide d'instruments embarqués jusque des altitudes variables selon les modèles (ouverts/fermés) et les circonstances. On retient souvent la valeur approchée de \(50~km\). Est-ce bien réaliste et pourquoi une telle limite ?
+</p>
+
+<p>
+Les données obtenues en fonction de l'altitude sont renvoyées au sol par signal radio. Comme vous pourrez le voir par la suite, l'importance de ces données <i>in situ</i> est cruciale pour affiner les modèles physiques de l'atmosphère utilisés en météorologie et notamment <i>calibrer</i> les mesures réalisées par satellite à des fin de télédétection.
+</p>
+
+<p>
+Nous vous fournissons ici une vingtaine de valeurs de température à analyser. Les questions Q1 à Q12 vous guident pour atteindre les 2 ojectifs principaux de cette activité : 
+</p>
+
+<ol class="org-ol">
+<li>Construire des profils verticaux \(\rightarrow\) identifier les couches atmosphériques</li>
+<li>Déterminer un profil de pression \(\looparrowright\) 100 km tenant compte de \(\Delta T\)</li>
+<li>Discuter la pertinence du choix de certaines hypothèses (iso-g, iso-T)</li>
+</ol>
+
+<p>
+Une participation active et constructive sera toujours bienvenue et valorisée. Vous êtes autorisés (et encouragés !) à nous solliciter pour nous soumettre vos questions scientifiques (ex: <i>Mais c'est quoi un gradient adiabatique ?</i>) ou techniques (ex: <i>Comment faire converger mon algorithme efficacement ?</i>). 
+</p>
+
+<p>
+Voici un début de liste des compétences qui seront travaillées dans ce module : 
+</p>
+
+<ul class="org-ul">
+<li>Implémenter des méthodes numériques : <b>interpolation</b> et <b>intégration</b></li>
+<li>Comprendre le principe de la <b>régression</b></li>
+<li>Explorer quelques possibités du language <code>Python</code> + <code>numpy</code> \footnote{avec l'utilisation de ~Matplotlib~ syntaxe proche de ~MATLAB~\texttrademark}</li>
+</ul>
+
+<p>
+Accéssoirement, vous pourrez utiliser des librairies spécialisées telles que <code>scipy</code>, <code>pandas</code>, <code>plotly</code> (&#x2026;) et d'autres outils que vous aimeriez partager s'il permettent de gagner du temps de développement ou du temps de calcul.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c66511" class="outline-3">
+<h3 id="org4c66511"><span class="section-number-3">1.2</span> Evaluation</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+S'il nous reste un peu de temps, nous pourrons aborder les points optionnels (\(\ddag\)) suivants traités aux questions Q13, Q14, Q15 et Q16 : 
+</p>
+<ul class="org-ul">
+<li>Modéliser la physique de l'ascension d'un ballon sonde fermé (&Dagger;)</li>
+<li>Estimer l'altitude maximale que celui-ci peut atteindre (\(\ddag\))</li>
+</ul>
+
+<p>
+[x] A défaut, ces points pourront être avantageusement terminées à la maison pour constituer une évaluation.
+</p>
+
+<p>
+[x] Un exercice sur la formation d'un nuage vous est donné à faire en Devoir Maison. 
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org02dd1ae" class="outline-3">
+<h3 id="org02dd1ae"><span class="section-number-3">1.3</span> Documentation et remerciements</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org4fa58fb" class="outline-4">
+<h4 id="org4fa58fb">biblio</h4>
+<div class="outline-text-4" id="text-org4fa58fb">
+<p>
+Cette activité est très largement inspirée de la lecture des documents suivants (liste à compléter)
+</p>
+
+<ul class="org-ul">
+<li><a href="https://labolycee.org/mecanique-du-vol-dun-ballon-sonde">Exo Bac</a></li>
+<li><a href="http://www.msc.univ-paris-diderot.fr/~phyexp/pmwiki.php/Convention/ConvectionEtPanacheThermique">Images de panaches thermiques (UP7)</a></li>
+<li><a href="https://web.archive.org/web/20081119164748/http://www.meteofrance.com/FR/glossaire/designation/693_initie_view.jsp">Glossaire Meteo France</a></li>
+<li><a href="http://b.louchart.free.fr/Concours_et_examens/Centrale_Supelec/Sujets/2008_TSI_Physique_1.html">Sujet Concours TSI 2008</a></li>
+<li><a href="https://planet-terre.ens-lyon.fr/ressource/mouvts-enveloppes-fluides2.xml">Site Planète Terre ENS Lyon</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org449e1c8" class="outline-4">
+<h4 id="org449e1c8"><span class="todo TODO">TODO</span> nommenclature et origine des noms des couches</h4>
+<div class="outline-text-4" id="text-org449e1c8">
+<p>
+\newpage
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org537d63b" class="outline-2">
+<h2 id="org537d63b"><span class="section-number-2">2</span> TP Sondage Atmosphérique</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orga083f57" class="outline-3">
+<h3 id="orga083f57"><span class="section-number-3">2.1</span> préparatifs</h3>
+<div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>On importe les librairies standards et on fixe les valeurs des constantes physiques.</li>
 <li>On saisie les tableaux de valeurs de température</li>
@@ -152,18 +288,18 @@ Les lignes de code seront susceptibles d'être remaniées et/ou commentées en f
 </div>
 
 
-<div id="outline-container-orgf09f07e" class="outline-3">
-<h3 id="orgf09f07e"><span class="section-number-3">1.2</span> Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org1978a79" class="outline-3">
+<h3 id="org1978a79"><span class="section-number-3">2.2</span> Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Tableau">Tableau</span></span></h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 Ce point a été traité en séance au tableau (TAG: Tableau)
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb6a44ca" class="outline-3">
-<h3 id="orgb6a44ca"><span class="section-number-3">1.3</span> Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-org9671e66" class="outline-3">
+<h3 id="org9671e66"><span class="section-number-3">2.3</span> Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">T</span>(z, unite):
     <span style="color: #BA36A5;">z_km</span> = z / 1000 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Conversion en km pour comparaison dans la liste</span>
@@ -180,9 +316,9 @@ Ce point a été traité en séance au tableau (TAG: Tableau)
 </div>
 </div>
 
-<div id="outline-container-org1e9e630" class="outline-3">
-<h3 id="org1e9e630"><span class="section-number-3">1.4</span> Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org2b2694f" class="outline-3">
+<h3 id="org2b2694f"><span class="section-number-3">2.4</span> Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-2-4">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">N</span> = 1000 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Nombre de points</span>
 <span style="color: #BA36A5;">zmax</span> = 100.0e3 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Altitude max (en m)</span>
@@ -195,9 +331,9 @@ Ce point a été traité en séance au tableau (TAG: Tableau)
 </div>
 
 
-<div id="outline-container-orgb79e99e" class="outline-3">
-<h3 id="orgb79e99e"><span class="section-number-3">1.5</span> Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-org533bea4" class="outline-3">
+<h3 id="org533bea4"><span class="section-number-3">2.5</span> Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-2-5">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
 ax.plot( Tatm,zatm)
@@ -215,17 +351,17 @@ plt.savefig(<span style="color: #008000;">"graph_Q4.png"</span>)
 </div>
 
 
-<div id="outline-container-org3647858" class="outline-3">
-<h3 id="org3647858"><span class="section-number-3">1.6</span> Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
+<div id="outline-container-org61e63ec" class="outline-3">
+<h3 id="org61e63ec"><span class="section-number-3">2.6</span> Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
 </div>
 
-<div id="outline-container-org70a6904" class="outline-3">
-<h3 id="org70a6904"><span class="section-number-3">1.7</span> Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
+<div id="outline-container-org6214815" class="outline-3">
+<h3 id="org6214815"><span class="section-number-3">2.7</span> Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
 </div>
 
-<div id="outline-container-orgff251b1" class="outline-3">
-<h3 id="orgff251b1"><span class="section-number-3">1.8</span> Q7</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-org1731b7c" class="outline-3">
+<h3 id="org1731b7c"><span class="section-number-3">2.8</span> Q7</h3>
+<div class="outline-text-3" id="text-2-8">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">g</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Champ de pesanteur</span>
     <span style="color: #0000FF;">return</span> g0 * RT**2 / (RT + z)**2
@@ -257,9 +393,9 @@ plt.savefig(<span style="color: #008000;">"graph_Q7.png"</span>)
 </div>
 
 
-<div id="outline-container-org69a2fbd" class="outline-3">
-<h3 id="org69a2fbd"><span class="section-number-3">1.9</span> Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-1-9">
+<div id="outline-container-orgae703fc" class="outline-3">
+<h3 id="orgae703fc"><span class="section-number-3">2.9</span> Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-2-9">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">masse_atm</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Calcul de la masse d&#8217;air jusqu&#8217;&#224; l&#8217;altitude z</span>
     <span style="color: #BA36A5;">masse</span> = 0
@@ -292,9 +428,9 @@ Masse de l'atmosphère : 1.0772432715500982e+16 kg
 </div>
 
 
-<div id="outline-container-orgc9d0f7a" class="outline-3">
-<h3 id="orgc9d0f7a"><span class="section-number-3">1.10</span> Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
-<div class="outline-text-3" id="text-1-10">
+<div id="outline-container-org0d7cf08" class="outline-3">
+<h3 id="org0d7cf08"><span class="section-number-3">2.10</span> Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
+<div class="outline-text-3" id="text-2-10">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">Patm2</span> = [P0]
 <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N - 1):
@@ -321,9 +457,9 @@ plt.savefig(<span style="color: #008000;">"graph_Q9.png"</span>)
 
 
 
-<div id="outline-container-orgdfef2eb" class="outline-3">
-<h3 id="orgdfef2eb"><span class="section-number-3">1.11</span> Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-1-11">
+<div id="outline-container-orgf3233fd" class="outline-3">
+<h3 id="orgf3233fd"><span class="section-number-3">2.11</span> Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-2-11">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">Piso</span> = [P0]
 <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N - 1):
@@ -349,13 +485,13 @@ plt.savefig(<span style="color: #008000;">"graph_Q10.png"</span>)
 </div>
 
 
-<div id="outline-container-org4f94028" class="outline-3">
-<h3 id="org4f94028"><span class="section-number-3">1.12</span> Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
+<div id="outline-container-org055ba11" class="outline-3">
+<h3 id="org055ba11"><span class="section-number-3">2.12</span> Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
 </div>
 
-<div id="outline-container-org1488fc3" class="outline-3">
-<h3 id="org1488fc3"><span class="section-number-3">1.13</span> Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></h3>
-<div class="outline-text-3" id="text-1-13">
+<div id="outline-container-orgef75839" class="outline-3">
+<h3 id="orgef75839"><span class="section-number-3">2.13</span> Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></h3>
+<div class="outline-text-3" id="text-2-13">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">ztropo</span>, <span style="color: #BA36A5;">Ttropo</span> = [], [] <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Initialisation des listes</span>
 <span style="color: #BA36A5;">k</span> = 0
@@ -416,7 +552,7 @@ plt.savefig(<span style="color: #008000;">"graph_Q12.png"</span>)
 <div id="postamble" class="status">
 <p class="date">Date: 2023-02-01 mer. 00:00</p>
 <p class="author">Author: Thomas Lebrat</p>
-<p class="date">Created: 2023-02-23 jeu. 00:26</p>
+<p class="date">Created: 2023-02-23 jeu. 00:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
