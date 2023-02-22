@@ -1,7 +1,7 @@
 #+TITLE: CODE TP 1 
 #+DATE: <2023-02-01 mer.>
 
-#+OPTIONS: d:t
+#+OPTIONS: d:nil
 
 :tiroir:
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
@@ -9,60 +9,11 @@
 :end:
 
 
-* Recommendations 
-
-
-** librairies
-
-On installe une librairie avec la commande suivante :
-
-#+BEGIN_SRC sh
-pip install matplotlib.pyplot
-#+END_SRC
-
-
-Dans un script Python on réalise des imports ciblés de librairies avec les instructions suivantes : 
-
-#+BEGIN_SRC python
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.integrate import odeint
-#+END_SRC
-
-
-** Ecriture
-
-On se donne quelques conventions pour écrire un code lisible par tous 
-- mettre des commentaires ~# step i : description ...~ à chaque moment important
-- utiliser des noms de variables explicites ~Texp~ fait référence à la température expérimentale
-- se limiter dans un premier temps à l'utilisation de 2 librairies d'usage courant :
-  - ~numpy~ pour le calcul vectoriel
-  - ~matplotlib~ pour le tracé de graphes
-
-** liste
-
-On se remémore quelques instructions de base
-
-#+BEGIN_SRC jupyter-python :results output verbatim :exports both
-Personnages = ['RIRI', 'FIFI', 'LOUOU']
-taille = len(Amis)
-print(taille)
-Personnages.append('GEO')
-print(Personnages)
-#+END_SRC
-
-#+RESULTS:
-:RESULTS:
-8
-['RIRI', 'FIFI', 'LOUOU', 'GEO']
-:END:
-
-
 
 * préparatifs
 
 - On importe les librairies standards et on fixe les valeurs des constantes physiques.
-- On saisit les tableaux de valeurs expérimentales, d'altitude et de température.
+- On saisie les tableaux de valeurs de température
 - On teste l'execution dans une première cellule (Jupyter Notebook par ex)
 
 
@@ -95,50 +46,30 @@ plt.savefig("graph_Q0.png")
 #+RESULTS:
 [[file:./.ob-jupyter/a60bc0e706dedf58e67f07c07108a1cd231a7778.png]]
 
-- Pour les utilisateurs avancés, possible également d'utiliser ~pandas~ pour importer le fichier de données ~.csv~ (à tester dans une séance ultérieure)
-
-
-Les sections qui suivent contiennent des premiers éléments de correction. 
-Les lignes de code seront susceptibles d'être remaniées au fil de l'eau et/ou commentées en fonction de vos retours (difficultés/suggestions d'améliorations)
-
-
-* Q1 - Formule de l'interpolation -                                 :Tableau:
-
-Ce point a été traité en séance au tableau (voir polycopié pour une synthèse).
-
-$$ $$
-
-* Q2 - Ecriture de la fonction T(z,unite)                              :CODE:
-
-Il y a un petit raisonnement à mener pour 
 
 
 
-Certains d'entre vous choissisent de faire la conversion dans un cellule à part pour plus de rigeur. C'est certainement une /meilleure pratique/ à privilégier.
+Voici quelques premiers éléments de correction. 
 
-Il y a 3 termes dans cette formule d'interpolation 
-- le premier pour gérer le décallage éventuel du au choix de l'unité
-- la valeur de la température de référence
-- l'incrément de température calcul en utilisant la pete
-
-C'est seulement lorsque l'altitude considérée est supérieure à l'altitude du point de mesure $zkm>zexp$
-
-La fonctionalité de conversion d'unité peut être implémentée dans un deuxième temps.
+Les lignes de code seront susceptibles d'être remaniées et/ou commentées en fonction de vos retours.
 
 
-$$ temperature = alpha*273 + Texp[i] + \frac{zkm - zexp[i]}{ (zexp[i + 1] - zexp[i])*(Texp[i + 1] - Texp[i]) }$$
+* Q1 - formule de l'interpolation -                                 :Tableau:
 
+Ce point a été traité en séance au tableau (TAG: Tableau)
+
+* Q2 -                                                                 :CODE:
 
 #+BEGIN_SRC jupyter-python :results output raw :exports both
 def T(z, unite):
-    zkm = z / 1000 # Conversion en km pour comparaison dans la liste
-    alpha = 1
+    z_km = z / 1000 # Conversion en km pour comparaison dans la liste
+    alpha = 1 # Valeur par défaut pour la conversion en K
     if unite == 'C':
         alpha = 0 # Pas de décalage pour la température en °C
     i = 0
-    while zkm > zexp[i + 1]: # Recherche de l’indice i
+    while z_km > zexp[i + 1]: # Recherche de l’indice i
         i = i + 1
-    temperature = alpha*273 + Texp[i] + (zkm - zexp[i])/(zexp[i + 1] - zexp[i])*(Texp[i + 1] - Texp[i]) # Interpolation linéaire
+    temperature = alpha*273 + Texp[i] + (z_km - zexp[i])/(zexp[i + 1] - zexp[i])*(Texp[i + 1] - Texp[i]) # Interpolation linéaire
     return temperature
 #+END_SRC
 
@@ -206,7 +137,7 @@ plt.savefig("graph_Q7.png")
 * Q8                                                                   :CODE:
 
 
-#+BEGIN_SRC jupyter-python  
+#+BEGIN_SRC jupyter-python :results output raw :exports both
 def masse_atm(z): # Calcul de la masse d’air jusqu’à l’altitude z
     masse = 0
     k = 0
@@ -220,15 +151,13 @@ def masse_atm(z): # Calcul de la masse d’air jusqu’à l’altitude z
 #+RESULTS:
 
 
-#+BEGIN_SRC jupyter-python  
+#+BEGIN_SRC jupyter-python :results output raw :exports both
 mtot = masse_atm(100e3) # Masse d'air dans l'atmosphère terrestre
 print('Masse de l\'atmosphère :', mtot, 'kg')
 #+END_SRC
 
 #+RESULTS:
-:RESULTS:
 Masse de l'atmosphère : 1.0772432715500982e+16 kg
-:END:
 
 
 #+BEGIN_SRC jupyter-python  
@@ -244,7 +173,7 @@ Proportion d'air dans la troposphère : 0.004662119957938924
 
 * Q9                                                                :TABLEAU:
 
-#+BEGIN_SRC jupyter-python
+#+BEGIN_SRC jupyter-python :results output raw :exports both
 Patm2 = [P0]
 for k in range(N - 1):
     Patm2.append(Patm2[k] - M*g0*Patm2[k]*dz/(R*T(zatm[k], 'K')))
@@ -254,16 +183,14 @@ ecart1 = 100 * abs(Patm - Patm2) / Patm # Ecart relatif
 
 #+RESULTS:
 
-#+BEGIN_SRC jupyter-python  
+#+BEGIN_SRC jupyter-python :results output raw :exports both
 fig, ax = plt.subplots()
 ax.plot( ecart1,zatm)
 plt.savefig("graph_Q9.png")
 #+END_SRC
 
 #+RESULTS:
-:RESULTS:
 [[file:./.ob-jupyter/976970ca5f6bd41e43d20f0987b5263393e64f05.png]]
-:END:
 
 
 
@@ -293,62 +220,50 @@ plt.savefig("graph_Q10.png")
 
 * Q12                                                          :CODE:TABLEAU:
 
-#+BEGIN_SRC jupyter-python
+#+BEGIN_SRC jupyter-python :results output raw :exports both
 ztropo, Ttropo = [], [] # Initialisation des listes
 k = 0
 while zatm[k] < 10e3: # On sélectionne les données jusqu’à 10km
     ztropo.append(zatm[k])
     Ttropo.append(T(zatm[k], 'K'))
-    k = k + 1
+    k = k + 1 # NB:: On a pris en fait 1 point sur 5 pour le graphe
 # Régression linéaire T(z)=a*z+b
 a, b = np.polyfit(ztropo, Ttropo, 1) # Calcul de la régression linéaire
 Tlin = [a*z + b for z in ztropo] # Modèle linéaire de la température
 
+
 print(a,b)
+#+END_SRC
+
+#+RESULTS:
+-0.006402700270027003 287.5138802168507
 
 
+#+BEGIN_SRC jupyter-python :results output raw :exports both
 Pgradient = [P0]
 for k in range(len(ztropo) - 1):
     Pgradient.append(Pgradient[k] - M*g0*Pgradient[k]*dz/(R*(a*zatm[k] + b)))
 Pgradient = np.array(Pgradient)
 ecart3 = 100 * abs(Pgradient - Patm) / Patm
-
 #+END_SRC
 
 #+RESULTS:
-:RESULTS:
--0.006402700270027003 287.5138802168507
 # [goto error]
+[0;31m[0m
+[0;31mValueError[0mTraceback (most recent call last)
+[0;32m<ipython-input-16-8ae4b0545b27>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m     [0mPgradient[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mPgradient[0m[0;34m[[0m[0mk[0m[0;34m][0m [0;34m-[0m [0mM[0m[0;34m*[0m[0mg0[0m[0;34m*[0m[0mPgradient[0m[0;34m[[0m[0mk[0m[0;34m][0m[0;34m*[0m[0mdz[0m[0;34m/[0m[0;34m([0m[0mR[0m[0;34m*[0m[0;34m([0m[0ma[0m[0;34m*[0m[0mzatm[0m[0;34m[[0m[0mk[0m[0;34m][0m [0;34m+[0m [0mb[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mPgradient[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mPgradient[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mecart3[0m [0;34m=[0m [0;36m100[0m [0;34m*[0m [0mabs[0m[0;34m([0m[0mPgradient[0m [0;34m-[0m [0mPatm[0m[0;34m)[0m [0;34m/[0m [0mPatm[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: operands could not be broadcast together with shapes (100,) (1000,) 
 
-ValueErrorTraceback (most recent call last)
-<ipython-input-32-fe345e124b4e> in <module>
-     16     Pgradient.append(Pgradient[k] - M*g0*Pgradient[k]*dz/(R*(a*zatm[k] + b)))
-     17 Pgradient = np.array(Pgradient)
----> 18 ecart3 = 100 * abs(Pgradient - Patm) / Patm
-
-ValueError: operands could not be broadcast together with shapes (100,) (1000,) 
-:END:
-
-
-#+BEGIN_SRC jupyter-python
-
-#+END_SRC
 
 #+RESULTS:
 :RESULTS:
-# [goto error]
-
-ValueErrorTraceback (most recent call last)
-<ipython-input-29-8ae4b0545b27> in <module>
-      3     Pgradient.append(Pgradient[k] - M*g0*Pgradient[k]*dz/(R*(a*zatm[k] + b)))
-      4 Pgradient = np.array(Pgradient)
-----> 5 ecart3 = 100 * abs(Pgradient - Patm) / Patm
-
-ValueError: operands could not be broadcast together with shapes (100,) (1000,) 
+100
 :END:
-
-
-#+BEGIN_SRC jupyter-python  
+#+BEGIN_SRC jupyter-python :results output raw :exports both
 fig, ax = plt.subplots()
 ax.plot( ecart3,zatm)
 plt.savefig("graph_Q12.png")
@@ -359,10 +274,10 @@ plt.savefig("graph_Q12.png")
 # [goto error]
 
 NameErrorTraceback (most recent call last)
-<ipython-input-25-c79f05ea19df> in <module>
+<ipython-input-17-9c1724225630> in <module>
       1 fig, ax = plt.subplots()
 ----> 2 ax.plot( ecart3,zatm)
-      3 plt.savefig("graph_Q12.png")
+      3 plt.savefig("monprofil.png")
 
 NameError: name 'ecart3' is not defined
 [[file:./.ob-jupyter/61d2780d035746e2a1d41c3696837d1141c39f65.png]]
