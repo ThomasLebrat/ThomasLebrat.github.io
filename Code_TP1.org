@@ -12,11 +12,12 @@
 
 * Introduction
 
-** Objectifs de l'activité et compétences travaillées
-
 Un ballon-sonde mesure les caractéristiques de l'atmosphère à l'aide d'instruments embarqués jusque des altitudes variables selon les modèles (ouverts/fermés) et les circonstances. On retient souvent la valeur approchée de $50~km$. Est-ce bien réaliste et pourquoi une telle limite ?
 
 Les données obtenues en fonction de l'altitude sont renvoyées au sol par signal radio. L'importance de ces données /in situ/ est cruciale pour affiner les modèles physiques de l'atmosphère utilisés en météorologie et notamment /calibrer/ les mesures réalisées par satellite à des fin de télédétection.
+
+
+** Objectifs de l'activité et compétences travaillées
 
 Nous vous fournissons ici une vingtaine de valeurs de température à analyser. Les questions Q1 à Q12 vous guident pour atteindre les 3 ojectifs principaux de cette activité : 
 
@@ -54,10 +55,6 @@ Accéssoirement, vous pourrez utiliser des librairies spécialisées telles que 
 :PROPERTIES:  
     :UNNUMBERED: t
     :END:      
-
-
- \newpage
-
 
 
 
@@ -339,4 +336,5 @@ plt.savefig("graph_Q12.png")
  #+BEGIN_SRC jupyter-python  
 
  #+END_SRC
+
 
