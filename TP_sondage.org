@@ -69,6 +69,9 @@ S'il nous reste un peu de temps, nous pourrons aborder les points optionnels ($\
 
 
  \newpage
+
+
+
 * Dimensions de la Terre et idées reçues
 ** Les grecs et le rayon de la Terre (méthode d'Eratosthène)
 

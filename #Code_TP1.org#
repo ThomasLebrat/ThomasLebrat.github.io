@@ -250,13 +250,13 @@ A savoir traiter à l'examen !
 :END:  
 
 
-** Q6                                                               :TABLEAU:
+** Q6                                                          :TABLEAU:EXAM:
 :PROPERTIES:  
 :UNNUMBERED: t  
 :END:  
 
 
-Un autre classique (le fameux grad de P égal ROGER, mnémotechnique) : 
+Un autre classique (le fameux grad de P égal ROGER, moyen mnémotechnique) : 
 
 $$ \vec{\nabla} P = \rho \vec{g}$$
 
@@ -308,6 +308,18 @@ plt.savefig("graph_Q7.png")
 :UNNUMBERED: t  
 :END:  
 
+On exprime la masse d’air contenue dans le volume élémentaire d’atmosphère d
+situé entre les sphères d’altitudes $z$ et $z + dz$ tel que : 
+
+$$ d \tau = 4 \pi (R_T + z )^2 dz $$
+
+Ensuite, puisque $dm = \rho d \tau$, on obtient en remplaçant par la formule de la masse volumique trouvée plus haut : 
+
+
+$$ m(z) = {\int}_0^z 4 \pi (R_T + z )^2  \frac{M p(z)}{R T(z)} dz$$ 
+
+Voici, un exemple de code Python pour calculer cette intégrale par la méthode des rectangles : 
+
  #+BEGIN_SRC jupyter-python :results output raw :exports both
 def masse_atm(z): # Calcul de la masse d’air jusqu’à l’altitude z
     masse = 0
@@ -348,6 +360,8 @@ print('Proportion d\'air dans la troposphère :', mtropo/mtot)
 :PROPERTIES:  
 :UNNUMBERED: t  
 :END: 
+
+On recalcule la pression en supposant $g$ uniforme : 
 
  #+BEGIN_SRC jupyter-python :results output raw :exports both
 Patm2 = [P0]
@@ -401,6 +415,17 @@ plt.savefig("graph_Q10.png")
 :UNNUMBERED: t  
 :END:  
 
+Le champ de pression satisfait l'équation différentielle simplifiée (cas isotherme) : 
+$
+
+$$ \frac{dP}{dz} + \frac{M g_0}{R T_0} p(z) = 0$$ 
+
+Cette équation s'intègre classiquement ainsi en posant $H = RT/Mg$ : 
+
+$$ p(z) = P_0 e^{-z/H}$$
+
+*Note* : Je vous laisse le soin de réaliser l'application numérique que nous vérifierons au prochain debrief.
+
 
 ** Q12                                                         :CODE:TABLEAU:
 :PROPERTIES:  
@@ -450,6 +475,9 @@ plt.savefig("graph_Q12.png")
 
 
 * Exercice - Formation d'un nuage                                     :BONUS:
+
+Cet exercice était initialement prévu pour constituer un devoir maison. Nous avons finalement décider de ne pas vous le donner cette année en raison de la charge de travail due aux rapports de TP que vous aviez à t
+
 
 On souhaite expliquer la formation d'un nuage d'une manière simplifiée en envisageant les mécanismes thermodynamiques responsables du phénomène. Ici nous faisons l'hypothèse que l'apparition d'un nuage est d'abord conditionnée par un déplacement adiabatique de masses d’air. \footnote{On ommet volontairement certains phénomènes subtiles de nucléation dans cette première approche.}
 
