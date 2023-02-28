@@ -62,13 +62,26 @@ def masse_atm(z): # Calcul de la masse d’air jusqu’à l’altitude z
     masse = 0
     k = 0
     while zatm[k] < z: # On arrête le calcul à l’altitude z
-        dm = 4*np.pi*(RT_m)**2*M*Patm[k]/(R*T(zatm[k], 'K')) * dz
+        dm = 4*np.pi*(RT_m+zatm[k])**2*M*Patm[k]/(R*T(zatm[k], 'K')) * dz
         masse = masse + dm
         k = k + 1
     return masse
 
-mtropo10 = masse_atm(10e3) # Masse d'air dans la troposphère
-print('Proportion d\'air dans la troposphère :', mtropo)
+mtropo10 = masse_atm(100e3) # Masse d'air dans la troposphère
+print('Proportion d\'air dans la troposphère :', mtropo10)
 
 mtropo12 = masse_atm(15e3) # Masse d'air dans la troposphère
 print('Proportion d\'air dans la troposphère :', mtropo12)
+
+
+Patm2 = [P0]
+for k in range(N - 1):
+    Patm2.append(Patm2[k] - M*g0*Patm2[k]*dz/(R*T(zatm[k], 'K')))
+Patm2 = np.array(Patm2)
+ecart1 = 100 * abs(Patm - Patm2) / Patm # Ecart relatif
+
+fig, ax = plt.subplots()
+ax.plot( Patm,zatm)
+ax.plot( Patm2,zatm)
+plt.show()
+#plt.savefig("graph_Q13.png")
