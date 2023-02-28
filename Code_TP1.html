@@ -3,18 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-23 jeu. 15:09 -->
+<!-- 2023-02-28 mar. 11:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Structure Thermique de l'atmopshère</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Thomas Lebrat" />
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/hideshow.css"/>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/bigblow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/hideshow.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -91,40 +96,44 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6f5bf86">1. Introduction</a>
+<li><a href="#orgfb1e56e">1. Introduction</a>
 <ul>
-<li><a href="#orgd2836e8">1.1. Objectifs de l'activité et compétences travaillées</a></li>
-<li><a href="#orge629326">1.2. Documentation et remerciements</a>
+<li><a href="#orgc11cad5">1.1. Objectifs de l'activité et compétences travaillées</a></li>
+<li><a href="#org08c6f8b">1.2. Documentation et remerciements</a>
 <ul>
-<li><a href="#org49f703e">biblio</a></li>
-<li><a href="#orgac5baea"><span class="todo TODO">TODO</span> nommenclature et origine des noms des couches</a></li>
+<li><a href="#org16e3bf9"><span class="todo TODO">TODO</span> nommenclature et origine des noms des couches</a></li>
+<li><a href="#orgf60c8e9"><span class="todo TODO">TODO</span> biblio</a></li>
 </ul>
 </li>
-<li><a href="#org5623be6">1.3. Tableau commenté</a></li>
+<li><a href="#org6cfca9e">1.3. Tableau commenté</a></li>
 </ul>
 </li>
-<li><a href="#org2811c30">2. TP Sondage Atmosphérique - Correction</a>
+<li><a href="#org0ee0d9c">2. TP Sondage Atmosphérique - [ correction ]</a>
 <ul>
-<li><a href="#orgebb3eb0">2.1. préparatifs</a></li>
-<li><a href="#org8e0eab7">Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></a></li>
-<li><a href="#orge7b0f02">Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#orgd1bbcea">Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#org8a25af1">Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#orgc4f251d">2.2. Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></a></li>
-<li><a href="#orgc91ff80">Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></a></li>
-<li><a href="#org43e3e31">Q7</a></li>
-<li><a href="#org8fd392d">Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#orgf687567">Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#org40056c3">Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
-<li><a href="#orge4ab2d7">Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
-<li><a href="#org0d3f17e">Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#org55c4de7">Préparatifs</a></li>
+<li><a href="#org23cfb27">Q.01 - écriture de la formule d'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></a></li>
+<li><a href="#org6721c0a">Q.02 - écriture de la fonction d'interpolation de température -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="EXAM">EXAM</span></span></a></li>
+<li><a href="#org8b22575">Q.03 - remplissage des tableaux zatm et Tatm -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#org967b9ea">Q.04 - tracé du profil de température de l'atmosphère -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a>
+<ul>
+<li><a href="#orgce44667"><span class="todo TODO">TODO</span> petit plus</a></li>
 </ul>
 </li>
-<li><a href="#orgde41e28">3. Exercice - Formation d'un nuage&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BONUS">BONUS</span></span></a>
+<li><a href="#orgb69e297">Q.05 - masse volumique&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></a></li>
+<li><a href="#orgaac4b4d">Q.06 - équation différentielle du champ de pression&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></a></li>
+<li><a href="#org6a9c6df">Q.07</a></li>
+<li><a href="#org419a1f0">Q.08 - calcul de la masse totale de l'atmosphère&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#orgffff32f">Q.09&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#orga722512">Q.10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+<li><a href="#orgbbbfba5">Q.11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></a></li>
+<li><a href="#orga270e0a">Q.12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgc02976f">3. Exercice Formation d'un nuage - [ optionnel ]&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BONUS">BONUS</span></span></a>
 <ul>
-<li><a href="#org9371016">3.1. En l'abscence de mouvement (équilibre)</a></li>
-<li><a href="#org7243549">3.2. Apparition d'un mouvement (instabilté)</a></li>
-<li><a href="#org192d44d">3.3. Explication qualitative de la formation d'un nuage.</a></li>
+<li><a href="#org0f65808">3.1. En l'abscence de mouvement (équilibre)</a></li>
+<li><a href="#orgbd978b5">3.2. Apparition d'un mouvement (instabilté)</a></li>
+<li><a href="#org6fb965c">3.3. Explication qualitative de la formation d'un nuage.</a></li>
 </ul>
 </li>
 </ul>
@@ -132,8 +141,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org6f5bf86" class="outline-2">
-<h2 id="org6f5bf86"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgfb1e56e" class="outline-2">
+<h2 id="orgfb1e56e"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Un ballon-sonde mesure les caractéristiques de l'atmosphère à l'aide d'instruments embarqués. Les données obtenues en fonction de l'altitude sont renvoyées au sol par signal radio. L'importance de ces données <i>in situ</i> est cruciale pour affiner les modèles physiques de l'atmosphère utilisés en météorologie et notamment <i>calibrer</i> les mesures réalisées par satellite à des fin de télédétection.
@@ -146,8 +155,8 @@ Les altitudes maximales atteintes sont variables : cela dépend des modèles, en
 
 
 
-<div id="outline-container-orgd2836e8" class="outline-3">
-<h3 id="orgd2836e8"><span class="section-number-3">1.1</span> Objectifs de l'activité et compétences travaillées</h3>
+<div id="outline-container-orgc11cad5" class="outline-3">
+<h3 id="orgc11cad5"><span class="section-number-3">1.1</span> Objectifs de l'activité et compétences travaillées</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Nous fournissons une vingtaine de valeurs de température. Ces données ont été analysées lors de la premimère séance (voir le tableau commenté en section suivante).
@@ -189,15 +198,24 @@ Accéssoirement, vous pourrez utiliser des librairies spécialisées telles que 
 
 
 
-<div id="outline-container-orge629326" class="outline-3">
-<h3 id="orge629326"><span class="section-number-3">1.2</span> Documentation et remerciements</h3>
+<div id="outline-container-org08c6f8b" class="outline-3">
+<h3 id="org08c6f8b"><span class="section-number-3">1.2</span> Documentation et remerciements</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org49f703e" class="outline-4">
-<h4 id="org49f703e">biblio</h4>
-<div class="outline-text-4" id="text-org49f703e">
+<div id="outline-container-org16e3bf9" class="outline-4">
+<h4 id="org16e3bf9"><span class="todo TODO">TODO</span> nommenclature et origine des noms des couches</h4>
+<div class="outline-text-4" id="text-org16e3bf9">
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgf60c8e9" class="outline-4">
+<h4 id="orgf60c8e9"><span class="todo TODO">TODO</span> biblio</h4>
+<div class="outline-text-4" id="text-orgf60c8e9">
 <p>
-Cette activité est très largement inspirée de la lecture des documents suivants (liste à compléter)
+Cette activité est inspirée des documents suivants (liste à compléter)
 </p>
 
 <ul class="org-ul">
@@ -209,19 +227,10 @@ Cette activité est très largement inspirée de la lecture des documents suivan
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgac5baea" class="outline-4">
-<h4 id="orgac5baea"><span class="todo TODO">TODO</span> nommenclature et origine des noms des couches</h4>
-<div class="outline-text-4" id="text-orgac5baea">
-</div>
-</div>
 </div>
 
-
-
-
-<div id="outline-container-org5623be6" class="outline-3">
-<h3 id="org5623be6"><span class="section-number-3">1.3</span> Tableau commenté</h3>
+<div id="outline-container-org6cfca9e" class="outline-3">
+<h3 id="org6cfca9e"><span class="section-number-3">1.3</span> Tableau commenté</h3>
 <div class="outline-text-3" id="text-1-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -428,18 +437,26 @@ Attention, la conversion en Kelvin peut-être source d'erreurs ! Pour nos calcul
 </div>
 
 
-<div id="outline-container-org2811c30" class="outline-2">
-<h2 id="org2811c30"><span class="section-number-2">2</span> TP Sondage Atmosphérique - Correction</h2>
+<div id="outline-container-org0ee0d9c" class="outline-2">
+<h2 id="org0ee0d9c"><span class="section-number-2">2</span> TP Sondage Atmosphérique - [ correction ]</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgebb3eb0" class="outline-3">
-<h3 id="orgebb3eb0"><span class="section-number-3">2.1</span> préparatifs</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org55c4de7" class="outline-3">
+<h3 id="org55c4de7">Préparatifs</h3>
+<div class="outline-text-3" id="text-org55c4de7">
 <ul class="org-ul">
-<li>On importe les librairies standards et on fixe les valeurs des constantes physiques.</li>
-<li>On saisie les tableaux de valeurs de température</li>
-<li>On teste l'execution dans une première cellule (Jupyter Notebook par ex)</li>
+<li>Importer des librairies (on se limite aux lib standards)</li>
+<li>Fixer les valeurs des constantes physiques</li>
+<li>Attention aux unités \(km\) (non SI) et \(kg\) (SI)</li>
+<li>Saisir les tableaux de valeurs de température</li>
+<li>Tester collectivement l'execution d'un même bout de code</li>
 </ul>
+
+
+<p>
+Ici nous avons fait le choix du mode Python (version 3) édité via Jupyter-Emacs.
+</p>
+
 
 
 <div class="org-src-container">
@@ -447,38 +464,40 @@ Attention, la conversion en Kelvin peut-être source d'erreurs ! Pour nos calcul
 <span style="color: #0000FF;">import</span> matplotlib
 <span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
 
-<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">Constants</span>
-<span style="color: #BA36A5;">M</span> = 29.0e-3
-<span style="color: #BA36A5;">R</span> = 8.31
-<span style="color: #BA36A5;">P0</span> = 1.0e5
-<span style="color: #BA36A5;">g0</span> = 9.8
-<span style="color: #BA36A5;">RT</span> = 6.4e3
-<span style="color: #BA36A5;">pi</span> = np.pi
+<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">Constantes</span>
+<span style="color: #BA36A5;">pi</span> = np.pi ; <span style="color: #BA36A5;">M</span> = 29.0e-3 ; <span style="color: #BA36A5;">R</span> = 8.31
+
+<span style="color: #BA36A5;">RT</span> = 6.4e3  ; <span style="color: #BA36A5;">RT_m</span> = 6.4e6
+<span style="color: #BA36A5;">P0</span> = 1.0e5  ; <span style="color: #BA36A5;">g0</span> = 9.8
+<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">Cte = </span>
 
 <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">Altitude en km</span>
 <span style="color: #BA36A5;">zexp</span> = np.array([0.0, 5.0, 10.0, 12.0, 20.0, 25.0, 30.0,35.0, 40.0,
                  45.0, 48.0, 52.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 84.0, 92.0, 95.0,100.0])
 
+<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">Temp&#233;rature en degr&#233;s celcius</span>
 <span style="color: #BA36A5;">Texp</span> = np.array([15.0, -18.0, -49.0, -56.0, -56.0, -51.0, -46.0, -37.0,
                  -22.0, -8.0, -2.0, -2.0, -7.0, -17.0, -33.0, -54.0, -65.0, -79.0, -86.0,-86.0, -81.0, -72.0])
 
-<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">+BEGIN_SRC jupyter-python</span>
-<span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
+
+</pre>
+</div>
+
+<p>
+On réalise un premier graphique, ocasion de vérfier la bonne saisie des valeurs : 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
 ax.plot( Texp,zexp)
+plt.show()
 plt.savefig(<span style="color: #008000;">"graph_Q0.png"</span>)
 </pre>
 </div>
 
 
-<div class="figure">
-<p><img src="./.ob-jupyter/a60bc0e706dedf58e67f07c07108a1cd231a7778.png" alt="a60bc0e706dedf58e67f07c07108a1cd231a7778.png" />
-</p>
-</div>
-
-
-
 <p>
-Remarque : les lignes de code seront susceptibles d'être remaniées et/ou commentées en fonction de vos retours.
+<b>NB</b> : les lignes de code seront susceptibles d'être remaniées et/ou commentées en fonction de vos retours.
 </p>
 
 <p>
@@ -488,35 +507,54 @@ Les tags <code>TABLEAU</code> et <code>CODE</code> rappellent lorsque les questi
 </div>
 
 
-<div id="outline-container-org8e0eab7" class="outline-3">
-<h3 id="org8e0eab7">Q1 - formule de l'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></h3>
-<div class="outline-text-3" id="text-org8e0eab7">
+<div id="outline-container-org23cfb27" class="outline-3">
+<h3 id="org23cfb27">Q.01 - écriture de la formule d'interpolation -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></h3>
+<div class="outline-text-3" id="text-org23cfb27">
 <p>
-Ce point a été traité en séance au tableau (TAG: Tableau)
+Un travail de reformulation de la question est fait avec les étudiants.
 </p>
 
 <p>
-Considérons un petit intervalle \(Z_{i}\) = \(\left[ z_{i} ; z_{i+1} \right]\) et plaçons en ordonnée deux points successifs \(M_{i} \left( z_i,T_i \right)\) et \(M_{i+1} \left ( z_{i+1}, T_{i+1} \right)\). Nous avons répondu à l'oral aux questions suivantes :
+Considérons un intervalle \(Z_{i}\) = \(\left[ z_{i} ~; z_{i+1} \right]\). On place sur un schéma deux points successifs \(M_{i} \left( z_i,T_i \right)\) et \(M_{i+1} \left ( z_{i+1}, T_{i+1} \right)\). Réaliser une <i>interpolation linéaire</i> revient à : 
 </p>
 
 <ul class="org-ul">
-<li>Que vaut la température correspondant à un point milieu de cet intervalle ?</li>
-<li>De combien de paramètres dépend la fonction d'interpolation affine \(T(z)\) sur \(Z_{i}\) ?</li>
-<li>Exprimer les en fonction des données mesurées aux points \(M_{i}(z_i,T_i)\) et \(M_{i+1}(z_{i+1}, T_{i+1})\).</li>
+<li>déterminer la droite joignant ces deux points (i.e quelle est son équation ?)</li>
+<li>générer un ensemble points appartenant à cette droite à l'aider d'un script</li>
 </ul>
 
+<p>
+Pour guider la résolution, nous avons répondu à l'oral aux questions suivantes:
+</p>
+
+<ol class="org-ol">
+<li>Que vaut la température correspondant à un point milieu de cet intervalle ?</li>
+<li>De combien de paramètres dépend la fonction d'interpolation affine \(T(z)\) sur l'intervalle \(Z_{i}\) ?</li>
+<li>Exprimer les paramètres en fonction des données mesurées aux points \(M_{i}(z_i,T_i)\) et \(M_{i+1}(z_{i+1}, T_{i+1})\).</li>
+</ol>
 
 <p>
-Dans ce cas simple, on peut bien sûr trouver la solution par tatônnements. On pourra sinon poser proprement un système d'équations, avec autant d'équations que d'inconnues, méthode qui s'avérera toujours payante pour les techniques d'interpolation plus sophistiquées &#x2026;
+Remarque : Dans ce cas simple, on peut trouver facilement la solution par tatônnements. On pourra sinon poser proprement un système d'équations, avec autant d'équations que d'inconnues (méthode qui s'avérera toujours payante pour les techniques d'interpolation plus sophistiquée).
+</p>
+
+<p>
+<b>NB</b> (en vue de l'examen) : tous les élèves présents au TP ont réussi à réaliser l'interpolation en Python ou en Matlab/Octabe (temps de réalisation moyen pour un programme sans bug ~1h). Un corrigé a été réalisé au tableau. Il est donc attendu que vous sachiez expliquer simplement le travail réalisé. 
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge7b0f02" class="outline-3">
-<h3 id="orge7b0f02">Q2 -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-orge7b0f02">
+
+<div id="outline-container-org6721c0a" class="outline-3">
+<h3 id="org6721c0a">Q.02 - écriture de la fonction d'interpolation de température -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="EXAM">EXAM</span></span></h3>
+<div class="outline-text-3" id="text-org6721c0a">
+<p>
+Partant des mesures d'altitude fournies et en faisant attention au choix des unités (source de nombreuses erreurs), on implémente le bout de code artisanal suivant (nous vous invitons à améliorer son écriture &#x2026;)
+</p>
+
+
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">T</span>(z, unite):
+<pre class="src src-jupyter-python"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">interpolation</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">T</span>(z, unite):
     <span style="color: #BA36A5;">z_km</span> = z / 1000 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Conversion en km pour comparaison dans la liste</span>
     <span style="color: #BA36A5;">alpha</span> = 1 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Valeur par d&#233;faut pour la conversion en K</span>
     <span style="color: #0000FF;">if</span> unite == <span style="color: #008000;">'C'</span>:
@@ -531,46 +569,112 @@ Dans ce cas simple, on peut bien sûr trouver la solution par tatônnements. On 
 </div>
 </div>
 
-<div id="outline-container-orgd1bbcea" class="outline-3">
-<h3 id="orgd1bbcea">Q3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-orgd1bbcea">
+<div id="outline-container-org8b22575" class="outline-3">
+<h3 id="org8b22575">Q.03 - remplissage des tableaux zatm et Tatm -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-org8b22575">
+<p>
+On calcule \(N\) altitudes régulièrement réparties entre 0 et 100 km avec leur températures correspondantes : 
+</p>
+
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">N</span> = 1000 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Nombre de points</span>
 <span style="color: #BA36A5;">zmax</span> = 100.0e3 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Altitude max (en m)</span>
-<span style="color: #BA36A5;">dz</span> = zmax/(N - 1) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Pas spatial (en m)</span>
+<span style="color: #BA36A5;">dz</span> = zmax/(N-1) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Pas spatial (en m)</span>
+
 <span style="color: #BA36A5;">zatm</span> = np.array([k*dz <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N)]) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Altitudes</span>
-<span style="color: #BA36A5;">Tatm</span> = np.array([T(zatm[k], <span style="color: #008000;">'C'</span>) <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N)]) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Temp&#233;ratures</span>
+<span style="color: #BA36A5;">Tatm</span> = np.array([T(zatm[k], <span style="color: #008000;">'K'</span>) <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N)]) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Temp&#233;ratures</span>
+
+<span style="color: #BA36A5;">TexpC</span> = Texp + 273
+<span style="color: #BA36A5;">zexpm</span> = zexp * 1e3
 </pre>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org8a25af1" class="outline-3">
-<h3 id="org8a25af1">Q4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-org8a25af1">
+<div id="outline-container-org967b9ea" class="outline-3">
+<h3 id="org967b9ea">Q.04 - tracé du profil de température de l'atmosphère -&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-org967b9ea">
+<p>
+On réalise le graphe et on vérifie la justesse de l'interpolation (vert) par l'ajout des points de mesure (rouges).
+</p>
+
+
+
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
-ax.plot( Tatm,zatm)
-ax.plot( Tatm,zatm)
+ax.plot( TexpC,zexpm,<span style="color: #008000;">'ro'</span>)
+ax.plot( Tatm,zatm,<span style="color: #008000;">'-g'</span>)
 plt.savefig(<span style="color: #008000;">"graph_Q4.png"</span>)
 </pre>
 </div>
 
 
 <div class="figure">
-<p><img src="./.ob-jupyter/bce4b3c06ad759508b4d43d220f481ab699a1e96.png" alt="bce4b3c06ad759508b4d43d220f481ab699a1e96.png" />
+<p><img src="./.ob-jupyter/64d36bfdbe940879ce0bb7f3ecdc9afd2c3d8bfb.png" alt="64d36bfdbe940879ce0bb7f3ecdc9afd2c3d8bfb.png" />
+</p>
+</div>
+
+<p>
+On distingue les différentes couches.
+</p>
+
+<p>
+Je vous laisse le soin de retrouver les intervalles en z correspondants : 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">troposphère</th>
+<th scope="col" class="org-left">stratosphère</th>
+<th scope="col" class="org-left">mesosphère</th>
+<th scope="col" class="org-left">thermosphère</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">[ &#x2026; ; &#x2026;]</td>
+<td class="org-left">[ &#x2026; ; &#x2026; ]</td>
+<td class="org-left">[ &#x2026; ; &#x2026; ]</td>
+<td class="org-left">[ &#x2026; ; &#x2026; ]</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-orgce44667" class="outline-4">
+<h4 id="orgce44667"><span class="todo TODO">TODO</span> petit plus</h4>
+<div class="outline-text-4" id="text-orgce44667">
+<p>
+Un étudiant à réalisé un joli graphe permettant d'identifier les couches.
+Il pourrait être ajouté ci après.
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgc4f251d" class="outline-3">
-<h3 id="orgc4f251d"><span class="section-number-3">2.2</span> Q5&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></h3>
-<div class="outline-text-3" id="text-2-2">
+
+
+
+<div id="outline-container-orgb69e297" class="outline-3">
+<h3 id="orgb69e297">Q.05 - masse volumique&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></h3>
+<div class="outline-text-3" id="text-orgb69e297">
 <p>
-On montre que : 
+On a montré en séance que : 
 </p>
 
 <p>
@@ -578,27 +682,33 @@ On montre que :
 </p>
 
 <p>
-Question classique, nécéssitant de manipuler <b><b>l'équation des gaz parfaits</b></b> couplée aux définitions des <b><b>masses molaires</b></b> et <b><b>masses volumiques</b></b>. 
+Question classique, nécéssitant de manipuler <i>l'équation des gaz parfaits</i> couplée aux définitions des <i>masses molaires</i> et <i>masses volumiques</i>.
 </p>
 
 <p>
-<b><b>remarque</b></b> : quelques étudiants ont eu des difficultés à retrouver la formule rapidement. (Pour y remédier, des techniques ont été présentées &#x2026;). Penser qu'on sait par avance "la forme algébrique" du résultat (rapport de produits de parmètres). Cela invite à Jouer avec les unités. Il suffit d'un peu de pratique et sens physique (La masse volumique augmente-t-elle lorsque la température augmente ? augmente-elle lorsque la pression augmente ou dimimune ?)
+<b>NB</b> : petit topo méthodo
 </p>
 
+<ul class="org-ul">
+<li>Quelques difficultés à retrouver la formule rapidement ! Pour y remédier, des techniques ont été présentées. Penser qu'on connait par avance "la forme algébrique" du résultat (rapport de produits de parmètres). Cela implique de jouer avec les unités &#x2026;</li>
 
+<li>Cette question vous invite à faire usage de votre bon sens physique :  la masse volumique augmente-t-elle ou diminue-t-elle lorsque la température augmente ? <i>idem</i> en fonction la pression ?</li>
+
+<li>A savoir traiter à l'examen !</li>
+</ul>
 
 <p>
-A savoir traiter à l'examen ! 
+Remarque : Dans ce problème, les grandeurs ne sont pas uniformes ! On adopte une description locale de l'atmosphère en utilisant un jeu de variables intensives  \(P\), \(T\) et \(\rho\). Ce sont les inconues du problème. Un traitement rigoureux de cette aspect technique est réalisé dans le manuel de Thermodynamique de Vincent Renvoizé (Ellipses, 2005).
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-orgc91ff80" class="outline-3">
-<h3 id="orgc91ff80">Q6&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></h3>
-<div class="outline-text-3" id="text-orgc91ff80">
+<div id="outline-container-orgaac4b4d" class="outline-3">
+<h3 id="orgaac4b4d">Q.06 - équation différentielle du champ de pression&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span>&#xa0;<span class="EXAM">EXAM</span></span></h3>
+<div class="outline-text-3" id="text-orgaac4b4d">
 <p>
-Un autre classique (le fameux grad de P égal ROGER, moyen mnémotechnique) : 
+Un autre classique, le fameux " Grad de P égal ROGER " (moyen mnémotechnique) : 
 </p>
 
 <p>
@@ -606,11 +716,31 @@ Un autre classique (le fameux grad de P égal ROGER, moyen mnémotechnique) :
 </p>
 
 <p>
-On peut s'entrainer à retrouver ce résultat en faisant un petit bilan des forces (de pression + gravité) exercées sur une tranche d'air d'épaisseur \(dz\) et de section \(S\) : 
+On peut s'entrainer à retrouver ce résultat en faisant un petit bilan des forces (pression &amp; gravité) exercées sur une tranche d'air d'épaisseur \(dz\) et de section \(S\) : 
 </p>
 
 <p>
-On a en dessous, \(p(z)S\) et en dessus \(p(z+dz)S\). Le poids \(\rho(z) g S dz\) s'applique au centre de gravité. D'où 
+On a en dessous, une force de norme 
+</p>
+
+<p>
+\[ p(z) S \] 
+</p>
+
+<p>
+Et au dessus, en \(z+dz\) une force de norme dessus 
+</p>
+
+<p>
+\[ p(z+dz) S \]
+</p>
+
+<p>
+Le poids a pour intensité \[ \rho (z) ~S~dz~g \] 
+</p>
+
+<p>
+Il s'applique au centre de gravité et équilibre les forces de pression 
 </p>
 
 <p>
@@ -618,21 +748,51 @@ On a en dessous, \(p(z)S\) et en dessus \(p(z+dz)S\). Le poids \(\rho(z) g S dz\
 </p>
 
 <p>
-qui se réécrit \[ dp/dz = -\rho g \] soit en explicitant \(\rho\) : 
+qui se réécrit, en passant à la limite quand \(dz\) tend vers 0 : \[ dp/dz = -\rho g \] soit en explicitant la masse volumique  \(\rho\) qui elle même dépend de la pression &#x2026;
 </p>
 
 <p>
 \[ \frac{dP}{dz} + \frac{M g(z)}{R T(z)} p(z) = 0 \]
 </p>
+
+<p>
+Remarque : cette équation peut se réécrire, en posant \(\zeta = ln(P)\). (utile pour estimer des taux de var)
+</p>
+
+<p>
+\[ \frac{d\zeta}{dz} = - \frac{M g(z)}{R T(z)} \]
+</p>
 </div>
 </div>
 
-<div id="outline-container-org43e3e31" class="outline-3">
-<h3 id="org43e3e31">Q7</h3>
-<div class="outline-text-3" id="text-org43e3e31">
+
+<div id="outline-container-org6a9c6df" class="outline-3">
+<h3 id="org6a9c6df">Q.07</h3>
+<div class="outline-text-3" id="text-org6a9c6df">
+<p>
+On intègre l'équation différentielle précédente. Il ne vous aura pas échappé que la température varie avec l'altitude. Il faut donc en toute rigueur en tenir compte et mettre à jour la valeur de \(T\) dans la boucle d'intégration.
+</p>
+
+<p>
+Même remarque pour le champ de pesanteur qui varie lui aussi avec \(z\) (la démonstration de cette formule a par application du théorème de Gauss a d'ailleurs faite en TD).
+</p>
+
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">g</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Champ de pesanteur</span>
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">g1</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Champ de pesanteur</span>
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">RT est en km et z est en km</span>
     <span style="color: #0000FF;">return</span> g0 * RT**2 / (RT + z)**2
+</pre>
+</div>
+
+<p>
+<b>NB</b> : une erreur subsiste dans le bout de code précédent. Saurez vous la retrouver ?
+</p>
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">g2</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Champ de pesanteur</span>
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">RT est en m et z est en m</span>
+    <span style="color: #0000FF;">return</span> g0 * RT_m**2 / (RT_m + z)**2
+
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">on pourra v&#233;rfier que cela n'a pas d'incidence ...</span>
 </pre>
 </div>
 
@@ -640,8 +800,22 @@ qui se réécrit \[ dp/dz = -\rho g \] soit en explicitant \(\rho\) :
 <pre class="src src-jupyter-python"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Calcul du champ de pression par la m&#233;thode d&#8217;Euler</span>
 <span style="color: #BA36A5;">Patm</span> = [P0] <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Initialisation</span>
 <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N - 1): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Il reste N - 1 termes &#224; calculer</span>
-    Patm.append(Patm[k] - M*g(zatm[k])*Patm[k]*dz/(R*T(zatm[k], <span style="color: #008000;">'K'</span>)))
-<span style="color: #BA36A5;">Patm</span> = np.array(Patm) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Conversion en tableau</span>
+    <span style="color: #BA36A5;">zval</span> = zatm[k]
+<span style="color: #8D8D84;">#    </span><span style="color: #8D8D84; font-style: italic;">print(zval)</span>
+    Patm.append( Patm[k] - M * g2(zval) * Patm[k] * dz /(R*T(zval, <span style="color: #008000;">'K'</span>)))
+    <span style="color: #006FE0;">print</span>(k,RT_m,dz,zval,Patm[k])
+<span style="color: #8D8D84;">#    </span><span style="color: #8D8D84; font-style: italic;">print(g1(zval))</span>
+<span style="color: #BA36A5;">Patm</span> = np.array(Patm) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Conversion de la liste en tableau</span>
+</pre>
+</div>
+
+<p>
+On réalise ensuite le graphe du champ de pression en fonction de \(z\). C'est une intégration "facile" mais coûteuse : on peut vérifier que la précision augmente avec \(N\) au prix d'un temps de calcul considérablemetn accru &#x2026;
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #006FE0;">print</span>(zatm[500]/1e3)
+<span style="color: #006FE0;">print</span>(Patm[500])
 </pre>
 </div>
 
@@ -654,16 +828,19 @@ plt.savefig(<span style="color: #008000;">"graph_Q7.png"</span>)
 
 
 <div class="figure">
-<p><img src="./.ob-jupyter/452be962270a3497e78002b893546d6fd18cd61c.png" alt="452be962270a3497e78002b893546d6fd18cd61c.png" />
+<p><img src="./.ob-jupyter/b15f0873cddf2dc77aad4161e6f789248e076771.png" alt="b15f0873cddf2dc77aad4161e6f789248e076771.png" />
+</p>
+</div>
+
+<p>
+Remarque : il pourrait être intéressant de réaliser une petite étude de "scaling" pour mesurer la dépendance du temps de calcul avec \(N\) &#x2026;
 </p>
 </div>
 </div>
-</div>
 
-
-<div id="outline-container-org8fd392d" class="outline-3">
-<h3 id="org8fd392d">Q8&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-org8fd392d">
+<div id="outline-container-org419a1f0" class="outline-3">
+<h3 id="org419a1f0">Q.08 - calcul de la masse totale de l'atmosphère&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-org419a1f0">
 <p>
 On exprime la masse d’air contenue dans le volume élémentaire d’atmosphère d
 situé entre les sphères d’altitudes \(z\) et \(z + dz\) tel que : 
@@ -687,32 +864,51 @@ Voici, un exemple de code Python pour calculer cette intégrale par la méthode 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">masse_atm</span>(z): <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Calcul de la masse d&#8217;air jusqu&#8217;&#224; l&#8217;altitude z</span>
+<pre class="src src-jupyter-python"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Calcul de la masse d&#8217;air jusqu&#8217;&#224; l&#8217;altitude z</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">masse_atm</span>(z):
     <span style="color: #BA36A5;">masse</span> = 0
     <span style="color: #BA36A5;">k</span> = 0
     <span style="color: #0000FF;">while</span> zatm[k] &lt; <span style="color: #BA36A5;">z</span>: <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">On arr&#234;te le calcul &#224; l&#8217;altitude z</span>
-        dm = 4*np.pi*(RT + z)**2*M*Patm[k]/(R*T(zatm[k], <span style="color: #008000;">'K'</span>))*dz
+        dm = 4*np.pi*(RT_m+zatm[k])**2*M*Patm2[k]/(R*T(zatm[k], <span style="color: #008000;">'K'</span>)) * dz
         <span style="color: #BA36A5;">masse</span> = masse + dm
         <span style="color: #BA36A5;">k</span> = k + 1
     <span style="color: #0000FF;">return</span> masse
 </pre>
 </div>
 
+<p>
+On a supposé le champ de pensanteur uniforme.
+</p>
+
+<p>
+Inclure une question sur la variation relative de g avec z
+</p>
+
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #BA36A5;">mtot</span> = masse_atm(100e3) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Masse d'air dans l'atmosph&#232;re terrestre</span>
+<pre class="src src-jupyter-python"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">evaluation de la fonction masse</span>
+<span style="color: #BA36A5;">mtot</span> = masse_atm(100e3) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Masse d'air dans l'atmosph&#232;re terrestre</span>
 <span style="color: #006FE0;">print</span>(<span style="color: #008000;">'Masse de l\'atmosph&#232;re :'</span>, mtot, <span style="color: #008000;">'kg'</span>)
 </pre>
 </div>
 
 <p>
-Masse de l'atmosphère : 1.0772432715500982e+16 kg
-Masse de l'atmosphère : 1.0772432715500982e+16 kg
-Masse de l'atmosphère : 1.0772432715500982e+16 kg
+Masse de l'atmosphère : 5.264108432678012e+18 kg
+Masse de l'atmosphère : 3.956504224973237e+19 kg
+Masse de l'atmosphère : 5.276087851184631e+18 kg
+Masse de l'atmosphère : 3.956504224973237e+19 kg
+Masse de l'atmosphère : 5.264108432678012e+18 kg
+Masse de l'atmosphère : 5.264108432678012e+18 kg
+Masse de l'atmosphère : 3.956504224973237e+19 kg
+Masse de l'atmosphère : 3.956504224973237e+19 kg
+Masse de l'atmosphère : 3.956504224973237e+19 kg
+Masse de l'atmosphère : 5.264108432678012e+18 kg
 </p>
 
 
+
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #BA36A5;">mtropo</span> = masse_atm(12e3) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Masse d'air dans la troposph&#232;re</span>
+<pre class="src src-jupyter-python"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">evaluation de la fonction masse</span>
+<span style="color: #BA36A5;">mtropo</span> = masse_atm(5e3) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Masse d'air dans la troposph&#232;re</span>
 <span style="color: #006FE0;">print</span>(<span style="color: #008000;">'Proportion d\'air dans la troposph&#232;re :'</span>, mtropo/mtot)
 </pre>
 </div>
@@ -720,9 +916,15 @@ Masse de l'atmosphère : 1.0772432715500982e+16 kg
 </div>
 
 
-<div id="outline-container-orgf687567" class="outline-3">
-<h3 id="orgf687567">Q9&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
-<div class="outline-text-3" id="text-orgf687567">
+
+<div id="outline-container-orgffff32f" class="outline-3">
+<h3 id="orgffff32f">Q.09&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
+<div class="outline-text-3" id="text-orgffff32f">
+<div class="org-src-container">
+<pre class="src src-jupyter-python">(g1(10)-g1(0))/g1(0)
+</pre>
+</div>
+
 <p>
 On recalcule la pression en supposant \(g\) uniforme : 
 </p>
@@ -753,9 +955,9 @@ plt.savefig(<span style="color: #008000;">"graph_Q9.png"</span>)
 
 
 
-<div id="outline-container-org40056c3" class="outline-3">
-<h3 id="org40056c3">Q10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
-<div class="outline-text-3" id="text-org40056c3">
+<div id="outline-container-orga722512" class="outline-3">
+<h3 id="orga722512">Q.10&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-orga722512">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">Piso</span> = [P0]
 <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N - 1):
@@ -781,9 +983,9 @@ plt.savefig(<span style="color: #008000;">"graph_Q10.png"</span>)
 </div>
 
 
-<div id="outline-container-orge4ab2d7" class="outline-3">
-<h3 id="orge4ab2d7">Q11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
-<div class="outline-text-3" id="text-orge4ab2d7">
+<div id="outline-container-orgbbbfba5" class="outline-3">
+<h3 id="orgbbbfba5">Q.11&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TABLEAU">TABLEAU</span></span></h3>
+<div class="outline-text-3" id="text-orgbbbfba5">
 <p>
 Le champ de pression satisfait l'équation différentielle simplifiée (cas isotherme) : 
 $
@@ -804,13 +1006,26 @@ Cette équation s'intègre classiquement ainsi en posant \(H = RT/Mg\) :
 <p>
 <b>Note</b> : Je vous laisse le soin de réaliser l'application numérique que nous vérifierons au prochain debrief.
 </p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">H</span> = R*298/(M*g0)
+<span style="color: #006FE0;">print</span>(H)
+</pre>
+</div>
+
+<p>
+Application numérique : 
+</p>
+
+<p>
+\[ H = \]
+</p>
 </div>
 </div>
 
-
-<div id="outline-container-org0d3f17e" class="outline-3">
-<h3 id="org0d3f17e">Q12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span>&#xa0;<span class="TABLEAU">TABLEAU</span></span></h3>
-<div class="outline-text-3" id="text-org0d3f17e">
+<div id="outline-container-orga270e0a" class="outline-3">
+<h3 id="orga270e0a">Q.12&#xa0;&#xa0;&#xa0;<span class="tag"><span class="CODE">CODE</span></span></h3>
+<div class="outline-text-3" id="text-orga270e0a">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">ztropo</span>, <span style="color: #BA36A5;">Ttropo</span> = [], [] <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Initialisation des listes</span>
 <span style="color: #BA36A5;">k</span> = 0
@@ -829,8 +1044,6 @@ Cette équation s'intègre classiquement ainsi en posant \(H = RT/Mg\) :
 
 <p>
 -0.006402700270027003 287.5138802168507
--0.006402700270027003 287.5138802168507
--0.006402700270027003 287.5138802168507
 </p>
 
 
@@ -843,23 +1056,51 @@ Cette équation s'intègre classiquement ainsi en posant \(H = RT/Mg\) :
 </pre>
 </div>
 
+
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
 ax.plot( ecart3,zatm)
 plt.savefig(<span style="color: #008000;">"graph_Q12.png"</span>)
 </pre>
 </div>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #0000FF;">defvar</span> <span style="color: #BA36A5;">yt-iframe-format</span>
+  <span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">You may want to change your width and height.</span>
+  (concat <span style="color: #008000;">"&lt;iframe width=\"440\""</span>
+          <span style="color: #008000;">" height=\"335\""</span>
+          <span style="color: #008000;">" src=\"https://www.youtube.com/embed/%s\""</span>
+          <span style="color: #008000;">" frameborder=\"0\""</span>
+          <span style="color: #008000;">" allowfullscreen&gt;%s&lt;/iframe&gt;"</span>))
+
+(org-add-link-type
+ <span style="color: #008000;">"yt"</span>
+ (<span style="color: #0000FF;">lambda</span> (handle)
+   (browse-url
+    (concat <span style="color: #008000;">"https://www.youtube.com/embed/"</span>
+            handle)))
+ (<span style="color: #0000FF;">lambda</span> (path desc backend)
+   (<span style="color: #0000FF;">cl-case</span> backend
+     (html (format yt-iframe-format
+                   path (<span style="color: #0000FF;">or</span> desc <span style="color: #008000;">""</span>)))
+     (latex (format <span style="color: #008000;">"</span><span style="color: #ff0000; font-weight: bold;">\</span><span style="color: #008000;">href{%s}{%s}"</span>
+                    path (<span style="color: #0000FF;">or</span> desc <span style="color: #008000;">"video"</span>))))))
+</pre>
+</div>
+
+
+<p>
+<iframe width="440" height="335" src="https://www.youtube.com/embed/A3JAlWM8qRM" frameborder="0" allowfullscreen></iframe>
+</p>
 </div>
 </div>
 </div>
 
-
-
-<div id="outline-container-orgde41e28" class="outline-2">
-<h2 id="orgde41e28"><span class="section-number-2">3</span> Exercice - Formation d'un nuage&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BONUS">BONUS</span></span></h2>
+<div id="outline-container-orgc02976f" class="outline-2">
+<h2 id="orgc02976f"><span class="section-number-2">3</span> Exercice Formation d'un nuage - [ optionnel ]&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BONUS">BONUS</span></span></h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<b>Remarque</b> : Cet exercice était initialement prévu pour constituer un devoir maison. Nous avons finalement décider de ne pas vous le donner cette année en raison de la charge de travail due aux rapports de TP que vous aviez à mettre au propre dans d'autre matières.
+<b>Remarque</b> : Cet exercice était initialement prévu pour constituer un devoir maison. Nous avons décidé de ne l'évaluer cette année en raison de la charge de travail due aux rapports de TP.
 </p>
 
 
@@ -876,8 +1117,8 @@ Un point de l'atmosphère est repéré par ses coordonnées cartésiennes (Oxyz)
 </p>
 </div>
 
-<div id="outline-container-org9371016" class="outline-3">
-<h3 id="org9371016"><span class="section-number-3">3.1</span> En l'abscence de mouvement (équilibre)</h3>
+<div id="outline-container-org0f65808" class="outline-3">
+<h3 id="org0f65808"><span class="section-number-3">3.1</span> En l'abscence de mouvement (équilibre)</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Des relevés expérimentaux montrent qu'en l'absence de mouvement de l'air, la température est fonction de l'altitude \(z\) suivant une loi affine : 
@@ -910,8 +1151,8 @@ Avec les hypothèse thermodynamiques faites en début d'exercice, on peut montre
 </div>
 
 
-<div id="outline-container-org7243549" class="outline-3">
-<h3 id="org7243549"><span class="section-number-3">3.2</span> Apparition d'un mouvement (instabilté)</h3>
+<div id="outline-container-orgbd978b5" class="outline-3">
+<h3 id="orgbd978b5"><span class="section-number-3">3.2</span> Apparition d'un mouvement (instabilté)</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 L'état d'équilibre précédent est réalisé lorsque les isothermes (niveaux où \(T=Cte\)) et les isobares (\(P=Cte\)) coïncident avec les équipotentielles du champ de pesanteur (\(z = cte\))\footnote{les spécialistes parlent de configurations barotropes et baroclines}. En présence d’hétérogénéités de température au niveau du sol, l'air s'échauffe différemment et peut se mettre en mouvement, c'est un phénomène bien connu ! 
@@ -968,8 +1209,8 @@ Pour cette question, on vous demande de rédiger soigneusement une explication d
 </div>
 
 
-<div id="outline-container-org192d44d" class="outline-3">
-<h3 id="org192d44d"><span class="section-number-3">3.3</span> Explication qualitative de la formation d'un nuage.</h3>
+<div id="outline-container-org6fb965c" class="outline-3">
+<h3 id="org6fb965c"><span class="section-number-3">3.3</span> Explication qualitative de la formation d'un nuage.</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 <b>Q7</b> (5 pt) Nous faisions l'hypothèse d'un air sec dans la partie précédente. Maintenant nous envisageons une parcelle d'air <i>humide</i> (air sec + vapeur d'eau). 
@@ -989,7 +1230,7 @@ Pour cette question, on vous demande de rédiger soigneusement une explication d
 <div id="postamble" class="status">
 <p class="date">Date: 2023-02-01 mer. 00:00</p>
 <p class="author">Author: Thomas Lebrat</p>
-<p class="date">Created: 2023-02-23 jeu. 15:09</p>
+<p class="date">Created: 2023-02-28 mar. 11:22</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

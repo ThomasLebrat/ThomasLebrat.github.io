@@ -320,7 +320,17 @@ $$ \vec{\nabla} P = \rho \vec{g}$$
 
 On peut s'entrainer à retrouver ce résultat en faisant un petit bilan des forces (pression & gravité) exercées sur une tranche d'air d'épaisseur $dz$ et de section $S$ : 
 
-On a en dessous, $p(z)S$ et en dessus $p(z+dz)S$. Le poids $\rho(z) g S dz$ s'applique au centre de gravité. D'où 
+On a en dessous, une force de norme 
+
+$$ p(z) S $$ 
+
+Et au dessus, en $z+dz$ une force de norme dessus 
+
+$$ p(z+dz) S $$
+
+Le poids a pour intensité $$ \rho (z) ~S~dz~g $$ 
+
+Il s'applique au centre de gravité et équilibre les forces de pression 
 
 $$ p(z+dz) -p(z) = - \rho g  dz $$
 
@@ -5636,7 +5646,7 @@ plt.savefig("graph_Q12.png")
 
 [[yt:A3JAlWM8qRM]]
 
-* Exercice - Formation d'un nuage                                     :BONUS:
+* Exercice Formation d'un nuage - [ optionnel ]                       :BONUS:
 
 *Remarque* : Cet exercice était initialement prévu pour constituer un devoir maison. Nous avons décidé de ne l'évaluer cette année en raison de la charge de travail due aux rapports de TP.
 
