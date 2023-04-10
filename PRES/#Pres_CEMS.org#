@@ -157,3 +157,28 @@
     :reveal_title_slide_background_size: 500px
     :END:
 
+* Coefficients
+
+#+REVEAL_HTML: <div class="column" style="float: left; width: 50%; margin:auto; font-size: 60%;">
+
+| Plateforme   | Instrument | Type                        | Origine |
+|--------------+------------+-----------------------------+---------|
+| NOAA-21      | *VIIRS*    | /Multispectral/LEO/         | SAFNWP  |
+| LandSat-7    | *ETM*      | /Multispectral/LEO/         | SAFNWP  |
+| FY4-B        | *AGRI*     | /Multispectral/GEO/         | SAFNWP  |
+|              | *GIIRS*    | /Hyperspectral/GEO/         | SAFNWP  |
+| Dummyhi      | *Dummy10*  | /Hyperspectral-Box-car/     |         |
+| Dummyhi      | *Dummy11*  | /Hyperspectral//            | Scalian |
+| DMSP 1-4     | *SSH*      |                             | C3S2    |
+| Oceansat     | *SSTM*     | /Multispectral/             | SAFNWP  |
+| Dummyhi      |            | /None Disclosure Agreement/ | JMA     |
+| MTG          | *FCI*      | /Multispectral/GEO/         |         |
+| Meteor       | *SI*       | /Hyperspectral/LEO/         | C3S2    |
+| Nimbus-4     | *PMR*      | /Gas Pressure Modulation/   | C3S2    |
+|              | *IRIS*     | /Hyperspectral-Far IR/      | C3S2    |
+|              | *Forum*    | /Hyperspectral-Far IR/      | TOSCA   |
+| Nimbus-4 & 5 | *SCR*      | Multispectral               | C3S2    |
+| FY3E         | *HIRAS 2*  |                             | SAFNWP  |
+| CO2M         | *CLIM*     |                             | SAFNWP  |
+#+REVEAL_HTML: </div>
+#+REVEAL_HTML: <div class="column" style="float: left; width: 50%; margin:auto; font-size: 80%;">

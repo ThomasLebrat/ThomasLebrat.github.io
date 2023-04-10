@@ -1,0 +1,86 @@
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
+
+#+TITLE: Ressources Web - Thomas Lebrat
+#+AUTHOR: Thomas Lebrat
+#+DATE: <2023-04-10 lun.>
+
+
+* Few Pictures
+
+#+ATTR_HTML: :width 30%
+[[./earth_horizon.jpg]]
+
+#+ATTR_HTML: :width 30%
+[[./halo.png]]
+
+
+
+* Ressources Pédagogiques 
+
+** Animation scientifique
+
+*** décollage
+
+#+ATTR_HTML: :width 30%
+[[./cauliflower.png]]
+
+*** over the rainbow
+*** coucher de Soleil
+
+** Vous avez dit Chimie ?
+
+** Explorers
+
+** Module ENSATT
+
+*** TP Profil 
+  :PROPERTIES:
+  :UNNUMBERED: notoc
+  :END:
+
+
+[[./TP/TP1.html]]
+
+*** Orbito
+  :PROPERTIES:
+  :UNNUMBERED: notoc
+  :END:
+
+#+ATTR_HTML: :width 30%
+[[./Geostationary-Sat-Ani-1.gif]]
+
+
+
+[[./TP/Code_TP2.html]]
+
+*** Devoir Maison
+  :PROPERTIES:
+  :UNNUMBERED: notoc
+  :END:
+
+
+[[./TP/Exercice_nuage.pdf]]
+
+*** Correction Examen
+  :PROPERTIES:
+  :UNNUMBERED: notoc
+  :END:
+
+
+* LBLRTM doc
+
+** document orginal
+ #+BEGIN_EXPORT html
+  <a href="http://irina.eas.gatech.edu/Lab_5560/lblrtm/lblrtm_inst.html" target="_blank">Repo</a>
+  #+END_EXPORT
+
+** documentation augmentée
+
+* Linux Tricks
+
+* Présentation AG CEMS
+
+ #+BEGIN_EXPORT html
+  <a href="./PRES/Pres_CEMS.html" target="_blank"> - C'est ici - </a>
+  #+END_EXPORT
+
