@@ -1,0 +1,1406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-29 dim. 02:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TP 1 Sondage Atmosphérique</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Thomas Lebrat" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">TP 1 Sondage Atmosphérique</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3247e22">1. Faire du calcul numérique (à une dimension)</a>
+<ul>
+<li><a href="#orgefe87f0">1.1. Environnement de calcul : les modules python</a>
+<ul>
+<li><a href="#org1a97923">1.1.1. remarque timer</a></li>
+</ul>
+</li>
+<li><a href="#org3de74c5">1.2. Tracés de graphiques</a></li>
+<li><a href="#orgacb04b5">1.3. Résolution numérique d'équations</a></li>
+<li><a href="#orgfec7edd">1.4. Résolution numérique d'équations différentielles</a>
+<ul>
+<li><a href="#org3deb36a">1.4.1. méthode d'Euler (ordre 1)</a></li>
+<li><a href="#org2ff3e34">1.4.2. Méthode d'Euler (ordre 2)</a></li>
+</ul>
+</li>
+<li><a href="#org1808d68">1.5. Applications</a>
+<ul>
+<li><a href="#org15a4033">1.5.1. tracé d'un courbe paramétrée</a></li>
+<li><a href="#org4ef841a">1.5.2. mise en oeuvre de la méthode d'Euler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3b859b9">2. Sondage</a>
+<ul>
+<li><a href="#org1854b4b">2.1. Imports Constantes et Données</a></li>
+<li><a href="#org668f1b1">2.2. Interpolation</a></li>
+<li><a href="#orgc573971">2.3. Temperature</a></li>
+<li><a href="#org879c0b6">2.4. Champ de pesanteur</a></li>
+<li><a href="#org317ad1d">2.5. Pression</a></li>
+</ul>
+</li>
+<li><a href="#orgff0079e">3. Python Numerical Methods (Berkeley)</a></li>
+<li><a href="#org71f85a3">4. TEST Casamayou</a>
+<ul>
+<li><a href="#org7a05cda">4.1. test</a></li>
+<li><a href="#orgf46f107">4.2. Mouvement d'une planète</a></li>
+<li><a href="#orgd225d10">4.3. implémentons une méthode de Runge Kutta</a>
+<ul>
+<li><a href="#org5e767e2">4.3.1. préalable : Euler explicite</a></li>
+<li><a href="#org93c382e">4.3.2. méthode de Runge-Kutta</a></li>
+</ul>
+</li>
+<li><a href="#org22f3580">4.4. application à l'étude du mouvement d'une palanète</a>
+<ul>
+<li><a href="#org7c0c8b2">4.4.1. Obtention de trajectoires fermées et bornées</a></li>
+</ul>
+</li>
+<li><a href="#orgd274f39">4.5. obtention de trajectoires bornées non fermées</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org3247e22" class="outline-2">
+<h2 id="org3247e22"><span class="section-number-2">1</span> Faire du calcul numérique (à une dimension)</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgefe87f0" class="outline-3">
+<h3 id="orgefe87f0"><span class="section-number-3">1.1</span> Environnement de calcul : les modules python</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Le module <code>numpy</code> regroupe <code>fonctions</code> <code>constantes</code> et <code>méthodes</code> utiles aux traitement numériques réalisés dans ce TP. Des fonctions avancées de traitement mathématiques et graphiques pourront être utilisés via les modules <code>matplotlib</code> et <code>scipy</code>
+</p>
+
+<p>
+<b>Calcul vectoriel</b> : consiste à réaliser des opérations vectorielles ou matricielles plut que des boucles (<code>for</code>, <code>while</code>) classiquement utilisées pour les listes. Ces opérations ont été programmées dans des langages de programmations plus rapides (<code>C</code> pour <code>numpy</code> et <code>C</code> et <code>Fortran</code> pour <code>scipy</code>)
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #BA36A5;">L</span> = []
+<span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(100000000):
+    L.append(i)
+<span style="color: #BA36A5;">a</span> = np.array(L)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #BA36A5;">a</span> = np.arange(100000000)
+</pre>
+</div>
+
+<p>
+Les <code>ndarray</code> et les fonctions <code>numpy</code> permettent d'accélérer les calculs et sont très utiles dans le contexte de traitement de gros volumes de données.
+</p>
+</div>
+
+
+
+<div id="outline-container-org1a97923" class="outline-4">
+<h4 id="org1a97923"><span class="section-number-4">1.1.1</span> remarque timer</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> timeit
+timeit.timeit(<span style="color: #008000;">'"-".join(str(n) for n in range(100))'</span>, number=10000)
+
+
+</pre>
+</div>
+
+<p>
+0.18152295495383441
+</p>
+
+
+
+
+
+
+
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python">
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3de74c5" class="outline-3">
+<h3 id="org3de74c5"><span class="section-number-3">1.2</span> Tracés de graphiques</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+</pre>
+</div>
+
+<p>
+Le sous module <code>pyplot</code> et sa fonction principale <code>plot</code> utilisent une syntaxe proche de celle utilisée par les logiciels de calcul numérique courant <code>MATLAB/Scilab</code> 
+</p>
+
+<p>
+Voici un petit exemple pour rappel : 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">style_lign</span> = [<span style="color: #008000;">'solid'</span>, <span style="color: #008000;">'dashed'</span>, <span style="color: #008000;">'dashdot'</span>, <span style="color: #008000;">'dotted'</span>]
+<span style="color: #BA36A5;">style_mark</span> = [ <span style="color: #008000;">' '</span>, <span style="color: #008000;">'.'</span>, <span style="color: #008000;">'*'</span>, <span style="color: #008000;">'o'</span>]
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">k</span> = [ 1,2,5,10 ]
+<span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(<span style="color: #006FE0;">len</span>(k)):
+    <span style="color: #BA36A5;">x</span> = []
+    <span style="color: #BA36A5;">y</span> = []
+    <span style="color: #0000FF;">for</span> j <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(100):
+        x.append(j/100)
+        y.append(np.sin(k[i] * x[j]))
+    plt.plot(x,y,linestyle = style_lign[i],
+             marker=style_mark[i], label = <span style="color: #008000;">'f(x)=sin('</span>+ <span style="color: #006FE0;">str</span>(k[i]) + <span style="color: #008000;">'x)'</span>)
+plt.xlabel(<span style="color: #008000;">'x'</span>)
+plt.ylabel(<span style="color: #008000;">'y'</span>)
+plt.title(<span style="color: #008000;">'Exemple de trac&#233; de liste'</span>)
+plt.legend()
+plt.grid()
+plt.show()
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/f3e0a6de8c3e49722cf23e7f558b7b9f0c4389f0.png" alt="f3e0a6de8c3e49722cf23e7f558b7b9f0c4389f0.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgacb04b5" class="outline-3">
+<h3 id="orgacb04b5"><span class="section-number-3">1.3</span> Résolution numérique d'équations</h3>
+</div>
+
+
+<div id="outline-container-orgfec7edd" class="outline-3">
+<h3 id="orgfec7edd"><span class="section-number-3">1.4</span> Résolution numérique d'équations différentielles</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org3deb36a" class="outline-4">
+<h4 id="org3deb36a"><span class="section-number-4">1.4.1</span> méthode d'Euler (ordre 1)</h4>
+</div>
+
+<div id="outline-container-org2ff3e34" class="outline-4">
+<h4 id="org2ff3e34"><span class="section-number-4">1.4.2</span> Méthode d'Euler (ordre 2)</h4>
+</div>
+</div>
+
+
+<div id="outline-container-org1808d68" class="outline-3">
+<h3 id="org1808d68"><span class="section-number-3">1.5</span> Applications</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-org15a4033" class="outline-4">
+<h4 id="org15a4033"><span class="section-number-4">1.5.1</span> tracé d'un courbe paramétrée</h4>
+</div>
+
+<div id="outline-container-org4ef841a" class="outline-4">
+<h4 id="org4ef841a"><span class="section-number-4">1.5.2</span> mise en oeuvre de la méthode d'Euler</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3b859b9" class="outline-2">
+<h2 id="org3b859b9"><span class="section-number-2">2</span> Sondage</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org1854b4b" class="outline-3">
+<h3 id="org1854b4b"><span class="section-number-3">2.1</span> Imports Constantes et Données</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #0000FF;">import</span> matplotlib
+<span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">import json</span>
+<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">import csv</span>
+
+<span style="color: #BA36A5;">M</span> = 29.0e-3
+<span style="color: #BA36A5;">R</span> = 8.31
+
+<span style="color: #BA36A5;">P0</span> = 1.0e5
+<span style="color: #BA36A5;">g0</span> = 9.8
+
+<span style="color: #BA36A5;">RT</span> = 6.4e3
+<span style="color: #BA36A5;">pi</span> = np.pi
+
+<span style="color: #BA36A5;">zexp</span> = np.array([0.0, 5.0, 10.0, 12.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 48.0, 52.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 84.0, 92.0, 95.0, 100.0])
+
+<span style="color: #BA36A5;">Texp</span> = np.array([15.0, -18.0, -49.0, -56.0, -56.0, -51.0, -46.0, -37.0, -22.0, -8.0, -2.0, -2.0, -7.0, -17.0, -33.0, -54.0, -65.0, -79.0, -86.0, -86.0, -81.0, -72.0])
+
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org668f1b1" class="outline-3">
+<h3 id="org668f1b1"><span class="section-number-3">2.2</span> Interpolation</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">T</span>(z,unite):
+    <span style="color: #BA36A5;">z_km</span> = z / 1000 <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">conversion</span>
+    <span style="color: #BA36A5;">alpha</span> = 1 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">facteur de conversion</span>
+    
+    <span style="color: #0000FF;">if</span> unite == <span style="color: #008000;">'C'</span>:
+        alpha = 0
+        
+    i = 0
+    <span style="color: #0000FF;">while</span> z_km &gt; zexp[i+1]: <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">recherche de l'indice i</span>
+        i = i + 1
+        
+    rate =  ( Texp[i+1] - Texp[i] ) / ( zexp[i+1] - zexp[i] )
+    temperature = alpha*273 + Texp[i] + rate * (z_km - zexp[i])
+    <span style="color: #0000FF;">return</span> temperature
+
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgc573971" class="outline-3">
+<h3 id="orgc573971"><span class="section-number-3">2.3</span> Temperature</h3>
+<div class="outline-text-3" id="text-2-3">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">N</span> = 10000
+<span style="color: #BA36A5;">zmax</span> = 100.0e3
+<span style="color: #BA36A5;">dz</span> = zmax / (N-1)
+<span style="color: #006FE0;">print</span>(N, zmax, dz)
+<span style="color: #BA36A5;">zatm</span> = np.array([ k * dz <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N) ])
+<span style="color: #BA36A5;">Tatm</span> = np.array([ T(zatm[k], <span style="color: #008000;">'C'</span>) <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N) ])
+<span style="color: #BA36A5;">TatmK</span> = np.array([ T(zatm[k], <span style="color: #008000;">'K'</span>) <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N) ])
+<span style="color: #BA36A5;">gatm</span> = np.array([ g(zatm[k]) <span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N)])
+</pre>
+</div>
+
+<p>
+10000 100000.0 10.001000100010002
+</p>
+
+<p>
+NameErrorTraceback (most recent call last)
+&lt;ipython-input-11-2c84e93431ff&gt; in &lt;module&gt;
+      6 Tatm = np.array([ T(zatm[k], 'C') for k in range(N) ])
+      7 TatmK = np.array([ T(zatm[k], 'K') for k in range(N) ])
+-&#x2014;&gt; 8 gatm = np.array([ g(zatm[k]) for k in range(N)])
+</p>
+
+<p>
+&lt;ipython-input-11-2c84e93431ff&gt; in &lt;listcomp&gt;(.0)
+      6 Tatm = np.array([ T(zatm[k], 'C') for k in range(N) ])
+      7 TatmK = np.array([ T(zatm[k], 'K') for k in range(N) ])
+-&#x2014;&gt; 8 gatm = np.array([ g(zatm[k]) for k in range(N)])
+</p>
+
+<p>
+NameError: name 'g' is not defined
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org879c0b6" class="outline-3">
+<h3 id="org879c0b6"><span class="section-number-3">2.4</span> Champ de pesanteur</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">g</span>(z):
+    <span style="color: #0000FF;">return</span> g0 * RT**2 / (RT + z)**2
+    <span style="color: #0000FF;">return</span> g0
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span>, <span style="color: #BA36A5;">ax</span> = plt.subplots()
+ax.plot( TatmK,zatm)
+ax.plot( Tatm,zatm)
+plt.savefig(<span style="color: #008000;">"ffffffffff"</span>)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/577d760093195a5f2d796bd964803c44fa8f67bc.png" alt="577d760093195a5f2d796bd964803c44fa8f67bc.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org317ad1d" class="outline-3">
+<h3 id="org317ad1d"><span class="section-number-3">2.5</span> Pression</h3>
+<div class="outline-text-3" id="text-2-5">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">Patm</span> = [P0]
+<span style="color: #BA36A5;">gatm</span> = [g0]
+<span style="color: #BA36A5;">deltap</span> = 0
+<span style="color: #BA36A5;">gradient</span> = 0
+<span style="color: #0000FF;">for</span> k <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(N-1):
+    <span style="color: #BA36A5;">gradient</span> = - M * g(zatm[k]) / (R * TatmK[k] )
+    <span style="color: #BA36A5;">deltap</span> = gradient * dz * Patm[k]
+    
+    Patm.append( Patm[k] + deltap )
+<span style="color: #8D8D84;">#    </span><span style="color: #8D8D84; font-style: italic;">gatm.append( gatm[k] )</span>
+<span style="color: #BA36A5;">Patm</span> = np.array(Patm)
+<span style="color: #006FE0;">print</span>(M,R,P0,g0,RT)
+</pre>
+</div>
+
+<p>
+0.029 8.31 100000.0 9.8 6400.0
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python">plt.plot(Patm,np.log(zatm))
+</pre>
+</div>
+
+<p>
+&lt;ipython-input-27-fb3e7a7d93ad&gt;:1: RuntimeWarning: divide by zero encountered in log
+  plt.plot(Patm,np.log(zatm))
+<img src="./.ob-jupyter/673a3d18542fab1543d590ac7333c874e83f1f07.png" alt="673a3d18542fab1543d590ac7333c874e83f1f07.png" />
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">masse_atm</span>(z):
+    <span style="color: #BA36A5;">masse</span> = 0
+    <span style="color: #BA36A5;">k</span> = 0
+    
+    <span style="color: #BA36A5;">Cte</span> = 4*pi*M/R
+    <span style="color: #0000FF;">while</span> zatm[k] &lt; <span style="color: #BA36A5;">z</span>:
+        dm = Cte * dz * (RT + z)**2 * Patm[k] / T(zatm[k],<span style="color: #008000;">'K'</span>)
+        <span style="color: #BA36A5;">masse</span> = masse + dm
+        <span style="color: #BA36A5;">k</span> = k+1
+    <span style="color: #0000FF;">return</span> masse
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python">
+<span style="color: #BA36A5;">mtot</span> = masse_atm(100e3)
+<span style="color: #006FE0;">print</span>(mtot)
+
+</pre>
+</div>
+
+<p>
+2.2013954250074244e+16
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgff0079e" class="outline-2">
+<h2 id="orgff0079e"><span class="section-number-2">3</span> Python Numerical Methods (Berkeley)</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+
+plt.style.use(<span style="color: #008000;">'seaborn-poster'</span>)
+%matplotlib inline
+
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Define parameters</span>
+<span style="color: #BA36A5;">f</span> = <span style="color: #0000FF;">lambda</span> t, s: np.exp(-t) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">ODE</span>
+<span style="color: #BA36A5;">h</span> = 0.1 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Step size</span>
+<span style="color: #BA36A5;">t</span> = np.arange(0, 1 + h, h) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Numerical grid</span>
+<span style="color: #BA36A5;">s0</span> = -1 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Initial Condition</span>
+
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Explicit Euler Method</span>
+<span style="color: #BA36A5;">s</span> = np.zeros(<span style="color: #006FE0;">len</span>(t))
+<span style="color: #BA36A5;">s</span>[0] = s0
+
+<span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(0, <span style="color: #006FE0;">len</span>(t) - 1):
+    <span style="color: #BA36A5;">s</span>[i + 1] = s[i] + h*f(t[i], s[i])
+
+plt.figure(figsize = (12, 8))
+plt.plot(t, s, <span style="color: #008000;">'bo--'</span>, label=<span style="color: #008000;">'Approximate'</span>)
+plt.plot(t, -np.exp(-t), <span style="color: #008000;">'g'</span>, label=<span style="color: #008000;">'Exact'</span>)
+plt.title(<span style="color: #008000;">'Approximate and Exact Solution \</span>
+<span style="color: #008000;">for Simple ODE'</span>)
+plt.xlabel(<span style="color: #008000;">'t'</span>)
+plt.ylabel(<span style="color: #008000;">'f(t)'</span>)
+plt.grid()
+plt.legend(loc=<span style="color: #008000;">'lower right'</span>)
+plt.show()
+</pre>
+</div>
+
+<p>
+&lt;ipython-input-14-53e864c3c24f&gt;:4: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as 'seaborn-v0_8-&lt;style&gt;'. Alternatively, directly use the seaborn API instead.
+  plt.style.use('seaborn-poster')
+<img src="./.ob-jupyter/ec27a85be48b66ae355423c73763b02f5f9f9876.png" alt="ec27a85be48b66ae355423c73763b02f5f9f9876.png" />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #0000FF;">from</span> numpy.linalg <span style="color: #0000FF;">import</span> inv
+<span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+
+plt.style.use(<span style="color: #008000;">'seaborn-poster'</span>)
+
+%matplotlib inline 
+
+</pre>
+</div>
+
+<p>
+&lt;ipython-input-15-bcef546ae31a&gt;:5: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as 'seaborn-v0_8-&lt;style&gt;'. Alternatively, directly use the seaborn API instead.
+  plt.style.use('seaborn-poster')
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">define step size</span>
+<span style="color: #BA36A5;">h</span> = 0.1
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">define numerical grid</span>
+<span style="color: #BA36A5;">t</span> = np.arange(0, 5.1, h)
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">oscillation freq. of pendulum</span>
+<span style="color: #BA36A5;">w</span> = 4
+<span style="color: #BA36A5;">s0</span> = np.array([[1], [0]])
+
+<span style="color: #BA36A5;">m_e</span> = np.array([[1, h], 
+               [-w**2*h, 1]])
+<span style="color: #BA36A5;">m_i</span> = inv(np.array([[1, -h], 
+               [w**2*h, 1]]))
+<span style="color: #BA36A5;">m_t</span> = np.dot(inv(np.array([[1, -h/2], 
+    [w**2*h/2,1]])), np.array(
+      [[1,h/2], [-w**2*h/2, 1]]))
+
+<span style="color: #BA36A5;">s_e</span> = np.zeros((<span style="color: #006FE0;">len</span>(t), 2))
+<span style="color: #BA36A5;">s_i</span> = np.zeros((<span style="color: #006FE0;">len</span>(t), 2))
+<span style="color: #BA36A5;">s_t</span> = np.zeros((<span style="color: #006FE0;">len</span>(t), 2))
+
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">do integrations</span>
+<span style="color: #BA36A5;">s_e</span>[0, :] = s0.T
+<span style="color: #BA36A5;">s_i</span>[0, :] = s0.T
+<span style="color: #BA36A5;">s_t</span>[0, :] = s0.T
+
+<span style="color: #0000FF;">for</span> j <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(0, <span style="color: #006FE0;">len</span>(t)-1):
+    <span style="color: #BA36A5;">s_e</span>[j+1, :] = np.dot(m_e,s_e[j, :])
+    <span style="color: #BA36A5;">s_i</span>[j+1, :] = np.dot(m_i,s_i[j, :])
+    <span style="color: #BA36A5;">s_t</span>[j+1, :] = np.dot(m_t,s_t[j, :])
+    
+plt.figure(figsize = (12, 8))
+plt.plot(t,s_e[:,0],<span style="color: #008000;">'b-'</span>)
+plt.plot(t,s_i[:,0],<span style="color: #008000;">'g:'</span>)
+plt.plot(t,s_t[:,0],<span style="color: #008000;">'r--'</span>)
+plt.plot(t, np.cos(w*t), <span style="color: #008000;">'k'</span>)
+plt.ylim([-3, 3])
+plt.xlabel(<span style="color: #008000;">'t'</span>)
+plt.ylabel(<span style="color: #008000;">'$\Theta (t)$'</span>)
+plt.legend([<span style="color: #008000;">'Explicit'</span>, <span style="color: #008000;">'Implicit'</span>, \
+            <span style="color: #008000;">'Trapezoidal'</span>, <span style="color: #008000;">'Exact'</span>])
+plt.show()
+</pre>
+</div>
+
+<p>
+findfont: Font family ['STIXGeneral'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXGeneral'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXGeneral'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXNonUnicode'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXNonUnicode'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXNonUnicode'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXSizeOneSym'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXSizeTwoSym'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXSizeThreeSym'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXSizeFourSym'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['STIXSizeFiveSym'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['cmsy10'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['cmr10'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['cmtt10'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['cmmi10'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['cmb10'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['cmss10'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['cmex10'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['DejaVu Sans Display'] not found. Falling back to DejaVu Sans.
+<img src="./.ob-jupyter/5f887c80d2aaad857e748eabed3fa929118eb2b8.png" alt="5f887c80d2aaad857e748eabed3fa929118eb2b8.png" />
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org71f85a3" class="outline-2">
+<h2 id="org71f85a3"><span class="section-number-2">4</span> TEST Casamayou</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> os
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">nrange</span>(a, b, numpoints):
+    <span style="color: #036A07;">"""Renvoie une subdivision de [a, b] &#224; N+1 points."""</span>
+    <span style="color: #BA36A5;">pas</span> = (b - a) / numpoints
+    <span style="color: #0000FF;">return</span> (a + i * pas <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(numpoints + 1))
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">srange</span>(a, b, pas):
+    <span style="color: #036A07;">"""Renvoie une subdivision de [a, b] avec un pas donn&#233;."""</span>
+    <span style="color: #BA36A5;">numpoints</span> = <span style="color: #006FE0;">int</span>((b - a) / pas)
+    <span style="color: #0000FF;">return</span> (a + i * pas <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(numpoints + 1))
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">preambule</span>(nomFichier, boite, zoom, delta):
+    <span style="color: #036A07;">""" &#201;crit le pr&#233;ambule du fichier EPS."""</span>
+    <span style="color: #BA36A5;">cadre</span> = [x * zoom * delta <span style="color: #0000FF;">for</span> x <span style="color: #0000FF;">in</span> boite]
+    <span style="color: #BA36A5;">s_debut</span> = (<span style="color: #008000;">"%!PS-Adobe-2.0 EPSF-2.0\n"</span>
+    <span style="color: #008000;">"%%BoundingBox: {0[0]:.1f} {0[1]:.1f} {0[2]:.1f} {0[3]:.1f}\n"</span>
+    <span style="color: #008000;">"{1} {1} scale\n"</span>).<span style="color: #006FE0;">format</span>(cadre, zoom)
+    <span style="color: #0000FF;">with</span> <span style="color: #006FE0;">open</span>(nomFichier + <span style="color: #008000;">".eps"</span>, <span style="color: #008000;">'w'</span>) <span style="color: #0000FF;">as</span> <span style="color: #BA36A5;">f</span>:
+        f.write(s_debut)
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">fin</span>(nomFichier):
+    <span style="color: #036A07;">""" Cloture le fichier EPS."""</span>
+    s_fin = <span style="color: #008000;">"\nshowpage\n"</span>
+    <span style="color: #0000FF;">with</span> <span style="color: #006FE0;">open</span>(nomFichier + <span style="color: #008000;">".eps"</span>, <span style="color: #008000;">'a'</span>) <span style="color: #0000FF;">as</span> f:
+        f.write(s_fin)
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">ajouteCourbe</span>(nomFichier, liste, boite, zoom, epaisseurTrait, rgb):
+    <span style="color: #036A07;">"""Ajoute une courbe donn&#233;e sous forme de liste."""</span>
+    <span style="color: #0000FF;">with</span> <span style="color: #006FE0;">open</span>(nomFichier + <span style="color: #008000;">".eps"</span>, <span style="color: #008000;">'a'</span>) <span style="color: #0000FF;">as</span> f:
+        f.write(<span style="color: #008000;">"\nnewpath\n"</span>)
+        <span style="color: #0000FF;">for</span> i, point <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">enumerate</span>(liste):
+            <span style="color: #0000FF;">if</span> i == 0:
+                f.write(<span style="color: #008000;">"    {0[0]: .4f}  {0[1]: .4f}   "</span>.<span style="color: #006FE0;">format</span>(point))
+                f.write(<span style="color: #008000;">"moveto\n"</span>)
+            <span style="color: #0000FF;">elif</span> (boite[0] &lt;= point[0] &lt;= boite[2]
+                    <span style="color: #0000FF;">and</span> boite[1] &lt;= point[1] &lt;= boite[3]):
+                f.write(<span style="color: #008000;">"    {0[0]: .4f}  {0[1]: .4f}   "</span>.<span style="color: #006FE0;">format</span>(point))
+                f.write(<span style="color: #008000;">"lineto\n"</span>)
+        f.write(<span style="color: #008000;">"{1} {0} div setlinewidth\n"</span>
+                <span style="color: #008000;">"{2[0]} {2[1]} {2[2]} setrgbcolor\n"</span>
+                <span style="color: #008000;">"stroke\n"</span>.<span style="color: #006FE0;">format</span>(zoom, epaisseurTrait, rgb))
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">affiche</span>(nomFichier):
+    <span style="color: #036A07;">"""Affiche le graphique via ghostview."""</span>
+    os.system(<span style="color: #008000;">"gv {0}.eps &amp;"</span>.<span style="color: #006FE0;">format</span>(nomFichier))
+
+<span style="color: #0000FF;">if</span> <span style="color: #006FE0;">__name__</span> == <span style="color: #008000;">"__main__"</span>:
+    <span style="color: #0000FF;">from</span> math <span style="color: #0000FF;">import</span> pi, cos, sin, floor
+
+    <span style="color: #BA36A5;">N</span>, <span style="color: #BA36A5;">a</span>, <span style="color: #BA36A5;">b</span> = 1000, 0, 1 + floor(38 * pi)
+    <span style="color: #BA36A5;">nomFichier</span>, <span style="color: #BA36A5;">zoom</span>, <span style="color: #BA36A5;">epaisseurTrait</span> = <span style="color: #008000;">"polar"</span>, 100, 0.4
+    rgb = (0, 0, 1) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">trac&#233; en bleu</span>
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">rgb = (0.2, 0.2, 0.2) # trac&#233; en gris</span>
+    boite = [-1.5, -1.5, 1.5, 1.5] <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">xmin , ymin, xmax, ymax</span>
+
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Fonction d&#233;finissant la courbe polaire</span>
+    <span style="color: #0000FF;">def</span> <span style="color: #006699;">f</span>(theta):
+        <span style="color: #0000FF;">return</span> 1 + cos(theta*20/19) / 3
+
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Liste de points de la courbe</span>
+    liste = ([f(theta) * cos(theta), f(theta) * sin(theta)]
+            <span style="color: #0000FF;">for</span> theta <span style="color: #0000FF;">in</span> nrange(a, b, N))
+
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Cr&#233;ation du fichier EPS</span>
+    preambule(nomFichier, boite, zoom, 1.1)
+    ajouteCourbe(nomFichier, liste, boite, zoom, epaisseurTrait, rgb)
+    fin(nomFichier)
+    affiche(nomFichier)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+<span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+
+<span style="color: #BA36A5;">x</span> = np.linspace(-15, 15, 150)
+<span style="color: #BA36A5;">y</span> = np.sin(x) / x
+
+plt.plot(x, y)
+plt.show()
+
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/a6c5faf09a48ccd86a08334e93788d9fbc8be9f0.png" alt="a6c5faf09a48ccd86a08334e93788d9fbc8be9f0.png" />
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org7a05cda" class="outline-3">
+<h3 id="org7a05cda"><span class="section-number-3">4.1</span> test</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> turtle <span style="color: #0000FF;">as</span> tt
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Set the background color as black,</span>
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">pensize as 2 and speed of drawing</span>
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">curve as 10(relative)</span>
+tt.bgcolor(<span style="color: #008000;">'grey'</span>)                                                                                                   
+tt.pensize(1)
+tt.speed(60)
+
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Iterate six times in total</span>
+<span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(6):
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Choose your color combination</span>
+    <span style="color: #0000FF;">for</span> color <span style="color: #0000FF;">in</span> (<span style="color: #008000;">'magenta'</span>,<span style="color: #008000;">'yellow'</span>):
+        tt.color(color)
+        <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Draw a circle of chosen size, 100 here</span>
+        <span style="color: #0000FF;">for</span> j <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(100):
+            tt.circle(j*4)
+            <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Move 10 pixels left to draw another circle</span>
+            tt.left(10)
+            <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Hide the cursor(or turtle) which drew the circle</span>
+            tt.hideturtle()
+</pre>
+</div>
+
+<p>
+AttributeErrorTraceback (most recent call last)
+&lt;ipython-input-1-87aeeb7a6e43&gt; in &lt;module&gt;
+     14         # Draw a circle of chosen size, 100 here
+     15         for j in range(100):
+&#x2014;&gt; 16             tt.square(j*4)
+     17             # Move 10 pixels left to draw another circle
+     18             tt.left(10)
+</p>
+
+<p>
+AttributeError: module 'turtle' has no attribute 'square'
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> turtle <span style="color: #0000FF;">as</span> tt
+tt.bgcolor(<span style="color: #008000;">'grey'</span>)                                                                                                   
+tt.pensize(1)
+tt.speed(60)
+shape(<span style="color: #008000;">"circle"</span>)
+shapesize(5,4,1)
+fillcolor(<span style="color: #008000;">"white"</span>)
+tt.circle()
+
+</pre>
+</div>
+
+<p>
+NameErrorTraceback (most recent call last)
+&lt;ipython-input-1-743e3db4db16&gt; in &lt;module&gt;
+      3 tt.pensize(1)
+      4 tt.speed(60)
+-&#x2014;&gt; 5 shape("circle")
+      6 shapesize(5,4,1)
+      7 fillcolor("white")
+</p>
+
+<p>
+NameError: name 'shape' is not defined
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #0000FF;">from</span> matplotlib <span style="color: #0000FF;">import</span> pyplot <span style="color: #0000FF;">as</span> plt
+<span style="color: #0000FF;">from</span> math <span style="color: #0000FF;">import</span> pi
+
+<span style="color: #BA36A5;">u</span>=1.     <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">x-position of the center</span>
+<span style="color: #BA36A5;">v</span>=0.5    <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">y-position of the center</span>
+<span style="color: #BA36A5;">a</span>=2.     <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">radius on the x-axis</span>
+<span style="color: #BA36A5;">b</span>=1.5    <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">radius on the y-axis</span>
+
+<span style="color: #BA36A5;">t</span> = np.linspace(0, 2*pi, 100)
+plt.plot( u+a*np.cos(t) , v+b*np.sin(t) )
+plt.grid(color=<span style="color: #008000;">'lightgray'</span>,linestyle=<span style="color: #008000;">'--'</span>)
+plt.show()
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/4764649af7c87017cc7ad447da3fcd0c68639aad.png" alt="4764649af7c87017cc7ad447da3fcd0c68639aad.png" />
+</p>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #0000FF;">from</span> matplotlib <span style="color: #0000FF;">import</span> pyplot <span style="color: #0000FF;">as</span> plt
+<span style="color: #0000FF;">from</span> math <span style="color: #0000FF;">import</span> pi, cos, sin
+
+<span style="color: #BA36A5;">u</span>=1.       <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">x-position of the center</span>
+<span style="color: #BA36A5;">v</span>=0.5      <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">y-position of the center</span>
+<span style="color: #BA36A5;">a</span>=2.       <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">radius on the x-axis</span>
+<span style="color: #BA36A5;">b</span>=1.5      <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">radius on the y-axis</span>
+<span style="color: #BA36A5;">t_rot</span>=pi/2 <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">rotation angle</span>
+
+<span style="color: #BA36A5;">t</span> = np.linspace(0, 2*pi, 100)
+<span style="color: #BA36A5;">Ell</span> = np.array([a*np.cos(t) , b*np.sin(t)])  
+     <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">u,v removed to keep the same center location</span>
+<span style="color: #BA36A5;">R_rot</span> = np.array([[cos(t_rot) , -sin(t_rot)],[sin(t_rot) , cos(t_rot)]])  
+     <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">2-D rotation matrix</span>
+
+<span style="color: #BA36A5;">Ell_rot</span> = np.zeros((2,Ell.shape[1]))
+<span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(Ell.shape[1]):
+    <span style="color: #BA36A5;">Ell_rot</span>[:,i] = np.dot(R_rot,Ell[:,i])
+
+plt.plot( u+Ell[0,:] , v+Ell[1,:] )     <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">initial ellipse</span>
+plt.plot( u+Ell_rot[0,:] , v+Ell_rot[1,:],<span style="color: #008000;">'darkorange'</span> )    <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">rotated ellipse</span>
+plt.grid(color=<span style="color: #008000;">'lightgray'</span>,linestyle=<span style="color: #008000;">'--'</span>)
+plt.show()
+
+
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/844babfc4ec77d021e14225f129324aa450b5ebb.png" alt="844babfc4ec77d021e14225f129324aa450b5ebb.png" />
+</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">from</span> matplotlib.patches <span style="color: #0000FF;">import</span> Ellipse
+
+plt.figure()
+<span style="color: #BA36A5;">ax</span> = plt.gca()
+
+<span style="color: #BA36A5;">ellipse</span> = Ellipse(xy=(157.18, 68.4705), width=0.036, height=0.012, 
+                        edgecolor=<span style="color: #008000;">'r'</span>, fc=<span style="color: #008000;">'None'</span>, lw=2)
+ax.add_patch(ellipse)
+
+</pre>
+</div>
+
+<pre class="example">
+&lt;matplotlib.patches.Ellipse at 0x7f288c6ad610&gt;
+</pre>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/61d2780d035746e2a1d41c3696837d1141c39f65.png" alt="61d2780d035746e2a1d41c3696837d1141c39f65.png" />
+</p>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+<span style="color: #0000FF;">import</span> numpy.random <span style="color: #0000FF;">as</span> rnd
+<span style="color: #0000FF;">from</span> matplotlib.patches <span style="color: #0000FF;">import</span> Ellipse
+
+<span style="color: #BA36A5;">NUM</span> = 250
+
+<span style="color: #BA36A5;">ells</span> = [Ellipse(xy=rnd.rand(2)*10, width=rnd.rand(), height=rnd.rand(), angle=rnd.rand()*360)
+        <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(NUM)]
+
+fig = plt.figure(0)
+ax = fig.add_subplot(111, aspect=<span style="color: #008000;">'equal'</span>)
+<span style="color: #0000FF;">for</span> e <span style="color: #0000FF;">in</span> ells:
+    ax.add_artist(e)
+    e.set_clip_box(ax.bbox)
+    e.set_alpha(rnd.rand())
+    e.set_facecolor(rnd.rand(3))
+
+ax.set_xlim(0, 10)
+ax.set_ylim(0, 10)
+
+plt.show()
+
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/76e22ac73fecc3e100c2fec5dc003b4e9174a123.png" alt="76e22ac73fecc3e100c2fec5dc003b4e9174a123.png" />
+</p>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+<span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+
+<span style="color: #BA36A5;">x</span> = np.arange(6)
+<span style="color: #BA36A5;">y</span> = np.arange(5)
+<span style="color: #BA36A5;">z</span> = x * y[:, np.newaxis]
+
+<span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(5):
+    <span style="color: #0000FF;">if</span> i == 0:
+        p = plt.imshow(z)
+        fig = plt.gcf()
+        plt.clim()   <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">clamp the color limits</span>
+        plt.title(<span style="color: #008000;">"Boring slide show"</span>)
+    <span style="color: #0000FF;">else</span>:
+        z = z + 2
+        p.set_data(z)
+
+    <span style="color: #006FE0;">print</span>(<span style="color: #008000;">"step"</span>, i)
+    plt.pause(0.5)
+</pre>
+</div>
+
+<p>
+step 0
+<img src="./.ob-jupyter/aef1c63053ea322cb58f7bbc29a6e45303bb7096.png" alt="aef1c63053ea322cb58f7bbc29a6e45303bb7096.png" />
+step 1
+step 2
+step 3
+step 4
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+<span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #0000FF;">from</span> matplotlib.patches <span style="color: #0000FF;">import</span> Ellipse
+
+<span style="color: #BA36A5;">delta</span> = 45.0  <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">degrees</span>
+
+<span style="color: #BA36A5;">angles</span> = np.arange(0, 360 + delta, delta)
+<span style="color: #BA36A5;">ells</span> = [Ellipse((1, 1), 4, 2, a) <span style="color: #0000FF;">for</span> a <span style="color: #0000FF;">in</span> angles]
+
+<span style="color: #BA36A5;">a</span> = plt.subplot(111, aspect=<span style="color: #008000;">'equal'</span>)
+
+<span style="color: #0000FF;">for</span> e <span style="color: #0000FF;">in</span> ells:
+    e.set_clip_box(a.bbox)
+    e.set_alpha(0.1)
+    a.add_artist(e)
+
+plt.xlim(-2, 4)
+plt.ylim(-1, 3)
+
+plt.show()
+</pre>
+</div>
+
+<p>
+&lt;ipython-input-4-de3ee4e9bc8b&gt;:8: MatplotlibDeprecationWarning: Passing the angle parameter of __init__() positionally is deprecated since Matplotlib 3.6; the parameter will become keyword-only two minor releases later.
+  ells = [Ellipse((1, 1), 4, 2, a) for a in angles]
+<img src="./.ob-jupyter/fa46ea90207cb60496d5f2e70e5014a9510197d1.png" alt="fa46ea90207cb60496d5f2e70e5014a9510197d1.png" />
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python">
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgf46f107" class="outline-3">
+<h3 id="orgf46f107"><span class="section-number-3">4.2</span> Mouvement d'une planète</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #0000FF;">import</span> matplotlib
+<span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd225d10" class="outline-3">
+<h3 id="orgd225d10"><span class="section-number-3">4.3</span> implémentons une méthode de Runge Kutta</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-org5e767e2" class="outline-4">
+<h4 id="org5e767e2"><span class="section-number-4">4.3.1</span> préalable : Euler explicite</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">euler_explicit</span>(f,x0,t):
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">initialisation du vecteur</span>
+    <span style="color: #BA36A5;">x</span> = np.zeros((<span style="color: #006FE0;">len</span>(t),<span style="color: #006FE0;">len</span>(x0)))
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">donn&#233;es initiale</span>
+    <span style="color: #BA36A5;">x</span>[0] = x0
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">boucle en temps</span>
+    <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(<span style="color: #006FE0;">len</span>(t)-1):
+        <span style="color: #BA36A5;">x</span>[i+1] = x[i] + ( t[i+1] - t[i] * f(t[i],x[i]) )
+    <span style="color: #0000FF;">return</span> x
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org93c382e" class="outline-4">
+<h4 id="org93c382e"><span class="section-number-4">4.3.2</span> méthode de Runge-Kutta</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<p>
+Le code est pratiquement identique a celui écrit plut tôt pour la méthode d'Euler explicite 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">M est une fonction M&#233;thode </span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">integrate</span>(f,x0,t,M):
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">initialisation du vecteur</span>
+    <span style="color: #BA36A5;">x</span> = np.zeros( (<span style="color: #006FE0;">len</span>(t),) + x0.shape)
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">donn&#233;es initiale</span>
+    <span style="color: #BA36A5;">x</span>[0] = x0
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">boucle en temps</span>
+    <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(<span style="color: #006FE0;">len</span>(t)-1):
+        <span style="color: #BA36A5;">x</span>[i+1] = x[i] + M( f, t[i] , x[i] , t[i+1]-t[i] )
+    <span style="color: #0000FF;">return</span> x
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">euler</span>(g,t,x,h):
+    <span style="color: #0000FF;">return</span> h * g(t,x)
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">rk2</span>(g,t,x,h):
+    <span style="color: #0000FF;">return</span> h * g(t+h/2, x+h/2 * f(t,x))
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">rk4</span>(g,t,x,h):
+    <span style="color: #BA36A5;">k1</span> = g(t,x)
+    <span style="color: #BA36A5;">k2</span> = g(t+h/2, x+h/2*k1)
+    <span style="color: #BA36A5;">k3</span> = g(t+h/2, x+h/2*k2)
+    <span style="color: #BA36A5;">k4</span> = g(t+h, x+h*k3)
+    <span style="color: #0000FF;">return</span> h/6*(k1+2*k2+2*k3+k4)
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org22f3580" class="outline-3">
+<h3 id="org22f3580"><span class="section-number-3">4.4</span> application à l'étude du mouvement d'une palanète</h3>
+<div class="outline-text-3" id="text-4-4">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">def</span> <span style="color: #006699;">f</span>(t,xp):
+    <span style="color: #BA36A5;">dxp</span> = xp.copy()
+    <span style="color: #BA36A5;">dxp</span>[0:2] = xp[2:4]
+    <span style="color: #BA36A5;">dxp</span>[2:4] = -xp[0:2] * np.linalg.norm(xp[0:2])**(alpha-2)
+    <span style="color: #0000FF;">return</span> dxp
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org7c0c8b2" class="outline-4">
+<h4 id="org7c0c8b2"><span class="section-number-4">4.4.1</span> Obtention de trajectoires fermées et bornées</h4>
+<div class="outline-text-4" id="text-4-4-1">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span> = plt.figure(figsize=(12,5))
+fig.suptitle(r<span style="color: #008000;">'rien'</span>)
+
+<span style="color: #0000FF;">for</span> i,alpha <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">enumerate</span>([-1,2]):
+    sub = fig.add_subplot(1,2,i+1)
+    sub.set_title(<span style="color: #008000;">"{alpha}"</span>)
+    <span style="color: #0000FF;">for</span> s <span style="color: #0000FF;">in</span> [0.2, 0.5, 0.8, 1, 1.2, 1.5, 2]:
+        x0 = np.array([s,0,0,1])
+        <span style="color: #0000FF;">if</span> alpha == -1:
+            t = np.linspace(0,10*s**2, 10000)
+        <span style="color: #0000FF;">elif</span> alpha == 2:
+            t = np.linspace(0,10, 10000)
+        sol = integrate(f,x0,t,rk2)
+        
+        sub.plot(sol[:,0],sol[:,1], label=<span style="color: #008000;">"{s}"</span>)
+    sub.set_xlim([-2,2])
+    sub.set_ylim([-2,2])
+    sub.set_aspect(<span style="color: #008000;">'equal'</span>)
+    sub.legend()
+    plt.savefig(<span style="color: #008000;">"test.png"</span>)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/090187fd970580e28b49ce775ecffdd218982800.png" alt="090187fd970580e28b49ce775ecffdd218982800.png" />
+</p>
+</div>
+
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #0000FF;">for</span> value <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">enumerate</span>([1,2,3,4]):
+    <span style="color: #006FE0;">print</span>(value)
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">print(count, value)</span>
+
+</pre>
+</div>
+
+<p>
+(0, 1)
+(1, 2)
+(2, 3)
+(3, 4)
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd274f39" class="outline-3">
+<h3 id="orgd274f39"><span class="section-number-3">4.5</span> obtention de trajectoires bornées non fermées</h3>
+<div class="outline-text-3" id="text-4-5">
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span> = plt.figure(figsize=(12,12))
+fig.suptitle(<span style="color: #008000;">'orbites born&#233;es non ferm&#233;es'</span>)
+alpha = -1.5
+sub = fig.add_subplot(2,2,1)
+sub.set_title(<span style="color: #008000;">"alpha"</span>)
+x0 = np.array([1.1,0,0,1])
+t = np.linspace(0,500,10000)
+sol = integrate(f,x0,t,rk4)
+sub.plot(sol[:,0], sol[:,1])
+plt.savefig(<span style="color: #008000;">"test.png"</span>)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/4ae69b095e5efaf01e7866bf50c25dcc47f2147f.png" alt="4ae69b095e5efaf01e7866bf50c25dcc47f2147f.png" />
+</p>
+</div>
+<div class="org-src-container">
+<pre class="src src-jupyter-python"><span style="color: #BA36A5;">fig</span> = plt.figure(figsize=(12,12))
+fig.suptitle(<span style="color: #008000;">'orbites born&#233;es non ferm&#233;es'</span>)
+alpha = -0.5
+sub = fig.add_subplot(2,2,2)
+sub.set_title(<span style="color: #008000;">"{alpha}"</span>)
+x0 = np.array([2,0,0,1])
+t = np.linspace(0,500,10000)
+sol = integrate(f,x0,t,rk4)
+sub.plot(sol[:,0], sol[:,1])
+sub.set_xlim([-4,4])
+sub.set_ylim([-4,4])
+sub.set_aspect(<span style="color: #008000;">'equal'</span>)
+plt.savefig(<span style="color: #008000;">"test.png"</span>)
+</pre>
+</div>
+
+<p>
+[[<img src="./.ob-jupyter/a8f8bd83b421cf49e41e72ee89a7d46ae490aebc.png" alt="a8f8bd83b421cf49e41e72ee89a7d46ae490aebc.png" />]
+</p>
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python">
+
+<span style="color: #BA36A5;">fig</span> = plt.figure(figsize=(12,12))
+fig.suptitle(<span style="color: #008000;">'orbites born&#233;es non ferm&#233;es'</span>)
+
+fig = plt.figure(figsize=(12,12))
+fig.suptitle(<span style="color: #008000;">'orbites born&#233;es non ferm&#233;es'</span>)
+alpha = -1.5
+sub = fig.add_subplot(2,2,1)
+sub.set_title(f<span style="color: #008000;">"alpha"</span>)
+x0 = np.array([1.1,0,0,1])
+t = np.linspace(0,500,10000)
+sol = integrate(f,x0,t,rk4)
+sub.plot(sol[:,0], sol[:,1])
+sub.set_xlim([-4,4])
+sub.set_ylim([-4,4])
+sub.set_aspect(<span style="color: #008000;">'equal'</span>)
+<span style="color: #8D8D84;">#</span>
+alpha = -0.5
+sub = fig.add_subplot(2,2,2)
+sub.set_title(f<span style="color: #008000;">"</span>{alpha}<span style="color: #008000;">"</span>)
+x0 = np.array([2,0,0,1])
+t = np.linspace(0,500,10000)
+sol = integrate(f,x0,t,rk4)
+sub.plot(sol[:,0], sol[:,1])
+sub.set_xlim([-4,4])
+sub.set_ylim([-4,4])
+sub.set_aspect(<span style="color: #008000;">'equal'</span>)
+
+
+<span style="color: #8D8D84;">#</span>
+alpha = 1.5
+sub = fig.add_subplot(2,2,3)
+sub.set_title(f<span style="color: #008000;">"</span>{alpha}<span style="color: #008000;">"</span>)
+x0 = np.array([0.1,0,0,1])
+t = np.linspace(0,95,10000)
+sol = integrate(f,x0,t,rk4)
+sub.plot(sol[:,0], sol[:,1])
+sub.set_xlim([-1,1])
+sub.set_ylim([-1,1])
+sub.set_aspect(<span style="color: #008000;">'equal'</span>)
+
+
+<span style="color: #8D8D84;">#</span>
+alpha = 4
+sub = fig.add_subplot(2,2,4)
+sub.set_title(f<span style="color: #008000;">"</span>{alpha}<span style="color: #008000;">"</span>)
+x0 = np.array([2,0,0,1])
+t = np.linspace(0,95,10000)
+sol = integrate(f,x0,t,rk4)
+sub.plot(sol[:,0], sol[:,1])
+sub.set_xlim([-2.5,2.5])
+sub.set_ylim([-2.5,2.5])
+sub.set_aspect(<span style="color: #008000;">'equal'</span>)
+
+plt.savefig(<span style="color: #008000;">"test.png"</span>)
+
+</pre>
+</div>
+
+<pre class="example">
+&lt;Figure size 864x864 with 0 Axes&gt;
+</pre>
+
+
+<div class="figure">
+<p><img src="./.ob-jupyter/537320abafdad2977cc687f124ed2b73e7517e38.png" alt="537320abafdad2977cc687f124ed2b73e7517e38.png" />
+</p>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-jupyter-python">
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-01-27 ven. 00:00</p>
+<p class="author">Author: Thomas Lebrat</p>
+<p class="date">Created: 2023-01-29 dim. 02:21</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

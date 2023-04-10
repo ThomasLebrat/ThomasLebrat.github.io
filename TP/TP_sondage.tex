@@ -1,0 +1,375 @@
+% Created 2023-02-01 mer. 17:05
+% Intended LaTeX compiler: pdflatex
+\documentclass[letterpaper, 11pt]{article}
+                      \usepackage{lmodern} % Ensures we have the right font
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[table, xcdraw]{xcolor}
+\definecolor{bblue}{HTML}{0645AD}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{colorlinks, linkcolor=blue, urlcolor=bblue}
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\usepackage[stretch=10]{microtype}
+\usepackage{hyphenat}
+\usepackage{ragged2e}
+\usepackage{subfig} % Subfigures (not needed in Org I think)
+\usepackage{hyperref} % Links
+\usepackage{listings} % Code highlighting
+\usepackage[top=1in, bottom=1.25in, left=1.55in, right=1.55in]{geometry}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage[explicit]{titlesec}
+\pretitle{\begin{center}\fontsize{20pt}{20pt}\selectfont}
+\posttitle{\par\end{center}}
+\preauthor{\begin{center}\vspace{-6bp}\fontsize{14pt}{14pt}\selectfont}
+\postauthor{\par\end{center}\vspace{-25bp}}
+\predate{\begin{center}\fontsize{12pt}{12pt}\selectfont}
+\postdate{\par\end{center}\vspace{0em}}
+\titlespacing\section{0pt}{5pt}{5pt} % left margin, space before section header, space after section header
+\titlespacing\subsection{0pt}{5pt}{-2pt} % left margin, space before subsection header, space after subsection header
+\titlespacing\subsubsection{0pt}{5pt}{-2pt} % left margin, space before subsection header, space after subsection header
+\usepackage{enumitem}
+\setlist{itemsep=-2pt} % or \setlist{noitemsep} to leave space around whole list
+\author{Thomas Lebrat}
+\date{\textit{<2023-01-30 lun.>}}
+\title{Sondage Atmopshérique}
+\begin{document}
+
+\tableofcontents
+
+
+
+
+\section{Introduction}
+\label{sec:org0a299c7}
+
+\subsection{Objectifs de l'activité et compétences travaillées}
+\label{sec:org2a30731}
+
+Un ballon-sonde mesure les caractéristiques de l'atmosphère à l'aide d'instruments embarqués jusque des altitudes variables selon les modèles (ouverts/fermés) et les circonstances. On retient souvent la valeur approchée de \(50~km\). Est-ce bien réaliste et pourquoi une telle limite ?
+
+Les données obtenues en fonction de l'altitude sont renvoyées au sol par signal radio. Comme vous pourrez le voir par la suite, l'importance de ces données \emph{in situ} est cruciale pour affiner les modèles physiques de l'atmosphère utilisés en météorologie et notamment \emph{calibrer} les mesures réalisées par satellite à des fin de télédétection.
+
+Nous vous fournissons ici une vingtaine de valeurs de température à analyser. Les questions Q1 à Q12 vous guident pour atteindre les 2 ojectifs principaux de cette activité : 
+
+\begin{enumerate}
+\item Construire des profils verticaux \(\rightarrow\) identifier les couches atmosphériques
+\item Déterminer un profil de pression \(\looparrowright\) 100 km tenant compte de \(\Delta T\)
+\item Discuter la pertinence du choix de certaines hypothèses (iso-g, iso-T)
+\end{enumerate}
+
+Une participation active et constructive sera toujours bienvenue et valorisée. Vous êtes autorisés (et encouragés !) à nous solliciter pour nous soumettre vos questions scientifiques (ex: \emph{Mais c'est quoi un gradient adiabatique ?}) ou techniques (ex: \emph{Comment faire converger mon algorithme efficacement ?}). 
+
+Voici un début de liste des compétences qui seront travaillées dans ce module : 
+
+\begin{itemize}
+\item Implémenter des méthodes numériques : \textbf{interpolation} et \textbf{intégration}
+\item Comprendre le principe de la \textbf{régression}
+\item Explorer quelques possibités du language \texttt{Python} + \texttt{numpy} \footnote{avec l'utilisation de ~Matplotlib~ syntaxe proche de ~MATLAB~\texttrademark}
+\end{itemize}
+
+Accéssoirement, vous pourrez utiliser des librairies spécialisées telles que \texttt{scipy}, \texttt{pandas}, \texttt{plotly} (\ldots{}) et d'autres outils que vous aimeriez partager s'il permettent de gagner du temps de développement ou du temps de calcul.
+
+\subsection{Evaluation}
+\label{sec:org7e4a1cb}
+
+S'il nous reste un peu de temps, nous pourrons aborder les points optionnels (\(\ddag\)) suivants traités aux questions Q13, Q14, Q15 et Q16 : 
+\begin{itemize}
+\item Modéliser la physique de l'ascension d'un ballon sonde fermé (\ddag{})
+\item Estimer l'altitude maximale que celui-ci peut atteindre (\(\ddag\))
+\end{itemize}
+
+[x] A défaut, ces points pourront être avantageusement terminées à la maison pour constituer une évaluation.
+
+[x] Un exercice sur la formation d'un nuage vous est donné à faire en Devoir Maison. 
+
+
+\subsection{Documentation et remerciements}
+\label{sec:org95cb7e5}
+
+\subsubsection*{biblio}
+\label{sec:org8cf852b}
+Cette activité est très largement inspirée de la lecture des documents suivants (liste à compléter)
+
+\begin{itemize}
+\item \href{https://labolycee.org/mecanique-du-vol-dun-ballon-sonde}{Exo Bac}
+\item \href{http://www.msc.univ-paris-diderot.fr/\~phyexp/pmwiki.php/Convention/ConvectionEtPanacheThermique}{Images de panaches thermiques (UP7)}
+\item \href{https://web.archive.org/web/20081119164748/http://www.meteofrance.com/FR/glossaire/designation/693\_initie\_view.jsp}{Glossaire Meteo France}
+\item \href{http://b.louchart.free.fr/Concours\_et\_examens/Centrale\_Supelec/Sujets/2008\_TSI\_Physique\_1.html}{Sujet Concours TSI 2008}
+\item \href{https://planet-terre.ens-lyon.fr/ressource/mouvts-enveloppes-fluides2.xml}{Site Planète Terre ENS Lyon}
+\end{itemize}
+
+\subsubsection*{{\bfseries\sffamily TODO} nommenclature et origine des noms des couches}
+\label{sec:org2fb8cbd}
+\newpage
+\section{Dimensions de la Terre et idées reçues}
+\label{sec:org6cbb3c1}
+\subsection{Les grecs et le rayon de la Terre (méthode d'Eratosthène)}
+\label{sec:org791fd05}
+
+\subsubsection*{Un peu de géométrie}
+\label{sec:orgf58bd53}
+\subsubsection*{{\bfseries\sffamily TODO} Le projet \emph{LAMAP}}
+\label{sec:org896798a}
+\subsection{La "hauteur" de l'atmosphère chez les anciens (méthode du twilight)}
+\label{sec:orgff4d7da}
+
+\subsubsection*{{\bfseries\sffamily TODO} Publication orginale}
+\label{sec:org0e6dc9f}
+
+\subsubsection*{Interprétation}
+\label{sec:org96a59d1}
+
+\subsection{Aujourd'hui}
+\label{sec:org721eb88}
+
+\begin{itemize}
+\item Non, la Terre n'est pas ronde !
+\label{sec:org086700f}
+C'est un ellipsoïde de révolution avec des bosses
+
+\item Non la hauteur de l'atmosphère n'a pas de valeur fixée.
+\label{sec:orgd4c4429}
+
+\begin{itemize}
+\item Cette notion de hauteur n'a pas de signification rigoureuse.
+\item Dépendance avec latitude, saisons.
+\item Phénoménologie des deux forces en présence.
+\end{itemize}
+\end{enumerate}
+
+
+
+\section{Première analyse des données de température}
+\label{sec:orgdec2224}
+
+\subsection{Tableau commenté}
+\label{sec:org55340c8}
+
+Voici le profil vertical avec une petite une visualisation \texttt{ASCII} artisanale\footnote{Depuis Emacs(org-mode), on applique la formule :  \#+TBLFM: ~\$4='(orgtbl-ascii-draw \$3 175 290)~}. 
+
+\begin{table}[htbp]
+\label{name}
+\centering
+\begin{tabular}{rrrl}
+z(km) & T(°C) & T(K) & T (ASCII Profile)\\
+\hline
+100 & -72 & 201 & WWh\\
+95 & -81 & 192 & WV\\
+92 & -86 & \textbf{187} & W;\\
+84 & -86 & \textbf{187} & W;\\
+80 & -86 & \textbf{187} & W;\\
+75 & -79 & 194 & WW\\
+70 & -65 & 208 & WWWc\\
+65 & -54 & 219 & WWWWl\\
+60 & -33 & 240 & WWWWWWV\\
+55 & -17 & 256 & WWWWWWWW!\\
+52 & -7 & 266 & WWWWWWWWW!\\
+48 & -2 & \textbf{271} & WWWWWWWWWW\\
+45 & -2 & \textbf{271} & WWWWWWWWWW\\
+40 & -8 & 265 & WWWWWWWWWc\\
+35 & -22 & 251 & WWWWWWWH\\
+30 & -37 & 236 & WWWWWWc\\
+25 & -46 & 227 & WWWWWc\\
+20 & -56 & \textbf{217} & WWWWc\\
+12 & -56 & \textbf{217} & WWWWc\\
+10 & -49 & 224 & WWWWW.\\
+5 & -18 & 255 & WWWWWWWW;\\
+0 & 15 & \textbf{288} & WWWWWWWWWWWV\\
+\end{tabular}
+\end{table}
+
+On repère les tendances discutées au premmier cours, les creux et les bosses correspondant aux \emph{minima} et \emph{maxima} locaux. Des valeurs identiques pourraient indiquer des bandes stationnaires mais l'échantillonage est insuffisant pour trancher.
+
+Le tableau de données est saisi à la main puis commenté en groupe : 
+
+\begin{itemize}
+\item << il fait froid >> : en effet la température \(T\) est  toujours (vraiment ?) négative au delà de 5 km
+\item à l'évidence, \(T\) n'est connue qu'en certaines altitudes, espacées de manière \emph{irrégulière}
+\item depuis le sol, des tendances sont identifiables : \(\searrow\) , \(\nearrow\) , \(\searrow\) , \(\nearrow\)
+\item des mesures font apparaître des valeurs identiques (stagnation ?)
+\item les étudiants se demandent alors si cela ne posera pas de problème numérique (à creuser)
+\end{itemize}
+
+Attention, la conversion en Kelvin peut-être source d'erreurs ! Pour nos calculs, on prendra garde à bien vérifier que le zero absolu correspond à une température de \(-273~C\) c-à-d que : 
+
+$$T(K) = T(C) + 273 $$
+
+
+\subsection{{\bfseries\sffamily TODO} Utilisation de pandas (Jean ?)}
+\label{sec:orga378fb5}
+
+\subsection{{\bfseries\sffamily TODO} Traduction vers MATLAB/Scilab/Octave (Morgane et al ?)}
+\label{sec:org136cd9b}
+
+
+\section{{\bfseries\sffamily TODO} Rappels de physique}
+\label{sec:orgbef7d4b}
+
+C'est l'occasion d'un petit rappel sur la signification des grandeurs thermodynamiques température, pression, volume et de leur signification (agitation microscopique, énergie cinétique, \ldots{}). 
+
+On rappelle ici quelques relations utiles à savoir manipuler pour la résolution de problèmes classiques d'équilibre de l'atmosphère : 
+
+\section{Méthodes numériques}
+\label{sec:org700dc38}
+
+\subsection{Méthode 1 - Estimation d'une valeur entre deux points de mesure}
+\label{sec:org8ee4200}
+
+\subsubsection{principe de l'interpolation linéaire}
+\label{sec:org9e5444a}
+
+
+\textbf{Exercice} : on détermine à la main la valeur d'un point millieu interpolé, par exemple entre 30 et 40 km d'altitude et on confronte cette valeur à une donnée rélle. Cela nous permet de réfléchir à la signification d'une interpolation, au sens de variation, etc.
+
+\textbf{\textbf{Définition}} : une interpolation linéaire consiste à approximer localement une grandeur physique (ici une température) en un abscisse donnée (ici une altitude) située entre deux points expérimentaux par une loi affine passant par ces points
+
+\subsubsection{possibilité d'une interpolation non-linéaire}
+\label{sec:org3a4b4c3}
+
+\subsubsection{premiers résultats des éléves}
+\label{sec:org2b0fd26}
+
+\begin{itemize}
+\item erreurs utiles
+\label{sec:orgbf825ce}
+Un bug et sa résolution
+
+\item petits plus
+\label{sec:org76d95b8}
+\end{enumerate}
+
+
+\subsection{Méthode 2 - Intégration numérique}
+\label{sec:org90d766d}
+
+\subsection{Méthode 3 - Regression}
+\label{sec:org5a24acd}
+
+
+\newpage
+
+\section{Correction des questions}
+\label{sec:org510ca8c}
+
+\subsection{Détermination du profil vertical de température - Q1 à Q4}
+\label{sec:org7180364}
+
+\subsubsection*{Q1 - mini algo pour la droite d'interpolation}
+\label{sec:org3074eea}
+Considérons un petit intervalle \(Z_{i}\) = \(\left[ z_{i} ; z_{i+1} \right]\) et plaçons en ordonnée deux points successifs \(M_{i} \left( z_i,T_i \right)\) et \(M_{i+1} \left ( z_{i+1}, T_{i+1} \right)\). Nous avons répondu à l'oral aux questions suivantes :
+
+\begin{itemize}
+\item Que vaut la température correspondant à un point milieu de cet intervalle ?
+\item De combien de paramètres dépend la fonction d'interpolation affine \(T(z)\) sur \(Z_{i}\) ?
+\item Exprimer les en fonction des données mesurées aux points \(M_{i}(z_i,T_i)\) et \(M_{i+1}(z_{i+1}, T_{i+1})\). \footnote{Dans ce cas simple, on peut bien sûr trouver la solution par tatônnements. On pourra sinon poser proprement un système d'équations, avec autant d'équations que d'inconnues, méthode qui s'avérera toujours payante pour les techniques d'interpolation plus sophistiquées ...}
+\end{itemize}
+
+\subsubsection*{Q2 - écriture d'une fonction en Python/MATLAB}
+\label{sec:org1e34d63}
+Ecrire une fonction \texttt{T(z,unite)} fournissant la température de l'air pour une altitude \(z\)  parcourant l'intervalle \([0 ; 100]\) \(km\). \footnote{On prendra garde à intégrer les bonnes conversions d'unité pour les distances (facteur 1000) et les températures (différence de 273).}
+Créer deux tableaux \texttt{zatm} et \texttt{Tatm} contenant \texttt{N=1000} valeurs d'altitudes et de température.
+
+\begin{center}
+\begin{tabular}{lrll}
+zatm(m) & 0 & \ldots{} & 10\textsuperscript{5}\\
+\hline
+Tatm(°C) & T\textsubscript{0} & \ldots{} & T\textsubscript{100}\\
+\end{tabular}
+\end{center}
+
+
+\subsubsection*{Q3}
+\label{sec:org71a933f}
+Tracer le \emph{\emph{profil vertical de température}} (graphe basculé avec altitude en ordonnée et température en abscisse). Identifier les différentes couches de l'atmopshère.
+
+
+
+\subsection{Etude du profil vertical de pression - Q5 à Q12}
+\label{sec:org05bed0b}
+
+
+\subsection{{\bfseries\sffamily TODO} DM - Modélisation de l'ascencion du ballon - Q13 à Q16 (\ddag{})}
+\label{sec:orgadbaa23}
+
+
+\section{Exercice - Formation d'un nuage}
+\label{sec:org5c7c172}
+
+On aimerait être capable d'expliquer la formation d'un nuage d'une manière simplifiée tout en ayant à l'esprit les mécanisme thermodynamiques responsable du phénomène. Ici nous faisons l'hypothèse que l'apparition d'un nuage est d'abord conditionnée par un déplacement adiabatique de masses d’air. \footnote{On ommet volontairement certains phénomènes subtiles de nucléation dans cette première approche.}
+
+Cet exercice vous propose tout d'abord d'étudier la physique responsable de la création d’un courant ascendant pouvant conduire à la formation d'un nuage sous certaines conditions.
+
+Un point de l'atmosphère est repéré par ses coordonnées cartésiennes (Oxyz), tel que l'axe (Oz) coïncide avec la verticale ascendante avec \(z=0\) pris au niveau de la mer. Par comodité, nous garderons les notations et valeurs numériques des constantes physiques utilisées pour le TP.
+
+\subsection{En l'abscence de mouvement (équilibre)}
+\label{sec:orgab17606}
+
+Des relevés expérimentaux montrent qu'en l'absence de mouvement de l'air, la température est fonction de l'altitude \(z\) suivant une loi affine : 
+
+$$ T(z) = T_{0} - \lambda z $$
+
+\textbf{Q1}. (1 pt) Sur quelle intervalle de z cette approximation est-elle valable ?
+
+Avec les hypothèse thermodynamiques faites en début d'exercice, on peut montrer que \(P\) et \(T\) sont liées par une relation de la forme : 
+
+$$ T =T_0 \left( \frac{P}{P_0}  \right)^{q} $$
+
+\textbf{Q2}. (2 pt) Réaliser à nouveau la démonstration de cette relation.
+
+\textbf{Q3}. (1 pt) Déterminer l’exposant \(q\) qui s'exprime uniquement en fonction de \(M\), \(g_0\), \(\lambda\) et \(R\). Faites l'application numérique pour une valeur convenablement choisie de \(\lambda\).
+
+
+\subsection{Apparition d'un mouvement (instabilté)}
+\label{sec:org15feed9}
+
+L'état d'équilibre précédent est réalisé lorsque les isothermes (niveaux où \(T=Cte\)) et les isobares (\(P=Cte\)) coïncident avec les équipotentielles du champ de pesanteur (\(z = cte\))\footnote{les spécialistes parlent de configurations barotropes et baroclines}. En présence d’hétérogénéités de température au niveau du sol, l'air s'échauffe différemment et peut se mettre en mouvement, c'est un phénomène bien connu ! 
+
+\bigskip
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{./Ex2a.png}
+\end{figure}
+
+On se place à l'altitude \(z\) à la verticale du point \(Q\) et on suppose que l'air est localement plus chaud que l'air avoisinant. Tout se passe comme si une poche de gaz était limitée par une enveloppe souple et non tendue. On convient des hypothèses et notations suivantes : 
+
+\begin{itemize}
+\item La bulle de gaz évolue sans échanger de matière ni de chaleur avec l'extérieur.
+
+\item La \textbf{pression de la bulle} reste égale à celle de l'air environnant à la même altitude.
+
+\item La \textbf{température de l'air} environnant varie toujours linéairement avec la température.
+
+\item On note \(P_B\), \(T_B\) et \(\rho_B\) la pression, la température et la masse volumique du gaz emprisonné dans la bulle. On note \(T_A\) et \(\rho_A\) la température et la masse volumique de l'air environnant à la même altitude.
+\end{itemize}
+
+\textbf{Q4}. (2 pt) Montrer que la bulle s'élève si \(T_B > T_A\).
+
+Les questions suivantes nécéssitent la manipulation de quelques relations de thermodynamique. Le gaz emprisonné dans la bulle subit une transformation dite \textbf{adiabatique}. De plus, comme souvent en thermo on supposera la transformation \textbf{réversible} (ce n'est pas rigouresuememnt vrai  mais c'est plus facile à résoudre ainsi).
+
+Appellons \(T_1\) la température du gaz dans la bulle à l'altitude de sa formation \(z_1\) et \(P_1\) la pression correspondante.
+
+\textbf{Q5}. (2 pt) En retrouvant une des 3 formes de l'expression de la \textbf{loi de Laplace} pour les gaz parfaits, exprimer \(T_B\) en fonction de \(T_1\), \(P_1\) et \(P_B\). En cas de difficulté, n'hésitez pas à consulter des ressources sur ce sujet pour cette question théorique (reformulez et citez vos sources). 
+
+\textbf{Q6}. (2 pt) On veut démontrer qu'il existe une altitude plafond \({z^{\star}\) pour l'ascension de la bulle. On note \(T^{\star}\) et \(P^{\star}\) la température et la pression de la bulle lorsqu'elle arrive à cette altitude. Evaluer numériquement \(T^{\star}\) et \(P^{\star}\) pour \(T_1 = 280 K\) et \(z_1 = 2 km\). En déduire la valeur de l'altitude plafond \(z^{\star}\) à laquelle se stabilise la bulle.
+
+Pour cette question, on vous demande de rédiger soigneusement une explication du phénomène de stabilisation de la bulle d'air.
+
+\subsection{Explication qualitative de la formation d'un nuage.}
+\label{sec:org9f8ac8a}
+
+\textbf{Q7} (5 pt) Nous faisions l'hypothèse d'un air sec dans la partie précédente. Maintenant nous envisageons une parcelle d'air \emph{humide} (air sec + vapeur d'eau). 
+
+\begin{enumerate}
+\item Proposer une explication qualitative de la possibilité de formation d'un nuage au cours de l'ascension d'une bulle.
+
+\item Réaliser un schéma légendé, si possible au format A3 \footnote{2 feuilles A4 accolées feront l'affaire}, présentant une illustration vulgarisée de la formation d'un nuage telle qu'on peut la comprendre \textbf{d'après le mécanisme illustré par cet exercice}.
+
+\item Au besoin, ajouter quelques détails supplémentaire (avec une autre couleur) signalant d'autres phénomènes pouvant rentrer en jeu dans le mécanisme de formation d'un nuage.
+\end{enumerate}
+\end{document}

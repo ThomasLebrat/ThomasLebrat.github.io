@@ -1,0 +1,67 @@
+#+TITLE: TEST POLYASTRO
+#+AUTHOR: Thomas Lebrat
+
+
+* test 1
+
+#+BEGIN_SRC jupyter-python
+import numpy as np
+
+
+print("coucou")
+
+
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+coucou
+:END:
+
+
+#+BEGIN_SRC jupyter-python  
+from astropy import units as u
+
+from poliastro.bodies import Earth, Mars, Sun
+from poliastro.twobody import Orbit
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC jupyter-python  
+# Data from Curtis, example 4.3
+r = [-6045, -3490, 2500] * u.km
+v = [-3.457, 6.618, 2.533] * u.km / u.s
+
+ss = Orbit.from_vectors(Earth, r, v)
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC jupyter-python  
+ss
+
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+7283 x 10293 km x 153.2 deg (GCRS) orbit around Earth (♁) at epoch J2000.000 (TT)
+:END:
+
+
+#+BEGIN_SRC jupyter-python  
+ss.plot
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+<bound method Orbit.plot of 7283 x 10293 km x 153.2 deg (GCRS) orbit around Earth (♁) at epoch J2000.000 (TT)>
+:END:
+
+
+#+BEGIN_SRC jupyter-python  
+ set_frame(p_vec, q_vec, w_vec)
+#+END_SRC
+

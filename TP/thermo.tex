@@ -1,0 +1,79 @@
+% Created 2023-02-02 jeu. 17:02
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[top=1in, bottom=1.in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[theorems, skins]{tcolorbox}
+\usepackage[version=3]{mhchem}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{natmove}
+\usepackage{url}
+\usepackage[cache=false]{minted}
+\usepackage[strings]{underscore}
+\usepackage[linktocpage,pdfstartview=FitH,colorlinks,
+linkcolor=blue,anchorcolor=blue,
+citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
+\usepackage{attachfile}
+\usepackage{setspace}
+\author{maint}
+\date{\today}
+\title{THERMO MODELE D'ATMOSPHERE}
+\begin{document}
+
+\tableofcontents
+
+L'air est considéré comme un gaz parfait en équilibre statique dans le champ de pesanteur. On s'intéresse aux évolutions de la pression \(P\), de la témpérature \(T\) et de la masse volumique en fonction de l'altitude \(z\) du point considéré.
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+import json
+
+with open('param.json', 'r') as openfile:
+    json_object = json.load(openfile)
+
+print(json_object)
+print(type(json_object))
+\end{minted}
+
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+import pandas
+
+data = pd.read_json('param.json')
+\end{minted}
+
+
+Les grandeurs \(P\), \(T\) et \(\rho\) ne sont pas uniformes. Il faut privilégier une vision locale à une vision globale de l'atmosphère. \(PV=nRT\) n'a pas vraiment de signification physique à l'échelle du volume de l'atmosphère \ldots{} et puis quel est le volume de l'atmosphère ? On va adopter une description \emph{locale} en utilisant un jeu de variables \emph{intensives} (\(T\),\(P\),\(\rho\))
+
+\begin{itemize}
+\item On a la loi fondamentale de l'hydrostatique projeté sur \(\vec{u_z}\)
+\end{itemize}
+
+$$ \frac{dP}{dz} = - \rho g $$
+
+
+\begin{itemize}
+\item On réécrit l'équation d'état des G.P :
+\end{itemize}
+
+$$ P = \frac{\rho R T }{M}$$
+
+\begin{itemize}
+\item Est ce qu'on connait \(M\) ? On peut toujours le retrouve en l'exprimant grâce à l'équation précédente exprimée au niveau du sol :
+\end{itemize}
+
+$$ P_0 = \frac{\rho_0 R T_0 }{M}$$
+\end{document}

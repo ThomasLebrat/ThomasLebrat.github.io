@@ -1,0 +1,18 @@
+#+TITLE: TP Sondage 
+
+* Structure verticale de l'atmosphère
+
+** tropo pour commencer
+
+- Conversion Celcius vers Kelvin : ajouter 273
+décroissance d'environ 6.5 K par km
+
+- La taille de l'atmosphère est une question qui n'est plus pertinente aujourd'hui 
+
+Les grecs avaient déjà essayé d'estimer sa taille et étaient tombés sur une hauteur d'environ 80 km
+
+- 2 grandeurs pertinentes pour décrire l'atmosphère T, P
+- autres grandeurs : n,m, \rho,
+
+- 
+** strato c'est compliqué 
