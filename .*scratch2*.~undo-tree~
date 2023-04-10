@@ -1,0 +1,7 @@
+(undo-tree-save-format-version . 1)
+"c0b249505025241b11f7a810b9234b77d0460469"
+[nil nil nil nil (25600 56382 649564 511000) 0 nil]
+([nil nil ((1 . 507) (t . -1)) nil (25600 56382 649562 958000) 0 nil])
+([nil nil ((1 . 2)) nil (25600 56382 649560 633000) 0 nil])
+([nil current ((388 . 391) (#("               " 0 15 (fontified t)) . 388) (344 . 347) (#("               " 0 15 (fontified t)) . 344) (292 . 295) (#("               " 0 15 (fontified t)) . 292) (246 . 249) (#("               " 0 15 (fontified t)) . 246) (206 . 209) (#("               " 0 15 (fontified t)) . 206) (102 . 105) (#("               " 0 15 (fontified t)) . 102) (80 . 82) (33 . 35) (nil fontified nil 4604 . 4605) (4604 . 4605) (nil rear-nonsticky nil 509 . 4604) (nil help-echo nil 509 . 4604) (nil keymap nil 509 . 4604) (nil mouse-face nil 509 . 4604) (nil printed-value nil 509 . 4604) (508 . 4604)) nil (25600 56382 649552 714000) 0 nil])
+nil

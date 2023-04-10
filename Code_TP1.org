@@ -45,14 +45,6 @@ Accéssoirement, vous pourrez utiliser des librairies spécialisées telles que 
 
 ** Documentation et remerciements
 
-*** TODO nommenclature et origine des noms des couches
-:PROPERTIES:  
-    :UNNUMBERED: t
-    :END:      
-
-
-
-
 *** TODO biblio
     :PROPERTIES:  
     :UNNUMBERED: t
@@ -65,8 +57,15 @@ Accéssoirement, vous pourrez utiliser des librairies spécialisées telles que 
  + [[http://b.louchart.free.fr/Concours_et_examens/Centrale_Supelec/Sujets/2008_TSI_Physique_1.html][Sujet Concours TSI 2008]]
  + [[https://planet-terre.ens-lyon.fr/ressource/mouvts-enveloppes-fluides2.xml][Site Planète Terre ENS Lyon]]
 
-** Tableau commenté
+*** TODO nommenclature et origine des noms des couches
+:PROPERTIES:  
+    :UNNUMBERED: t
+    :END:      
 
+
+
+
+** Tableau commenté
 
 #+BEGIN_EXPORT latex
 Voici le profil vertical avec une petite une visualisation ~ASCII~ artisanale\footnote{Depuis Emacs(org-mode), on applique la formule :  \#+TBLFM: ~\$4='(orgtbl-ascii-draw \$3 175 290)~}. 
