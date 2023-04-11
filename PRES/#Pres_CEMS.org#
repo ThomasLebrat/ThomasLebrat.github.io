@@ -187,44 +187,23 @@ R.T.T.O.V ?
 #+ATTR_HTML: :width 85% :align center
 [[./img/old_tiros.jpg]]
 
-** Radiometers
 
-*** WISE ( Wide-field Infrared Survey Explorer )
+* Coefficients
 
- #+BEGIN_EXPORT html
- <iframe id="igraph" scrolling="no" style="border:none;"seamless="seamless" src="https://chart-studio.plotly.com/~CodyShaw/26" height="425" width="100%"></iframe>
- #+END_EXPORT
+In principle, as simple as $y = a x$ ! 
 
-*** VIIRS
-
-[[./img/viirs_ir.png]]
-
-*** SCR
- #+ATTR_HTML: :width 85% :align center
- [[./img/THALL_SR.png]]
-
-*** Visu SCR
- #+BEGIN_EXPORT html
- <iframe width="400" height="500" frameborder="0" scrolling="no" src="https://plotly.com/~tomlebrat/1.embed"></iframe>
- #+END_EXPORT
+As we have /multi/ parameters, it is /multi-linear/ :-) 
 
 
-** RTTOV : key ideas
+*** 
 
-*** convolution 
+- ~rt_coefficients~ allow /accurate/ and /efficient/ computations (eg : TOA Radiance)
 
-*** demo convolution 
+- 1 instrument : a /unique/ set of coefficients
 
- #+ATTR_HTML: :width 80% :align center
- [[https://i.stack.imgur.com/myJem.gif]]
+- Our main duty is to provide well validated sets
 
-*** parametrized transmittance
-
-
-
-
-
-* daily tasks
+- It requires some efforts to guarantee this !
 
 *** [ with the help of  P.Roquet]
 
@@ -260,25 +239,97 @@ R.T.T.O.V ?
 | DMSP 1-4     | *SSH*      |                             | C3S2    |
 | Nimbus-4 & 5 | *SCR*      | Multispectral               | C3S2    |
 
+* Radiometers
 
-* How
+*** WISE ( Wide-field Infrared Survey Explorer )
+
+ #+BEGIN_EXPORT html
+ <iframe id="igraph" scrolling="no" style="border:none;"seamless="seamless" src="https://chart-studio.plotly.com/~CodyShaw/26" height="425" width="100%"></iframe>
+ #+END_EXPORT
+
+*** VIIRS
+
+[[./img/viirs_ir.png]]
+
+*** SCR
+ #+ATTR_HTML: :width 85% :align center
+ [[./img/THALL_SR.png]]
+
+*** Visu SCR
+ #+BEGIN_EXPORT html
+ <iframe width="400" height="500" frameborder="0" scrolling="no" src="https://plotly.com/~tomlebrat/1.embed"></iframe>
+ #+END_EXPORT
+
+
+
+
+
+
+* Gaining speed
+
+Here are the /Key Ideas/
+
+** convolution 
+
+** demo convolution 
+
+ #+ATTR_HTML: :width 80% :align center
+ [[https://i.stack.imgur.com/myJem.gif]]
+
+** parametrized transmittance
+
+
+
+
+
+- from : /Hocking et al, 2023/
+- original idea : McMillin, L. M. and Fleming, H. E., 1976
+- Journal Club ?
+
+*** 
+
+#+BEGIN_QUOTE
+The aim of the parameterisation is to obtain layer optical depths for a given satellite sensor channel for specific gases. The individual gas layer optical depths are summed to give the total channel layer optical depth due to gas absorption, which is subsequently used in solving the radiative transfer equation to obtain top-of-atmosphere radiances.
+#+END_QUOTE
+
+*** 
+
+#+BEGIN_QUOTE
+The gas layer optical depths are related to atmospheric predictors via a linear regression. The predictors are quantities derived from the input atmospheric profile variables: pressure, temperature, gas concentrations, and local zenith angle of the radiation path. 
+#+END_QUOTE
+
+*** 
+
+Associer l'épaisseur optique à un jeu de predicteurs X(P,T,c, \theta) 
+
+*** 
+#+BEGIN_QUOTE
+The regression coefficients are obtained using layer optical depths obtained from channel integrated transmittance profiles for a diverse set of training profiles using an accurate line-by-line (LBL) radiative transfer model. The training profiles are interpolated onto a fixed set of pressure levels giving a pre-defined set of layers for the optical depth regression.
+#+END_QUOTE
+
+***
+
+/Fiter/ l'épaisseur optique (du modèle de régression RTTOV) contre celle obtenue via une BD réaliste (jeu de profils représentatif).
+
+***  Mixed gas and water vapour predictors
+[[./img/predicteurs.png]]
+
+* Cartography
 :PROPERTIES:
 :reveal_background: ./img/carto_photo.png
 :reveal_background_trans: slide
 :reveal_opacity: 0.5
 :END:
 
-*** 
+** 
 
 #+REVEAL_HTML: <div class=middle style="width: 100%">
 [[./img/carto_coeff_quatro.png]]
 #+REVEAL_HTML: </div>
 
-#+reveal: split
-*** 
-   :PROPERTIES:
-   :reveal_background: linear-gradient(to left, #910830, #521623)
-   :END:
+** Generating the Transmittance DB
+
+[[file:///home/maint/ThomasLebrat.github.io/PRES/img/][/img]]
 
 #+reveal: split
 *** 
